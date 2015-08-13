@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/old-app.css">
+
+
+<div>
+  <div class="full-row" ng-controller="assetSearch">
+    <form class="form-search">
+      <input ng-model="query" ng-change="updateQuery(); addTag();" type="text" id="query"  class="search" placeholder="Search Assets" />
+      <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
+      <a href="#" ng-click="assetFilterClicked()"><i class="fa fa-chevron-down"></i></a>
+    </form>
+
+    <div class="row checkbox-options-holder inactive">
+      <input type="checkbox" value="None" id="slideOne" name="check" checked />
+      <label for="slideOne">Photoshop</label>
+
+      <input type="checkbox" value="None" id="slideTwo" name="check" checked />
+      <label for="slideTwo">Illustrator</label>
+
+      <input type="checkbox" value="None" id="slideThree" name="check" checked />
+      <label for="slideThree">Sketch</label>
+
+      <input type="checkbox" value="None" id="slideFour" name="check" checked />
+      <label for="slideFour">Static Assets</label>
+    </div>
+
+    <ul class="content-holder">  <!--    {{ gotAssets }} -->
+      <li ng-repeat="gotAsset in gotAssets" ng-click="assetChosen=!assetChosen; downloadActivationQueue()" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+        <img ng-src="{{gotAsset.imgSrc}}" alt="">
+      </li>
+    </ul>
+
+    <div class="row" id="get-assets-container">
+      <button class="get-assets-btn" ng-click="downloadAssets();">Download Assets</button>
+    </div>
+</div>

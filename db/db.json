@@ -1,0 +1,20 @@
+
+[
+     { "name": "Asset 0", "imgSrc": "https://d13yacurqjgara.cloudfront.net/users/107759/screenshots/1623679/menu.gif", "tags": ["iphone", "front", "home", "gif", "psd", "booboo", "black", "i6", "iphone6", "shadow"] },
+     { "name": "Asset ", "imgSrc": "https://s3-us-west-1.amazonaws.com/asset-img/imac1.png", "tags": ["imac", "apple", "desk", "office", "white", "front"] },
+     { "name": "Asset 1", "imgSrc": "https://s3-us-west-1.amazonaws.com/asset-img/imac2.png", "tags": ["imac", "apple", "side", "psd", "white", "i6", "shadow"] },
+     { "name": "Asset 1", "imgSrc": "https://s3-us-west-1.amazonaws.com/asset-img/iphone2.png", "tags": ["iphone", "front", "home", "psd", "white", "i6", "shadow"] },
+     { "name": "Asset 1", "imgSrc": "https://s3-us-west-1.amazonaws.com/asset-img/iphone1.png", "tags": ["iphone", "front", "home", "psd", "white", "i6", "shadow"] },
+
+     { "name": "Asset 1", "imgSrc": "/img/wp4.png", "tags": ["iphone", "front", "home", "psd", "white", "i6", "shadow"] },
+     { "name": "Asset 2", "imgSrc": "img/iphone2.jpeg", "tags": ["iphone", "front", "home", "i6", "psd", "no background"] },
+     { "name": "Asset 3", "imgSrc": "img/iphone3.jpeg", "tags": ["iphone", "psd", "6", "black", "white", "i6", "i6color", "home-screen", "no background"] },
+     { "name": "Asset 4", "imgSrc": "img/iphone4.jpg", "tags": ["iphone", "home", "no background", "i5s", "black", "skewed", "psd"] },
+     { "name": "Asset 5", "imgSrc": "img/iphone5.jpeg", "tags": ["iphone", "skewed", "i6", "psd", "white"] },
+     { "name": "Asset 6", "imgSrc": "img/iphone6.jpeg", "tags": ["iphone", "flat", "psd", "black", "no background"] },
+     { "name": "Asset 7", "imgSrc": "img/iphone7.jpg", "tags": ["iphone", "flat", "psd"] },
+     { "name": "Asset 8", "imgSrc": "img/ipad1.jpeg", "tags": ["iphone", "flat", "psd"] },
+     { "name": "Asset 9", "imgSrc": "img/ipad2.jpeg", "tags": ["ipad", "skewed", "home"] },
+     { "name": "Asset 10", "imgSrc": "img/ipad3.jpg", "tags": ["ipad", "white", "psd"] },
+     { "name": "Asset 11", "imgSrc": "img/ipad4.jpg", "tags": ["ipad", "skewed", "white", "home", "landscape"] }
+]

@@ -1,0 +1,13 @@
+.row a {
+  font-size: 25px;
+  line-height: 2;
+  color: black;
+}
+.row {
+  padding-top: 120px;
+}
+
+
+.row a {
+  font-weight: 100!important;
+}
