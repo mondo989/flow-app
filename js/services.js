@@ -9,13 +9,4 @@ app.service('es', function (esFactory) {
 //
 // Img url comes form bucket from amazon
 //
-// [{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},{"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]},
-// {"img_url":"http;efer.png","title":"Sex girl on the bitch","tags":["bitch","beach","girl"]}]
+// [{"img_url":"http;efer.png","title":"People on the beach","tags":["people","beach","girl"]},
