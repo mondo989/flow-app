@@ -35,7 +35,9 @@ angular.module('flowApp')
   }
 
   $scope.deleteTag = function($index){
+    console.log($scope.searchTags)
     $scope.searchTags.splice($index, 1)
+    console.log($scope.searchTags)
     $scope.search()
   }
 
