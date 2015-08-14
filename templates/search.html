@@ -5,9 +5,16 @@
 <div>
   <div class="full-row" ng-controller="assetSearch">
     <form class="form-search">
-      <input ng-model="query" ng-change="updateQuery(); addTag();" type="text" id="query"  class="search" placeholder="Search Assets" />
+      <div>
+        <li ng-repeat="tag in searchTags">
+          {{tag}}
+          <a ng-click="deleteTag($index)"> X</a>
+        </li>
+        <li><input ng-model="query" ng-change="updateQuery(); addTag();" type="text" id="query"  class="search" placeholder="Search Assets" /></li>
+      </div>
       <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
       <a href="#" ng-click="assetFilterClicked()"><i class="fa fa-chevron-down"></i></a>
+      <button ng-click="search()" type="submit"></button>
     </form>
 
     <div class="row checkbox-options-holder inactive">
@@ -24,9 +31,9 @@
       <label for="slideFour">Static Assets</label>
     </div>
 
-    <ul class="content-holder">  <!--    {{ gotAssets }} -->
-      <li ng-repeat="gotAsset in gotAssets" ng-click="assetChosen=!assetChosen; downloadActivationQueue()" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
-        <img ng-src="{{gotAsset.imgSrc}}" alt="">
+    <ul class="content-holder">  <!--    {{ assets }} -->
+      <li ng-repeat="asset in assets" ng-click="assetChosen=!assetChosen; downloadActivationQueue()" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+        <img ng-src="{{asset.imgSrc}}" alt="">
       </li>
     </ul>
 
