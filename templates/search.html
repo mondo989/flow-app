@@ -8,7 +8,7 @@
       <div>
         <li ng-repeat="tag in searchTags">
           {{tag}}
-          <a ng-click="deleteTag($index)"> X</a>
+          <a title="$index" ng-click="deleteTag($index)"> X</a>
         </li>
         <li>
           <input ng-model="query" ng-click="editTags()" ng-change="updateQuery(); addTag();" autocomplete="off" type="text" id="query"  class="search" placeholder="Search Assets" />
