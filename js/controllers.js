@@ -7,18 +7,6 @@ angular.module('flowApp')
     $scope.gotAssets = data;
   });
 
-  $scope.addTag = function() {
-    var search = $scope.query, // This comes from the user's input
-        tagList = this;
-      
-      tagList.tags = [];
-
-    tagList.addTag = function () {
-      tags.push({text:tags.tagText});
-      tagList.tagText = '';
-    }
-  }
-
   //clicks to assets events download assets button
   $scope.downloadActivationQueue = function () {
     console.log('button appears');
