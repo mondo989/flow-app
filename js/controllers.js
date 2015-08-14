@@ -1,6 +1,8 @@
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
+  $scope.searchTags = []
+  
   $http.get("db/db.json").success(function(data) {
     $scope.gotAssets = data;
   });
@@ -39,10 +41,18 @@ angular.module('flowApp')
     $http.get("db/db.json", {params:{s:$scope.query}}).success(function(data) {
       $scope.assets = data;
       $scope.searchTags = $scope.query.split(" ")
+      $scope.query = ""
     });
   }
 
+  $scope.deleteTag = function($index){
+    $scope.searchTags.splice($index, 1)
+    $scope.search()
+  }
 
+  $scope.editTags = function(){
+    $scope.query = $scope.searchTags.join(" ")
+  }
 
 
 // ------  This is still broken yoooo
