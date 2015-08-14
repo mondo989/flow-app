@@ -28,16 +28,15 @@ angular.module('flowApp')
   
   $scope.search = function(){
     $http.get("db/db.json", {params:{s:$scope.query}}).success(function(data) {
-      $scope.assets = data;
-      $scope.searchTags = $scope.query.split(" ")
+      $scope.assets = data
+      var query = $scope.query.trim()
+      $scope.searchTags = query ? $scope.query.split(" ") : []
       $scope.query = ""
-    });
+    })
   }
 
   $scope.deleteTag = function($index){
-    console.log(JSON.stringify($scope.searchTags))
-    $scope.searchTags.splice($index, 1)
-    console.log(JSON.stringify($scope.searchTags))
+    $scope.searchTags.splice($index, 1)  // Something's fucked up :)
     $scope.search()
   }
 
