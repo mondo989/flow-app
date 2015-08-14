@@ -10,7 +10,9 @@
           {{tag}}
           <a ng-click="deleteTag($index)"> X</a>
         </li>
-        <li><input ng-model="query" ng-change="updateQuery(); addTag();" type="text" id="query"  class="search" placeholder="Search Assets" /></li>
+        <li>
+          <input ng-model="query" ng-click="editTags()" ng-change="updateQuery(); addTag();" type="text" id="query"  class="search" placeholder="Search Assets" />
+        </li>
       </div>
       <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
       <a href="#" ng-click="assetFilterClicked()"><i class="fa fa-chevron-down"></i></a>
