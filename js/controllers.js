@@ -1,6 +1,7 @@
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
+  window.$scope = $scope
   $scope.searchTags = []
   
   $http.get("db/db.json").success(function(data) {
