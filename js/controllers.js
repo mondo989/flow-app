@@ -1,49 +1,46 @@
 angular.module('flowApp')
 
-    .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
-      $http.get("db/db.json").success(function(data) {
-        $scope.gotAssets = data;
-      });
+.controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
+  $http.get("db/db.json").success(function(data) {
+    $scope.gotAssets = data;
+  });
 
-      $scope.updateQuery = function () {
-        var search = $scope.query // This comes from the user's input
-            console.log('You are searching for ' + search)
-            // Return makes a call to server
-            $http.get("db/db.json").success(function(data) {
-              $scope.gotAssets = data;
-              console.log(data[0].tags)
-            // We need only the tags from the data
-          });
-      }
+  $scope.addTag = function() {
+    var search = $scope.query, // This comes from the user's input
+        tagList = this;
+      
+      tagList.tags = [];
 
-      $scope.addTag = function() {
-        var search = $scope.query // This comes from the user's input
-          var tagList = this;
-          tagList.tags = [];
+    tagList.addTag = function () {
+      tags.push({text:tags.tagText});
+      tagList.tagText = '';
+    }
+  }
 
-      tagList.addTag = function () {
-          tags.push({text:tags.tagText});
-          tagList.tagText = '';
-        }
-      }
+  //clicks to assets events download assets button
+  $scope.downloadActivationQueue = function () {
+    console.log('button appears');
+      document.getElementById("get-assets-container").className = "active";
+  }
 
-    //clicks to assets events download assets button
-      $scope.downloadActivationQueue = function () {
-        console.log('button appears');
-          document.getElementById("get-assets-container").className = "active";
-      }
+  $scope.assetFilterClicked = function () {
+     var assetFilter = document.querySelector('.checkbox-options-holder');
+     assetFilter.classList.toggle('inactive');
+     var chevronDown = document.querySelector('.fa-chevron-down');
+     chevronDown.classList.toggle('rotateInMod');
+  }
 
-      $scope.assetFilterClicked = function () {
-         var assetFilter = document.querySelector('.checkbox-options-holder');
-         assetFilter.classList.toggle('inactive');
-         var chevronDown = document.querySelector('.fa-chevron-down');
-         chevronDown.classList.toggle('rotateInMod');
-      }
-
-      $scope.settingsClicked = function () {
-        var settingsBtn = document.querySelector('.fa-cog');
-        settingsBtn.classList.toggle('spin');
-      }
+  $scope.settingsClicked = function () {
+    var settingsBtn = document.querySelector('.fa-cog');
+    settingsBtn.classList.toggle('spin');
+  }
+  
+  $scope.search = function(){
+    $http.get("db/db.json", {params:{s:$scope.query}}).success(function(data) {
+      $scope.assets = data;
+      $scope.searchTags = $scope.query.split(" ")
+    });
+  }
 
 
 
@@ -67,5 +64,5 @@ angular.module('flowApp')
         //     }
 // -------
 
-      console.log('!!!Controller Finished Loading!!!!');
-    }])
+  console.log('!!!Controller Finished Loading!!!!');
+}])
