@@ -199,8 +199,8 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 .fa-cog {
   position: absolute;
-  margin-top: -3px;
-  font-size: 27px;
+  margin-top: 0px;
+  font-size: 30px;
   margin-left: 18px;
   opacity: .1;
   transition: .2s;
@@ -221,19 +221,19 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 .fa-chevron-down {
   position: absolute;
-  margin-top: 23px;
-  font-size: 27px;
-  margin-left: 16.5px;
+  margin-top: 30px;
+  font-size: 32px;
+  margin-left: 15px;
   opacity: .1;
+
+  transition: 1s;
 }
 .fa-chevron-down.rotateInMod {
-  /*-webkit-animation: rotateInMod 2s;
-  -moz-animation: rotateInMod 2s;
-  -o-animation: rotateInMod 2s;
-  animation: rotateInMod 2s;*/
-  -webkit-transform: rotate(-180deg) 2s ease;
-  -ms-transform: rotate(-180deg) 2s ease;
-  transform: rotate(-180deg) 2s ease;
+  -webkit-animation: rotateInMod 1s;
+  -moz-animation: rotateInMod 1s;
+  -o-animation: rotateInMod 1s;
+  animation: rotateInMod 1s;
+
 }
 a .fa-chevron-down:hover {
   opacity: .5;
