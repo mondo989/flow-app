@@ -38,8 +38,24 @@
         <img ng-src="{{asset.imgSrc}}" alt="">
       </li>
     </ul>
-
+efefefe
+<button></button>
     <div class="row" id="get-assets-container">
       <button class="get-assets-btn" ng-click="downloadAssets();">Download Assets</button>
     </div>
 </div>
+
+<script>require('./main.js')</script>
+
+
+<script>
+var ipc = require('ipc')
+
+var button = document.createEvent('button')
+button.textContent = 'Hideeeeee'
+button.addEventListener('click', function() {
+  ipc.send('hide-carousel')
+})
+document.body.appendChild(button)
+
+</script>
