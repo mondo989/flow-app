@@ -49,6 +49,47 @@ i.icon-search {
 	display: inline;
 }
 
+.form-search li {
+	display: inline;
+	padding: 8px;
+	padding-left: 15px;
+	list-style-type: none;
+	background: #f3f3f3;
+	border-radius: 10px;
+	box-shadow:
+	 0 0 0 1px hsl(0, 0%, 80%);
+  border: 2px solid #f0f0f0;
+
+	margin: 0 2.5px;
+	font-size: 14px;
+	font-weight: 600;
+}
+button.btn-submit {
+	/*Button evokes function creating tag*/
+	position: absolute;
+	margin-left: 50px;
+}
+
+
+.tags-list {
+	list-style-type: none;
+}
+
+li.tags-anim {
+	-webkit-animation: fadeInUp .5s;
+	-moz-animation: fadeInUp .5s;
+	-o-animation: fadeInUp .5s;
+	animation: fadeInUp .5s;
+}
+
+span.tags-container {
+position: absolute;
+left: 0;
+margin-top:12px;
+margin-left: 60px;
+}
+
+
 .full-row {
   width: 100%!important;
   margin: 0 auto;
@@ -70,7 +111,7 @@ i.icon-search {
 }
 
 .form-search {
-  display: block;
+  display: inline-block;
   z-index: 2;
   margin-bottom: 30px!important;
   -webkit-border-radius: 12px;
@@ -78,7 +119,6 @@ i.icon-search {
   max-width: 800px;
   margin: 0 auto;
   margin-top: 25px;
-	margin-left: 41px;
 }
 
 
@@ -238,6 +278,12 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   animation: rotateInApp 2s;
 }
 
+.fa-close {
+	font-size: 17px;
+margin-left: 3px;
+	opacity: .5;
+}
+
 
 .fa-chevron-down {
 	position: absolute;
@@ -395,6 +441,7 @@ img.asset-img {
 
 	padding-top: 0!important;
 	margin: 20px 0;
+	margin-top: -10px;
 }
 
 .checkbox-options-holder label {
@@ -403,6 +450,21 @@ img.asset-img {
 	font-size: 17px;
 	opacity: .7;
 }
+
+.checkbox-options-holder-anim input, .checkbox-options-holder-anim label {
+
+	font-size: 17px!important;
+
+	-webkit-animation: fadeInUp .5s;
+	-moz-animation: fadeInUp .5s;
+	-o-animation: fadeInUp .5s;
+	animation: fadeInUp .5s;
+}
+
+ .checkbox-options-holder input {
+	 padding: 30px;
+	 background: red;
+ }
 
 
 
