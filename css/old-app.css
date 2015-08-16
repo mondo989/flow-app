@@ -1,95 +1,72 @@
-
-
 .name-holder {
--webkit-transition: opacity 0.3s 0.3s;
-	transition: opacity 0.3s 0.3s;
+  -webkit-transition: opacity 0.3s 0.3s;
+  transition: opacity 0.3s 0.3s;
 }
-
-
-html,
-body {
+html, body {
   height: 100%;
   background: rgb(40, 40, 40);
   text-align: center;
   font: 14px/24px 'Open Sans', 'Bree Serif', 'Source Sans Pro', Helvetica, Helvetica Neue, Arial, sans-serif;
   color: #111;
 }
-
-
-
-
 i.icon-search {
   padding: 30px;
   font-size: 30px;
   color: black;
 }
-
 .loading {
   width: 150px;
   margin: auto;
   margin-top: 20px;
 }
-
 #photos {
   margin-top: 20px;
   text-align: left;
 }
-
 .bottom-carousel {
   display: none;
 }
-
 .bottom-carousel.active {
   display: block;
 }
-
 .form-search {
   margin: 15px auto;
   width: 100%;
-	display: inline;
+  display: inline;
 }
-
 .form-search li {
-	display: inline;
-	padding: 8px;
-	padding-left: 15px;
-	list-style-type: none;
-	background: #f3f3f3;
-	border-radius: 10px;
-	box-shadow:
-	 0 0 0 1px hsl(0, 0%, 80%);
+  display: inline;
+  padding: 9px;
+  padding-left: 15px;
+  list-style-type: none;
+  background: #f3f3f3;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px hsl(0, 0%, 80%);
   border: 2px solid #f0f0f0;
-
-	margin: 0 2.5px;
-	font-size: 14px;
-	font-weight: 600;
+  margin: 0 2.5px;
+  font-size: 16px;
+  font-weight: 600;
 }
 button.btn-submit {
-	/*Button evokes function creating tag*/
-	position: absolute;
-	margin-left: 50px;
+  /*Button calls function creating tag*/
+  position: absolute;
+  margin-left: 70px;
 }
-
-
 .tags-list {
-	list-style-type: none;
+  list-style-type: none;
 }
-
 li.tags-anim {
-	-webkit-animation: fadeInUp .5s;
-	-moz-animation: fadeInUp .5s;
-	-o-animation: fadeInUp .5s;
-	animation: fadeInUp .5s;
+  -webkit-animation: fadeInUp .5s;
+  -moz-animation: fadeInUp .5s;
+  -o-animation: fadeInUp .5s;
+  animation: fadeInUp .5s;
 }
-
 span.tags-container {
-position: absolute;
-left: 0;
-margin-top:12px;
-margin-left: 60px;
+  position: absolute;
+  left: 0;
+  margin-top: 18px;
+  margin-left: 39px;
 }
-
-
 .full-row {
   width: 100%!important;
   margin: 0 auto;
@@ -101,15 +78,12 @@ margin-left: 60px;
   right: 0;
   left: 0;
 }
-
 .container {
   background: yellow;
 }
-
 .search-holder {
   background: #f3f3f3;
 }
-
 .form-search {
   display: inline-block;
   z-index: 2;
@@ -120,225 +94,174 @@ margin-left: 60px;
   margin: 0 auto;
   margin-top: 25px;
 }
-
-
 .anim {
   -webkit-animation: fadeInDown 1s!important;
-     -moz-animation: fadeInDown 1s!important;
-       -o-animation: fadeInDown 1s!important;
-          animation: fadeInDown 1s!important;
+  -moz-animation: fadeInDown 1s!important;
+  -o-animation: fadeInDown 1s!important;
+  animation: fadeInDown 1s!important;
 }
-
-
-
-
-
-
 .asset {
   background: #fff!important;
-	margin: 1px .5px;
+  margin: 1px .5px;
   border: 2px solid #f3f3f3!important;
-	list-style-type: none;
-	-webkit-transition: 2s;
-     -moz-transition: 2s;
-      -ms-transition: 2s;
-       -o-transition: 2s;
-          transition: 2s;
+  list-style-type: none;
+  -webkit-transition: 2s;
+  -moz-transition: 2s;
+  -ms-transition: 2s;
+  -o-transition: 2s;
+  transition: 2s;
 }
-
-
-
-
 .asset.notSelected {
-	-webkit-animation: appear 1.1s;
-     -moz-animation: appear 1.1s;
-       -o-animation: appear 1.1s;
-          animation: appear 1.1s;
-					border: 2px solid #fff;
-
+  -webkit-animation: appear 1.1s;
+  -moz-animation: appear 1.1s;
+  -o-animation: appear 1.1s;
+  animation: appear 1.1s;
+  border: 2px solid #fff;
 }
-
-
 .asset.selected {
-	-webkit-animation: appear 1.1s;
-     -moz-animation: appear 1.1s;
-       -o-animation: appear 1.1s;
-          animation: appear 1.1s;
-	border: 2px solid #ccc!important;
-	background: #f0f0f0!important;
-	border-radius: 6px;
-
-	/* 			-ms-transform: scale(1.02); IE 9
+  -webkit-animation: appear 1.1s;
+  -moz-animation: appear 1.1s;
+  -o-animation: appear 1.1s;
+  animation: appear 1.1s;
+  border: 2px solid #ccc!important;
+  background: #f0f0f0!important;
+  border-radius: 6px;
+  /* 			-ms-transform: scale(1.02); IE 9
 	   	-webkit-transform: scale(1.02); Safari
 	    				transform: scale(1.02); */
-						z-index: 900;
+  z-index: 900;
 }
-
 .asset:hover {
   -webkit-transition: .5s;
-     -moz-transition: .5s;
-      -ms-transition: .5s;
-       -o-transition: .5s;
-          transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
   opacity: 1;
-	background: #f3f3f3!important;
+  background: #f3f3f3!important;
 }
-
 .asset img {
   margin: 0 auto;
   max-height: 140px;
-	height: 140px;
+  height: 140px;
   max-width: 240px;
   margin-top: 15px;
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-
-
-
-
-
 #get-assets-container {
-	margin-top: 100px;
-	opacity:0;
-
-	/* -webkit-transition: 2s;
+  margin-top: 100px;
+  opacity: 0;
+  /* -webkit-transition: 2s;
 	     -moz-transition: 2s;
 	      -ms-transition: 2s;
 	       -o-transition: 2s;
 	          transition: 2s; */
 }
-
-
 #get-assets-container.active {
-	position:absolute;
-	margin-top: -60px;
-	width: 100%;
-	right: 0;
-	left: 0;
-	margin-left: 0px;
-	z-index: 10000;
-
-	-webkit-animation: fadeInUp 1s;
+  position: absolute;
+  margin-top: -60px;
+  width: 100%;
+  right: 0;
+  left: 0;
+  margin-left: 0px;
+  z-index: 10000;
+  -webkit-animation: fadeInUp 1s;
   -moz-animation: fadeInUp 1s;
   -o-animation: fadeInUp 1s;
   animation: fadeInUp 1s;
-
-	opacity: 1;
+  opacity: 1;
 }
-
 .get-assets-btn {
-	background: green;
-	width: 100%;
-	margin: 0 auto;
-	display: block;
-	padding: 20px;
-	color: white;
-	font-weight: bold;
-	font-size: 20px;
-	border: 0;
-	border-radius: 6px;
-	z-index: 9000;
-	opacity: .97;
+  background: green;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: 0;
+  border-radius: 6px;
+  z-index: 9000;
+  opacity: .97;
 }
-
 .get-assets-btn:hover {
-	background: white;
-	color: green;
-	border: 1px solid green;
-	opacity: .9;
+  background: white;
+  color: green;
+  border: 1px solid green;
+  opacity: .9;
 }
-
-
-
-
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   border: 1px solid gray;
 }
-
 .form-search .fa {
-	color: #000!important;
+  color: #000!important;
 }
-
 .fa-cog {
-	position: absolute;
-	margin-top: -3px;
-	font-size: 27px;
-	margin-left: 18px;
-	opacity: .1;
-	transition: .2s;
+  position: absolute;
+  margin-top: -3px;
+  font-size: 27px;
+  margin-left: 18px;
+  opacity: .1;
+  transition: .2s;
 }
 .fa-cog:hover {
-	opacity: .15;
+  opacity: .15;
 }
-
 .fa-cog.spin {
-	-webkit-animation: rotateInApp 2s;
+  -webkit-animation: rotateInApp 2s;
   -moz-animation: rotateInApp 2s;
   -o-animation: rotateInApp 2s;
   animation: rotateInApp 2s;
 }
-
 .fa-close {
-	font-size: 17px;
-margin-left: 3px;
-	opacity: .5;
+  font-size: 17px;
+  margin-left: 3px;
+  opacity: .5;
 }
-
-
 .fa-chevron-down {
-	position: absolute;
-	margin-top: 23px;
-	font-size: 27px;
-	margin-left: 16.5px;
-	opacity: .1;
+  position: absolute;
+  margin-top: 23px;
+  font-size: 27px;
+  margin-left: 16.5px;
+  opacity: .1;
 }
-
 .fa-chevron-down.rotateInMod {
-	/*-webkit-animation: rotateInMod 2s;
+  /*-webkit-animation: rotateInMod 2s;
   -moz-animation: rotateInMod 2s;
   -o-animation: rotateInMod 2s;
   animation: rotateInMod 2s;*/
-
-
-	-webkit-transform: rotate(-180deg) 2s ease;
-	-ms-transform: rotate(-180deg) 2s ease;
-	transform: rotate(-180deg) 2s ease;
-
+  -webkit-transform: rotate(-180deg) 2s ease;
+  -ms-transform: rotate(-180deg) 2s ease;
+  transform: rotate(-180deg) 2s ease;
 }
-
 a .fa-chevron-down:hover {
-	opacity: .5;
+  opacity: .5;
 }
-
 .form-search .search {
   /* border: 1px solid #ccc; */
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   color: #999;
-  height: 50px;
-  width: 99%;
-	margin-left: -8px;
-  opacity: 0.6;
-	font-size: 20px;
-	display: inline;
-
+  height: 60px;
+  width: 102%;
+  margin-left: -40px;
+  opacity: 0.9;
+  font-size: 20px;
+  display: inline;
 }
-
 .form-search .search:hover {
   opacity: 1;
 }
-
 .form-control, input {
   border-width: 0!important;
 }
 .form-search .search:focus {
   opacity: 1;
   color: black!important;
-
   outline: 0;
 }
-
 
 /* This is for the search box input!!!!
 .form-search .search:-moz-placeholder,
@@ -356,8 +279,6 @@ a .fa-chevron-down:hover {
 */
 
 
-
-
 /* .asset img:hover{
 border: 0!important;
 text-shadow: 0!important;
@@ -366,11 +287,9 @@ text-shadow: 0!important;
 .form-search .submit {
   display: none;
 }
-
 ::-webkit-input-placeholder {
   text-align: center;
 }
-
 :-moz-placeholder {
   text-align: center;
 }
@@ -380,30 +299,25 @@ text-shadow: 0!important;
 :-ms-input-placeholder {
   text-align: center;
 }
-
 input {
-	text-align: center;
+  text-align: center;
 }
-
-
 .newClass {
   background: blue!important;
 }
-
 .content-holder {
   overflow-y: scroll;
 }
-
-
 img.asset-img {
-	height: 300px!important;
-	background: red!important;
+  height: 300px!important;
+  background: red!important;
 }
 
 /* .content-holder li .asset-img {
 }
  */
- .content-holder {
+
+.content-holder {
   /* z-index: 0; */
   background: #fff!important;
   height: 500px!important;
@@ -413,61 +327,41 @@ img.asset-img {
   animation: fadeIn 2s;
   overflow-y: scroll;
 }
-
-
 .content-row {
   width: 100%;
   margin: 0 auto!important;
   text-align: center!important;
 }
-
-
-.content-holder.clicked {
-
-}
-
-
+.content-holder.clicked {}
 .checkbox-options-holder.inactive {
-	display: none;
+  display: none;
 }
-
-
 .checkbox-options-holder {
-
-	-webkit-animation: fadeIn 1s!important;
-     -moz-animation: fadeIn 1s!important;
-       -o-animation: fadeIn 1s!important;
-          animation: fadeIn 1s!important;
-
-	padding-top: 0!important;
-	margin: 20px 0;
-	margin-top: -10px;
+  -webkit-animation: fadeIn 1s!important;
+  -moz-animation: fadeIn 1s!important;
+  -o-animation: fadeIn 1s!important;
+  animation: fadeIn 1s!important;
+  padding-top: 0!important;
+  margin: 20px 0;
+  margin-top: -10px;
 }
-
 .checkbox-options-holder label {
-	margin: 0 30px 0 0;
-	font-weight: 400;
-	font-size: 17px;
-	opacity: .7;
+  margin: 0 30px 0 0;
+  font-weight: 400;
+  font-size: 17px;
+  opacity: .7;
 }
-
 .checkbox-options-holder-anim input, .checkbox-options-holder-anim label {
-
-	font-size: 17px!important;
-
-	-webkit-animation: fadeInUp .5s;
-	-moz-animation: fadeInUp .5s;
-	-o-animation: fadeInUp .5s;
-	animation: fadeInUp .5s;
+  font-size: 17px!important;
+  -webkit-animation: fadeInUp .5s;
+  -moz-animation: fadeInUp .5s;
+  -o-animation: fadeInUp .5s;
+  animation: fadeInUp .5s;
 }
-
- .checkbox-options-holder input {
-	 padding: 30px;
-	 background: red;
- }
-
-
-
+.checkbox-options-holder input {
+  padding: 30px;
+  background: red;
+}
 .content-row .col-xs-4 {
   background: white;
   height: 200px;
@@ -478,29 +372,21 @@ img.asset-img {
   border-radius: 9px;
 }
 .download-row {
-
   position: absolute;
   right: 0;
   left: 0;
 }
-
-
 .new-item {
   width: 9%;
 }
-
-
-
 .animation {
   -webkit-transition: 500ms;
   position: relative;
 }
-
 .animation.ng-leave {
   opacity: 1;
   left: 0;
 }
-
 .animation.ng-leave.ng-leave-active {
   opacity: 0;
   left: -150%;
