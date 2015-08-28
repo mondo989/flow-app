@@ -54,6 +54,7 @@ button.btn-submit {
 }
 .tags-list {
   list-style-type: none;
+  display: inline-block!important;
 }
 li.tags-anim {
   -webkit-animation: fadeInUp .5s;
@@ -64,7 +65,7 @@ li.tags-anim {
 span.tags-container {
   position: absolute;
   left: 0;
-  margin-top: 18px;
+  margin-top: 6.5px;
   margin-left: 39px;
 }
 .full-row {
