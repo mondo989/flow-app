@@ -11,3 +11,18 @@
 .row a {
   font-weight: 100!important;
 }
+
+
+
+.f-logo {
+  width: 80px;
+}
+
+.f-logo.anim {
+  -webkit-animation: fadeInUp .5s;
+  -moz-animation: fadeInUp .5s;
+  -o-animation: fadeInUp .5s;
+  animation: fadeInUp .5s;
+
+
+}
