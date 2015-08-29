@@ -31,3 +31,10 @@
   width: 120px;
 
 }
+
+.flow-logo {
+  -webkit-animation: fadeInLeft .5s;
+  -moz-animation: fadeInLeft .5s;
+  -o-animation: fadeInLeft .5s;
+  animation: fadeInLeft .5s;
+}

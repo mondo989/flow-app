@@ -75,7 +75,6 @@ span.tags-container {
 .full-row {
   width: 100%!important;
   margin: 0 auto;
-  margin-top: 5px;
   max-width: 900px;
   background: #f3f3f3;
   position: fixed;
@@ -267,6 +266,17 @@ a .fa-chevron-down:hover {
   color: black!important;
   outline: 0;
 }
+.f-logo {
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  opacity: .04;
+  width: 300px;
+  left: 0;
+  margin-top: 40px;
+}
+
 
 /* This is for the search box input!!!!
 .form-search .search:-moz-placeholder,
