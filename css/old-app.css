@@ -56,6 +56,10 @@ button.btn-submit {
   list-style-type: none;
   display: inline-block!important;
 }
+.tags-list:hover {
+  background: white;
+}
+
 li.tags-anim {
   -webkit-animation: fadeInUp .5s;
   -moz-animation: fadeInUp .5s;

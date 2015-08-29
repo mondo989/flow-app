@@ -7,7 +7,7 @@ require('electron-debug')();    //- This allows debugging CMD+ALT+I
 app.on('ready', function() {
   var mainWindow = new BrowserWindow({
     width: 900,
-    height: 580,
+    height: 600,
     resizable: false,
     frame: false,
     "node-integration": true
