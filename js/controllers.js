@@ -3,7 +3,7 @@ angular.module('flowApp')
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
   window.$scope = $scope
   $scope.searchTags = []
-  
+
   $http.get("db/db.json").success(function(data) {
     $scope.gotAssets = data;
   });
@@ -25,7 +25,7 @@ angular.module('flowApp')
     var settingsBtn = document.querySelector('.fa-cog');
     settingsBtn.classList.toggle('spin');
   }
-  
+
   $scope.search = function(){
     $http.get("db/db.json", {params:{s:$scope.query}}).success(function(data) {
       $scope.assets = data
@@ -42,6 +42,16 @@ angular.module('flowApp')
 
   $scope.editTags = function(){
     $scope.query = $scope.searchTags.join(" ")
+  }
+
+
+
+  $scope.newViewTransition = function () {
+    console.log("Bae");
+     var assetFilter = document.querySelector('.checkbox-options-holder');
+     assetFilter.classList.toggle('inactive');
+     var chevronDown = document.querySelector('.fa-chevron-down');
+     chevronDown.classList.toggle('rotateInMod');
   }
 
 
