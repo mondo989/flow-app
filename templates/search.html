@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/old-app.css">
 
-
 <div>
   <div class="full-row" ng-controller="assetSearch">
     <form class="form-search">
@@ -34,7 +33,7 @@
       <label for="slideFour">Static Assets</label>
     </div>
 
-    <ul class="content-holder">  <!--    {{ assets }} -->
+    <ul class="content-holder">  <!-- {{ assets }} -->
       <img class="f-logo" src="img/f-logo.png" alt="">
       <li ng-repeat="asset in assets.hits.hits" ng-click="assetChosen=!assetChosen; downloadActivationQueue()" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}">
@@ -49,15 +48,14 @@
 
 <script>require('./main.js')</script>
 
-
 <script>
-var ipc = require('ipc')
+  var ipc = require('ipc')
 
-var button = document.createEvent('button')
-button.textContent = 'Hideeeeee'
-button.addEventListener('click', function() {
-  ipc.send('hide-carousel')
-})
-document.body.appendChild(button)
+  var button = document.createEvent('button')
+  button.textContent = 'Hideeeeee'
+  button.addEventListener('click', function() {
+    ipc.send('hide-carousel')
+  })
+  document.body.appendChild(button)
 
 </script>
