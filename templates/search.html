@@ -36,8 +36,8 @@
 
     <ul class="content-holder">  <!--    {{ assets }} -->
       <img class="f-logo" src="img/f-logo.png" alt="">
-      <li ng-repeat="asset in assets" ng-click="assetChosen=!assetChosen; downloadActivationQueue()" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
-        <img ng-src="{{asset.imgSrc}}" alt="">
+      <li ng-repeat="asset in assets.hits.hits" ng-click="assetChosen=!assetChosen; downloadActivationQueue()" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+        <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}">
       </li>
     </ul>
 

@@ -27,12 +27,34 @@ angular.module('flowApp')
   }
 
   $scope.search = function(){
-    $http.get("db/db.json", {params:{s:$scope.query}}).success(function(data) {
+
+    var dataObj = {
+        "query": {
+          "match": {
+            "tags": {
+              "query": $scope.query,
+              // Filtering by Type Soooon!     "query": $scope.query + "type:"+$scope.type,
+              "operator": "AND"
+            }
+          }
+        }
+      };
+
+    $http.post("http://ec2-54-153-123-48.us-west-1.compute.amazonaws.com:9200/assets/_search", dataObj).success(function(data) {
       $scope.assets = data
       var query = $scope.query.trim()
       $scope.searchTags = query ? $scope.query.split(" ") : []
       $scope.query = ""
     })
+
+
+
+    // $http.get("db/db.json", {params:{s:$scope.query}}).success(function(data) {
+    //   $scope.assets = data
+    //   var query = $scope.query.trim()
+    //   $scope.searchTags = query ? $scope.query.split(" ") : []
+    //   $scope.query = ""
+    // })
   }
 
   $scope.deleteTag = function($index){
