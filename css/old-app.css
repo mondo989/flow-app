@@ -1,5 +1,3 @@
-
-
 .name-holder {
   -webkit-transition: opacity 0.3s 0.3s;
   transition: opacity 0.3s 0.3s;
@@ -61,7 +59,6 @@ button.btn-submit {
 .tags-list:hover {
   background: white;
 }
-
 li.tags-anim {
   -webkit-animation: fadeInUp .5s;
   -moz-animation: fadeInUp .5s;
@@ -83,12 +80,19 @@ span.tags-container {
   right: 0;
   left: 0;
 }
-
 .full-row input {
-  border-bottom: 3px solid black;
+  border: 1px solid #ccc!important;
   padding-bottom: 3px;
+  opacity: .8!important;
 }
-
+.full-row input:hover {
+  opacity: 1!important;
+}
+::-webkit-input-placeholder {
+  font-weight: 400;
+  margin-top: 20px;
+  padding-top: 5px;
+}
 .container {
   background: yellow;
 }
@@ -236,7 +240,6 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   font-size: 32px;
   margin-left: 15px;
   opacity: .1;
-
   transition: 1s;
 }
 .fa-chevron-down.rotateInMod {
@@ -244,7 +247,6 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   -moz-animation: rotateInMod 1s;
   -o-animation: rotateInMod 1s;
   animation: rotateInMod 1s;
-
 }
 a .fa-chevron-down:hover {
   opacity: .5;
@@ -283,7 +285,6 @@ a .fa-chevron-down:hover {
   left: 0;
   margin-top: 40px;
 }
-
 
 /* This is for the search box input!!!!
 .form-search .search:-moz-placeholder,
