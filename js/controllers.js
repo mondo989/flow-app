@@ -67,7 +67,6 @@ angular.module('flowApp')
   }
 
 
-
   $scope.newViewTransition = function () {
     console.log("Bae");
      var assetFilter = document.querySelector('.checkbox-options-holder');

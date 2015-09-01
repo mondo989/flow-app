@@ -3,7 +3,6 @@ body {
 }
 
 .main-container {
-  background: #f3f3f3;
   border-radius: 9px;
   height: 500px;
   width: 600px;
@@ -11,7 +10,6 @@ body {
   padding-top: 35px;
   padding-bottom: 190px;
   margin-top: 60px;
-  border: 1px solid #ccc;
 
   -webkit-animation: fadeInLeft .5s;
   -moz-animation: fadeInLeft .5s;
@@ -43,9 +41,10 @@ a.signup-signin-btn {
   color: green;
   border: 2px solid green;
   width: 230px;
+  font-size: 18px;
   text-decoration: none;
-  font-weight: 400;
-  padding: 15px 30px;
+  font-weight: 500;
+  padding: 15px 20px;
   border-radius: 12px;
 }
 

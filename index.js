@@ -8,7 +8,7 @@ app.on('ready', function() {
   var mainWindow = new BrowserWindow({
     width: 900,
     height: 600,
-    resizable: true,
+    resizable: false,
     frame: false,
     "node-integration": true
   })
