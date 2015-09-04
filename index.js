@@ -17,7 +17,6 @@ app.on('ready', function() {
   var bottomCarousel = new BrowserWindow({
     width: 900,
     height: 600,
-    show: false
   })
   bottomCarousel.loadUrl('file://' + __dirname + '/bottom-carousel.html')
 

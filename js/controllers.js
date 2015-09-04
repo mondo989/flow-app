@@ -37,7 +37,7 @@ angular.module('flowApp')
               "operator": "AND"
             }
           }
-        }
+        },"size" : 50
       };
 
       // _search?pretty=true&q=*:*
@@ -47,7 +47,6 @@ angular.module('flowApp')
       $scope.searchTags = query ? $scope.query.split(" ") : []
       $scope.query = ""
     })
-
 
 
     // $http.get("db/db.json", {params:{s:$scope.query}}).success(function(data) {
