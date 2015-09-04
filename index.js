@@ -2,7 +2,13 @@ var app = require('app')
 var BrowserWindow = require('browser-window')
 var ipc = require('ipc')
 
-require('electron-debug')();    //- This allows debugging CMD+ALT+I
+var url = require('url')
+
+require('electron-debug')(); //- This allows debugging CMD+ALT+I
+
+
+
+var bottomCarousel;
 
 app.on('ready', function() {
   var mainWindow = new BrowserWindow({
@@ -14,11 +20,31 @@ app.on('ready', function() {
   })
   mainWindow.loadUrl('file://' + __dirname + '/index.html')
 
-  var bottomCarousel = new BrowserWindow({
-    width: 900,
-    height: 600,
+  bottomCarousel = new BrowserWindow({
+    width: 1700,
+    height: 120,
+    frame: false,
+    show: false,
+    x: 0,
+    y: 2699,
+    "always-on-top": true
   })
-  bottomCarousel.loadUrl('file://' + __dirname + '/bottom-carousel.html')
+
+  console.log(bottomCarousel.webContents);
+
+  console.log("awesome dirname: " + __dirname);
+
+   var indexUrl = url.format({
+    protocol: 'file',
+    pathname:  __dirname + '/index.html',
+    slashes: true,
+    hash: 'bottom-carousel'
+  })
+
+  console.log(indexUrl)
+  bottomCarousel.loadUrl(indexUrl)
+
+  console.log("We passed the step")
 
   // ipc.on('show-bottom' function() {
   //   bottomCarousel.show()

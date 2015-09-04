@@ -1,6 +1,7 @@
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
+
   window.$scope = $scope
   $scope.searchTags = []
 
@@ -27,7 +28,6 @@ angular.module('flowApp')
   }
 
   $scope.search = function(){
-
     var dataObj = {
         "query": {
           "match": {
@@ -40,7 +40,6 @@ angular.module('flowApp')
         },"size" : 50
       };
 
-      // _search?pretty=true&q=*:*
     $http.post("http://ec2-54-153-123-48.us-west-1.compute.amazonaws.com:9200/assets/_search", dataObj).success(function(data) {
       $scope.assets = data
       var query = $scope.query.trim()
@@ -66,7 +65,6 @@ angular.module('flowApp')
     $scope.query = $scope.searchTags.join(" ")
   }
 
-
   $scope.newViewTransition = function () {
     console.log("Bae");
      var assetFilter = document.querySelector('.checkbox-options-holder');
@@ -74,6 +72,34 @@ angular.module('flowApp')
      var chevronDown = document.querySelector('.fa-chevron-down');
      chevronDown.classList.toggle('rotateInMod');
   }
+
+  $scope.downloadAssets = function() {
+     console.log("heyyy yo")
+      var remote = require('remote');
+      var BrowserWindow = remote.require('browser-window');
+      console.log(BrowserWindow.getAllWindows())
+      var windows = BrowserWindow.getAllWindows()
+      var bottomCarousel = windows[0]
+
+
+      var url = require('url')
+
+      var indexUrl = url.format({
+       protocol: 'file',
+       pathname:  __dirname + '/index.html',
+       slashes: true,
+       hash: 'bottom-carousel'
+     })
+
+     console.log(indexUrl)
+     bottomCarousel.loadUrl(indexUrl)
+
+
+
+      bottomCarousel.show()
+
+   }
+
 
 
 // ------  This is still broken yoooo
@@ -96,4 +122,9 @@ angular.module('flowApp')
 // -------
 
   console.log('!!!Controller Finished Loading!!!!');
+}])
+
+
+.controller('carouselController', ['$scope', function($scope) {
+
 }])
