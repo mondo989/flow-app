@@ -41,7 +41,7 @@ angular.module('flowApp')
       };
 
       // _search?pretty=true&q=*:*
-    $http.post("http://ec2-54-153-123-48.us-west-1.compute.amazonaws.com:9200/assets/_search?q=*:*", dataObj).success(function(data) {
+    $http.post("http://ec2-54-153-123-48.us-west-1.compute.amazonaws.com:9200/assets/_searche", dataObj).success(function(data) {
       $scope.assets = data
       var query = $scope.query.trim()
       $scope.searchTags = query ? $scope.query.split(" ") : []
