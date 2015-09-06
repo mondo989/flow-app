@@ -7,10 +7,10 @@ var menu = Menu.buildFromTemplate([
     label: 'Electron',
     submenu: [
       {
-          label: 'Prefs',
-          click: function () {
-            ipc.send('show-carousel')
-          }
+        label: 'Prefs',
+        click: function () {
+          ipc.send('show-carousel')
+        }
       }
     ]
   }

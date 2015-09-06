@@ -81,9 +81,7 @@ angular.module('flowApp')
       var windows = BrowserWindow.getAllWindows()
       var bottomCarousel = windows[0]
 
-
       var url = require('url')
-
       var indexUrl = url.format({
        protocol: 'file',
        pathname:  __dirname + '/index.html',
@@ -93,11 +91,7 @@ angular.module('flowApp')
 
      console.log(indexUrl)
      bottomCarousel.loadUrl(indexUrl)
-
-
-
-      bottomCarousel.show()
-
+     bottomCarousel.show()
    }
 
 

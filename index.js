@@ -25,6 +25,7 @@ app.on('ready', function() {
     height: 120,
     frame: false,
     show: false,
+    transparent: true,
     x: 0,
     y: 2699,
     "always-on-top": true
