@@ -121,14 +121,8 @@ angular.module('flowApp')
    $scope.toggleAssets = function(param) {
     console.log("recieved:" + param )
 
-
-
    }
 */
-
-
-
-
 
 // ------  This is fixed but still here, for properties only broken yoooo
         // $scope.downloadAssets = function() {
@@ -166,9 +160,19 @@ angular.module('flowApp')
 
 
 .controller('carouselController', ['$scope', function($scope) {
+  window.$scope = $scope
+
+  $scope.assets = []
 
   require('ipc').on('ping', function(message) {
+
+
+                    $scope.$apply(function() {
+                      $scope.assets=message
+                    });
     console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
   });
+
+
 
 }])
