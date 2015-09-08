@@ -7,13 +7,15 @@
   <img class="flow-logo" src="img/flow-png.png" alt="">
 
   <div class="row main-options" ng-controller="onboarding">
-    <a ng-click="onBoardingTransitions()">On Boarding</a>
+    <a ui-sref="search"><i class="fa fa-search"></i></a>
+    <br>
+  
+
+    <a ng-click="onBoardingTransitions()" style="border: 0;"><i class="fa fa-chevron-right"></i></a>
     <br>
     <a ui-sref="signup">Sign up</a>
     <br>
-    <a ui-sref="search"><i class="fa fa-search"></i></a>
-    <br>
-    <a ui-sref="bottom-carousel">Bottom Carousel</a>
+    <!-- <a ui-sref="bottom-carousel">Bottom Carousel</a> -->
     <br>
   </div>
 

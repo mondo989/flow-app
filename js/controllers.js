@@ -11,7 +11,7 @@ angular.module('flowApp')
 
   //clicks to assets events download assets button
   $scope.downloadActivationQueue = function () {
-    console.log('button appears');
+    // console.log('button appears');
       document.getElementById("get-assets-container").className = "active";
   }
 
@@ -109,7 +109,6 @@ angular.module('flowApp')
             itemsToDisplay.push($scope.assets.hits.hits[j])
           }
         }
-
       }
      console.log("selectedItems "+selectedItems)
 
@@ -120,7 +119,6 @@ angular.module('flowApp')
 /*
    $scope.toggleAssets = function(param) {
     console.log("recieved:" + param )
-
    }
 */
 
@@ -143,9 +141,7 @@ angular.module('flowApp')
         //     }
 // -------
 
-  // console.log('!!!Controller Finished Loading!!!!');
 }])
-
 
 .controller('onboarding', ['$scope', function($scope) {
   // console.log("Hey sunshine")
@@ -158,38 +154,29 @@ angular.module('flowApp')
   }
 }])
 
-
+// Calls bottom carousel window, png's & psd's of selected assets.
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
   window.$scope = $scope
-
   $scope.assets = []
 
   require('ipc').on('ping', function(message) {
+    $scope.$apply(function() {
+      $scope.assets=message
+    });
 
-
-                    $scope.$apply(function() {
-                      $scope.assets=message
-                    });
-
-                    for(i=0;i<$scope.assets.length;i++)
-                    {
-
-                            /*var url = require('url')
-                            var fileUrl = url.format({
-                             protocol: 'file',
-                             pathname:  '__dirname + '/img'/'+$scope.assets[i]._id+'.png',
-                             slashes: true,
-                           })*/
-
-                      $scope.downloadPSD($scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png');
-                    }
-                    console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
+    for(i=0;i<$scope.assets.length;i++) {
+        /*var url = require('url')
+        var fileUrl = url.format({
+         protocol: 'file',
+         pathname:  '__dirname + '/img'/'+$scope.assets[i]._id+'.png',
+         slashes: true,
+       })*/
+     $scope.downloadPSD($scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png');
+    }
+    console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
   });
 
-
-
   $scope.downloadPSD = function (imageURL,imgName) {
-
     console.log("Downloading..."+imageURL)
 
     var fs = require('fs'),
@@ -203,44 +190,46 @@ angular.module('flowApp')
         request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
       });
     };
+    //spinner start loading for image on div ID xxx
 
     download(imageURL, imgName, function(){
       console.log('done');
-    });
+      //spinner stop loading for image on div ID xxx
+
+      //img src to file://hddrfrf/rf/erf/ref/img.psd
+  });
+
+  /*
+      var options = {url: imageURL};
+      $http.get(options, imgName, function (error, result) {
+          if (error) {
+              console.error("Error:"+error);
+          } else {
+              console.log('File downloaded at: ' + result.file);
+          }
+      });
+  */
+  /*
+  $http.get(imageURL).success(function(response) {
+  //$http.get(imageURL,{responseType: "blob"}).success(function(response) {
+  //  $http.get(imageURL,{responseType: "arraybuffer"}).success(function(response) {
+        console.log("Downloaded! "+imageURL)
+        //console.log("data! "+image_data)
+
+        //var byteArray = new Uint8Array(response);
+      //  var blob = new Blob([response], {type: "image/png"});
+
+                           try {
+                              console.log("Saving "+imgName)
+
+                              require('fs').writeFileSync(imgName, response, 'binary');
+                              console.log('Saved image!');
+                            } catch (err) {
+                                throw err;
+                            }
 
 
-
-/*
-    var options = {url: imageURL};
-    $http.get(options, imgName, function (error, result) {
-        if (error) {
-            console.error("Error:"+error);
-        } else {
-            console.log('File downloaded at: ' + result.file);
-        }
-    });
-*/
-/*
-$http.get(imageURL).success(function(response) {
-//$http.get(imageURL,{responseType: "blob"}).success(function(response) {
-//  $http.get(imageURL,{responseType: "arraybuffer"}).success(function(response) {
-      console.log("Downloaded! "+imageURL)
-      //console.log("data! "+image_data)
-
-      //var byteArray = new Uint8Array(response);
-    //  var blob = new Blob([response], {type: "image/png"});
-
-                         try {
-                            console.log("Saving "+imgName)
-
-                            require('fs').writeFileSync(imgName, response, 'binary');
-                            console.log('Saved image!');
-                          } catch (err) {
-                              throw err;
-                          }
-
-
-    })*/
+      })*/
 
   }
 }])
