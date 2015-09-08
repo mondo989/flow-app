@@ -94,8 +94,39 @@ angular.module('flowApp')
     //  bottomCarousel.loadUrl(indexUrl)
      bottomCarousel.show()
 
-     bottomCarousel.webContents.send('ping', 'image id 1,2,3!');
+     var itemsToDisplay = []
+     var selectedItems = document.querySelectorAll('.selected');
+
+     for (i = 0; i < selectedItems.length; ++i) {
+
+        for(j=0;j<$scope.assets.hits.hits.length;j++)
+        {
+
+          if($scope.assets.hits.hits[j]._id==selectedItems[i].attributes[0].value)
+          {
+            console.log("copy this selected item's metadata from elastic search and send to carousell view"+selectedItems[i].attributes[0].value)
+
+            itemsToDisplay.push($scope.assets.hits.hits[j])
+          }
+        }
+
+      }
+     console.log("selectedItems "+selectedItems)
+
+     bottomCarousel.webContents.send('ping', itemsToDisplay);
    }
+
+
+/*
+   $scope.toggleAssets = function(param) {
+    console.log("recieved:" + param )
+
+
+
+   }
+*/
+
+
 
 
 
@@ -124,24 +155,20 @@ angular.module('flowApp')
 
 .controller('onboarding', ['$scope', function($scope) {
   // console.log("Hey sunshine")
-
   $scope.onBoardingTransitions = function(){
-
     // This is the delay before the second view loads
     var delay=1000; //1 seconds
     setTimeout(function(){
       window.location.href = "/#/intro";
     }, delay);
-
   }
-
 }])
 
 
 .controller('carouselController', ['$scope', function($scope) {
 
   require('ipc').on('ping', function(message) {
-    console.log(message);  // Prints "whoooooooh!"
+    console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
   });
 
 }])
