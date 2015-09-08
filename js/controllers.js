@@ -66,7 +66,7 @@ angular.module('flowApp')
   }
 
   $scope.newViewTransition = function () {
-    console.log("Bae");
+    // console.log("Bae");
      var assetFilter = document.querySelector('.checkbox-options-holder');
      assetFilter.classList.toggle('inactive');
      var chevronDown = document.querySelector('.fa-chevron-down');
@@ -74,29 +74,32 @@ angular.module('flowApp')
   }
 
   $scope.downloadAssets = function() {
-     console.log("heyyy yo")
       var remote = require('remote');
       var BrowserWindow = remote.require('browser-window');
       console.log(BrowserWindow.getAllWindows())
       var windows = BrowserWindow.getAllWindows()
       var bottomCarousel = windows[0]
 
-      var url = require('url')
-      var indexUrl = url.format({
-       protocol: 'file',
-       pathname:  __dirname + '/index.html',
-       slashes: true,
-       hash: 'bottom-carousel'
-     })
 
-     console.log(indexUrl)
-     bottomCarousel.loadUrl(indexUrl)
+
+    //   var url = require('url')
+    //   var indexUrl = url.format({
+    //    protocol: 'file',
+    //    pathname:  __dirname + '/index.html',
+    //    slashes: true,
+    //    hash: 'bottom-carousel'
+    //  })
+     //
+    //  console.log(indexUrl)
+    //  bottomCarousel.loadUrl(indexUrl)
      bottomCarousel.show()
+
+     bottomCarousel.webContents.send('ping', 'image id 1,2,3!');
    }
 
 
 
-// ------  This is still broken yoooo
+// ------  This is fixed but still here, for properties only broken yoooo
         // $scope.downloadAssets = function() {
         //   console.log("heyyy yo")
         //       var remote = require('remote');
@@ -115,10 +118,30 @@ angular.module('flowApp')
         //     }
 // -------
 
-  console.log('!!!Controller Finished Loading!!!!');
+  // console.log('!!!Controller Finished Loading!!!!');
+}])
+
+
+.controller('onboarding', ['$scope', function($scope) {
+  // console.log("Hey sunshine")
+
+  $scope.onBoardingTransitions = function(){
+
+    // This is the delay before the second view loads
+    var delay=1000; //1 seconds
+    setTimeout(function(){
+      window.location.href = "/#/intro";
+    }, delay);
+
+  }
+
 }])
 
 
 .controller('carouselController', ['$scope', function($scope) {
+
+  require('ipc').on('ping', function(message) {
+    console.log(message);  // Prints "whoooooooh!"
+  });
 
 }])
