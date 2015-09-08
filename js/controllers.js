@@ -159,7 +159,7 @@ angular.module('flowApp')
 }])
 
 
-.controller('carouselController', ['$scope', function($scope) {
+.controller('carouselController', ['$scope','$http', function($scope,$http) {
   window.$scope = $scope
 
   $scope.assets = []
@@ -170,9 +170,77 @@ angular.module('flowApp')
                     $scope.$apply(function() {
                       $scope.assets=message
                     });
-    console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
+
+                    for(i=0;i<$scope.assets.length;i++)
+                    {
+
+                            /*var url = require('url')
+                            var fileUrl = url.format({
+                             protocol: 'file',
+                             pathname:  '__dirname + '/img'/'+$scope.assets[i]._id+'.png',
+                             slashes: true,
+                           })*/
+
+                      $scope.downloadPSD($scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png');
+                    }
+                    console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
   });
 
 
 
+  $scope.downloadPSD = function (imageURL,imgName) {
+
+    console.log("Downloading..."+imageURL)
+
+    var fs = require('fs'),
+        request = require('request');
+
+    var download = function(uri, filename, callback){
+      request.head(uri, function(err, res, body){
+        console.log('content-type:', res.headers['content-type']);
+        console.log('content-length:', res.headers['content-length']);
+
+        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+      });
+    };
+
+    download(imageURL, imgName, function(){
+      console.log('done');
+    });
+
+
+
+/*
+    var options = {url: imageURL};
+    $http.get(options, imgName, function (error, result) {
+        if (error) {
+            console.error("Error:"+error);
+        } else {
+            console.log('File downloaded at: ' + result.file);
+        }
+    });
+*/
+/*
+$http.get(imageURL).success(function(response) {
+//$http.get(imageURL,{responseType: "blob"}).success(function(response) {
+//  $http.get(imageURL,{responseType: "arraybuffer"}).success(function(response) {
+      console.log("Downloaded! "+imageURL)
+      //console.log("data! "+image_data)
+
+      //var byteArray = new Uint8Array(response);
+    //  var blob = new Blob([response], {type: "image/png"});
+
+                         try {
+                            console.log("Saving "+imgName)
+
+                            require('fs').writeFileSync(imgName, response, 'binary');
+                            console.log('Saved image!');
+                          } catch (err) {
+                              throw err;
+                          }
+
+
+    })*/
+
+  }
 }])
