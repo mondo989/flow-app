@@ -159,6 +159,7 @@ angular.module('flowApp')
   window.$scope = $scope
   $scope.assets = []
 
+
   require('ipc').on('ping', function(message) {
     $scope.$apply(function() {
       $scope.assets=message
@@ -195,6 +196,8 @@ angular.module('flowApp')
     download(imageURL, imgName, function(){
       console.log('done');
       //spinner stop loading for image on div ID xxx
+
+  // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';
 
       //img src to file://hddrfrf/rf/erf/ref/img.psd
   });

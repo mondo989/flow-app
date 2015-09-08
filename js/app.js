@@ -29,3 +29,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: "templates/intro.html"
     })
 })
+
+
+.directive("search", function(){
+  return {
+    controller: "assetSearch",
+    templateUrl: "templates/directives/search.html"
+  }
+})

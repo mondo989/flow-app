@@ -1,22 +1,33 @@
 <link rel="stylesheet" href="css/main.css">
 
 <div id ="home" class="row text-center " style="margin-top: -30px;">
-
   <a ui-sref="search"><img class="f-logo anim" src="img/f-logo.png" alt=""></a>
   <br>
   <img class="flow-logo" src="img/flow-png.png" alt="">
-
   <div class="row main-options" ng-controller="onboarding">
-    <a ui-sref="search"><i class="fa fa-search"></i></a>
-    <br>
-  
 
-    <a ng-click="onBoardingTransitions()" style="border: 0;"><i class="fa fa-chevron-right"></i></a>
+  <div class="full-row">
+    <search></search>
+  </div>
+
+    <!-- <a ui-sref="search" class="btns"><i class="fa fa-search"></i></a> -->
+    <!-- <a ng-click="onBoardingTransitions()" style="border: 0;" class="btns"><i class="fa fa-chevron-right"></i></a> -->
+
+    <h4 class="copy copy-anim">Flow is the easiest way to discover, manage, and use assets.</h4>
+    <h4 class="copy copy-anim-2">Start by searching for things about the asset</h4>
+
+
+
     <br>
-    <a ui-sref="signup">Sign up</a>
+    <br>
+<a ui-sref="search" class="skip">Skip</a>
+     <a ui-sref="search" class="btns">Next</a>
+
+
+
     <br>
     <!-- <a ui-sref="bottom-carousel">Bottom Carousel</a> -->
     <br>
+    <!-- <a ui-sref="signup" class="btns">Sign up</a> -->
   </div>
-
 </div>

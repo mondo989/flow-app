@@ -1,3 +1,7 @@
+body {
+  font-family: "Open Sans";
+}
+
 .row a {
   font-size: 25px;
   line-height: 2;
@@ -10,6 +14,14 @@
 
 .row a {
   font-weight: 100!important;
+}
+
+a.skip {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 120px;
+  margin-bottom: -30px;
 }
 
 
@@ -43,7 +55,6 @@
   padding: 40px;
 }
 
-
 .flow-logo {
   width: 120px;
 
@@ -52,7 +63,7 @@
   padding-top: 40px;
 }
 
-.main-options a {
+.main-options a.btns {
   border: 1px solid black;
   padding: 2px 10px;
   border-radius: 28px;
@@ -62,7 +73,7 @@
   letter-spacing: 1.5px;
   text-decoration: none;
 }
-.main-options a:hover {
+.main-options a.btns:hover {
   background: black;
   color: white;
 }
@@ -72,4 +83,43 @@
   -moz-animation: fadeInLeft .5s;
   -o-animation: fadeInLeft .5s;
   animation: fadeInLeft .5s;
+}
+
+.form-search {
+  width: 600px;
+}
+
+h4.copy {
+  font-weight: 200;
+}
+
+h4.copy-anim {
+  -webkit-animation: fadeInUp 1.5s!important;
+  -moz-animation: fadeInUp 1.5s!important;
+  -o-animation: fadeInUp 1.5s!important;
+  animation: fadeInUp 1.5s!important;
+}
+
+h4.copy-anim-2 {
+  -webkit-animation: fadeInUp 5s!important;
+  -moz-animation: fadeInUp 5s!important;
+  -o-animation: fadeInUp 5s!important;
+  animation: fadeInUp 5s!important;
+}
+
+
+
+
+/*Overrides for search */
+
+.full-row {
+  position: relative!important;
+}
+
+.form-search a, .form-search .btn-submit {
+  display: none;
+}
+
+.chevron-down {
+  display: none;
 }
