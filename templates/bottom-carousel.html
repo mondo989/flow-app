@@ -4,11 +4,21 @@
   <a class="tabs left" href="#"><i class="fa fa-angle-left"></i> </a>
   <div class="row text-center asset-main-container">
 
-    <a ng-repeat="asset in assets" href="#">
-      <img ng-src="{{asset._source.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">
+
+    <!-- <div ng-repeat="asset in assets" >
+      <img ng-src="{{asset.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">
         <loader id="loader-{{asset._id}}"></loader>
       <div class="asset-container">
         <span class="load-percent">20%</span>
+      </div>
+    </div> -->
+
+
+     <a ng-repeat="asset in assets" ng-href="{{asset._source.imgPsd}}" is="action-link">
+      <img ng-src="{{asset._source.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">
+        <loader id="loader-{{asset._id}}"></loader>
+      <div class="asset-container">
+        <span class="load-percent"  id="percent-{{asset._id}}"></span>
       </div>
     </a>
 

@@ -112,6 +112,11 @@ angular.module('flowApp')
       }
      console.log("selectedItems "+selectedItems)
 
+
+             for(i=0;i<itemsToDisplay.length;i++) {
+
+                 itemsToDisplay[i]._source.imgPsd=itemsToDisplay[i]._source.imgSrc.replace("asset-img", "asset-raw").replace('.png','.psd')
+             }
      bottomCarousel.webContents.send('ping', itemsToDisplay);
    }
 
@@ -160,19 +165,25 @@ angular.module('flowApp')
   $scope.assets = []
 
 
+
   require('ipc').on('ping', function(message) {
+
+
     $scope.$apply(function() {
       $scope.assets=message
     });
 
-    for(i=0;i<$scope.assets.length;i++) {
-        /*var url = require('url')
+
+        for(i=0;i<$scope.assets.length;i++) {
+
+    /*var url = require('url')
         var fileUrl = url.format({
          protocol: 'file',
          pathname:  '__dirname + '/img'/'+$scope.assets[i]._id+'.png',
          slashes: true,
        })*/
-     $scope.downloadPSD($scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png', $scope.assets[i]._id);
+     $scope.downloadPSD($scope.assets[i]._source.imgPsd,'./imgs/'+ $scope.assets[i]._id+'.psd', $scope.assets[i]._id);
+
     }
     console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
   });
@@ -183,17 +194,73 @@ angular.module('flowApp')
     var fs = require('fs'),
         request = require('request');
 
-    var download = function(uri, filename, callback){
+    var download = function(uri, filename, progress_callback, end_callback){
       request.head(uri, function(err, res, body){
         console.log('content-type:', res.headers['content-type']);
         console.log('content-length:', res.headers['content-length']);
 
-        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+        //1 WAY OF DONWLOADING FILE
+        //request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+
+        //2nd WAY OF DOWNLOAD FILE
+        /*var file = fs.createWriteStream(filename);
+
+         // request the file from a remote server
+         var rem = request(uri);
+         rem.on('data', function(chunk) {
+
+           console.log('chunk size:'+chunk.length)
+           // instead of loading the file into memory
+           // after the download, we can just pipe
+           // the data as it's being downloaded
+           file.write(chunk);
+         });
+         rem.on('end', callback);
+
+         */
+         //3rd WAY OF DOWNLOADING FILE
+         var AWS = require('aws-sdk');
+         AWS.config.region = 'us-west-1';
+
+
+            AWS.config.update({
+                accessKeyId:  "AKIAJVSGAOUL32MUL33A",
+                secretAccessKey: "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",
+                "region": "us-west-1"
+            });
+
+//console.log("exploded url: "+uri.substring(uri.lastIndexOf('/')+1))
+         /*var s3 = new AWS.S3();
+         var params = {Bucket: 'asset-raw', Key: 'iphone2.psd'};
+         var file = require('fs').createWriteStream(filename);
+         s3.getObject(params).createReadStream().pipe(file);*/
+
+
+
+         var s3 = new AWS.S3();
+
+         var params = {Bucket: 'asset-raw', Key: uri.substring(uri.lastIndexOf('/')+1)};
+         var file = require('fs').createWriteStream(filename);
+
+        s3.getObject(params).
+          on('httpData', function(chunk) { /*console.log(chunk.length);*/ file.write(chunk); }).
+          on('httpDownloadProgress', function (progress) {
+            progress_callback(Math.round(progress.loaded/progress.total*100.0));
+            //console.log("Downloaded" + progress.loaded + "of"+ progress.total+ "bytes");
+          }).
+          on('httpDone', function() { file.end();  end_callback(); }).
+
+          send();
+
+
       });
     };
     //spinner start loading for image on div ID xxx
 
-    download(imageURL, imgName, function(){
+    download(imageURL, imgName, function(percent){
+      console.log('progess '+percent);
+        document.getElementById('percent-' + imgId).innerHTML= percent+"%";
+  }, function(){
       console.log('done');
       console.log(imgId);
         document.getElementById('loader-' + imgId).style.visibility= "hidden";
