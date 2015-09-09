@@ -4,17 +4,7 @@
   <a class="tabs left" href="#"><i class="fa fa-angle-left"></i> </a>
   <div class="row text-center asset-main-container">
 
-
-    <!-- <div ng-repeat="asset in assets" >
-      <img ng-src="{{asset.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">
-        <loader id="loader-{{asset._id}}"></loader>
-      <div class="asset-container">
-        <span class="load-percent">20%</span>
-      </div>
-    </div> -->
-
-
-     <a ng-repeat="asset in assets" ng-href="{{asset._source.imgPsd}}" is="action-link">
+     <a ng-click="hideSearchWindow();" ng-repeat="asset in assets" ng-href="{{asset._source.imgPsd}}" is="action-link">
       <img ng-src="{{asset._source.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">
         <loader id="loader-{{asset._id}}"></loader>
       <div class="asset-container">
@@ -24,12 +14,18 @@
 
 
     <div class="sub-carousel-holder">
+      <a ng-click="showSearchWindow()" href="#" class="search-btn" >
+        <i class="fa fa-search" style="color: black;"></i>
+      </a>
       <a href="#" class="trash-btn">
         <i class="fa fa-trash-o" style="color: black;"></i>
       </a>
-      <a href="#" class="save">
+      <!-- <a href="#" class="save">
         <i class="fa fa-floppy-o" style="color: black;"></i>
-      </a>
+      </a> -->
+      <!-- <a href="#" class="save">
+        <i class="fa fa-floppy-o" style="color: black;"></i>
+      </a> -->
     </div>
 
   </div>

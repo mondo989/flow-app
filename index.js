@@ -45,7 +45,4 @@ app.on('ready', function() {
 
   console.log("We passed the step")
 
-  // ipc.on('show-bottom' function() {
-  //   bottomCarousel.show()
-  // })
 })

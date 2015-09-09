@@ -73,78 +73,45 @@ angular.module('flowApp')
      chevronDown.classList.toggle('rotateInMod');
   }
 
+
+
+// function called when user clicks download assets
   $scope.downloadAssets = function() {
-      var remote = require('remote');
-      var BrowserWindow = remote.require('browser-window');
-      console.log(BrowserWindow.getAllWindows())
-      var windows = BrowserWindow.getAllWindows()
-      var bottomCarousel = windows[0]
+    var remote = require('remote');
+    var BrowserWindow = remote.require('browser-window');
+    console.log(BrowserWindow.getAllWindows())
+    var windows = BrowserWindow.getAllWindows()
+    var bottomCarousel = windows[0]
 
+    bottomCarousel.show()
 
+    var itemsToDisplay = []
+    var selectedItems = document.querySelectorAll('.selected');
 
-    //   var url = require('url')
-    //   var indexUrl = url.format({
-    //    protocol: 'file',
-    //    pathname:  __dirname + '/index.html',
-    //    slashes: true,
-    //    hash: 'bottom-carousel'
-    //  })
-     //
-    //  console.log(indexUrl)
-    //  bottomCarousel.loadUrl(indexUrl)
-     bottomCarousel.show()
+    for (i = 0; i < selectedItems.length; ++i) {
 
-     var itemsToDisplay = []
-     var selectedItems = document.querySelectorAll('.selected');
+      for(j=0;j<$scope.assets.hits.hits.length;j++)
+      {
 
-     for (i = 0; i < selectedItems.length; ++i) {
-
-        for(j=0;j<$scope.assets.hits.hits.length;j++)
+        if($scope.assets.hits.hits[j]._id==selectedItems[i].attributes[0].value)
         {
+          console.log("copy this selected item's metadata from elastic search and send to carousell view"+selectedItems[i].attributes[0].value)
 
-          if($scope.assets.hits.hits[j]._id==selectedItems[i].attributes[0].value)
-          {
-            console.log("copy this selected item's metadata from elastic search and send to carousell view"+selectedItems[i].attributes[0].value)
-
-            itemsToDisplay.push($scope.assets.hits.hits[j])
-          }
+          itemsToDisplay.push($scope.assets.hits.hits[j])
         }
       }
-     console.log("selectedItems "+selectedItems)
-
-
-             for(i=0;i<itemsToDisplay.length;i++) {
-
-                 itemsToDisplay[i]._source.imgPsd=itemsToDisplay[i]._source.imgSrc.replace("asset-img", "asset-raw").replace('.png','.psd')
-             }
+    }
+    console.log("selectedItems "+selectedItems)
+       for(i=0;i<itemsToDisplay.length;i++) {
+         itemsToDisplay[i]._source.imgPsd=itemsToDisplay[i]._source.imgSrc.replace("asset-img", "asset-raw").replace('.png','.psd')
+       }
      bottomCarousel.webContents.send('ping', itemsToDisplay);
    }
-
-
 /*
    $scope.toggleAssets = function(param) {
     console.log("recieved:" + param )
    }
 */
-
-// ------  This is fixed but still here, for properties only broken yoooo
-        // $scope.downloadAssets = function() {
-        //   console.log("heyyy yo")
-        //       var remote = require('remote');
-        //       var BrowserWindow = remote.require('browser-window');
-        //       var bottomWindow = new BrowserWindow({
-        //         width: 1700,
-        //         height: 100,
-        //         transparent: true,
-        //         frame: false,
-        //         resizable: true,
-        //         "always-on-top": true,
-        //         x: 0,
-        //         y: 2699
-        //       });
-        //       bottomWindow.loadUrl('file://' + __dirname + '/bottom-carousel.html');
-        //     }
-// -------
 
 }])
 
@@ -159,34 +126,49 @@ angular.module('flowApp')
   }
 }])
 
+// BOTTOM CAROUSEL CONTROLLER
 // Calls bottom carousel window, png's & psd's of selected assets.
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
   window.$scope = $scope
   $scope.assets = []
 
-
-
   require('ipc').on('ping', function(message) {
-
-
     $scope.$apply(function() {
       $scope.assets=message
     });
 
-
-        for(i=0;i<$scope.assets.length;i++) {
-
-    /*var url = require('url')
-        var fileUrl = url.format({
-         protocol: 'file',
-         pathname:  '__dirname + '/img'/'+$scope.assets[i]._id+'.png',
-         slashes: true,
-       })*/
-     $scope.downloadPSD($scope.assets[i]._source.imgPsd,'./imgs/'+ $scope.assets[i]._id+'.psd', $scope.assets[i]._id);
-
-    }
+      for(i=0;i<$scope.assets.length;i++) {
+        $scope.downloadPSD($scope.assets[i]._source.imgPsd,'./imgs/'+ $scope.assets[i]._id+'.psd', $scope.assets[i]._id);
+      }
     console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
   });
+
+
+
+
+// Makes search window hide on Bottom Carousel Click
+  $scope.hideSearchWindow = function() {
+
+    var remote = require('remote');
+    var BrowserWindow = remote.require('browser-window');
+    var windows = BrowserWindow.getAllWindows()
+    var searchWindow = windows[1]
+
+    searchWindow.hide()
+  }
+
+  $scope.showSearchWindow = function() {
+
+    var remote = require('remote');
+    var BrowserWindow = remote.require('browser-window');
+    var windows = BrowserWindow.getAllWindows()
+    var searchWindow = windows[1]
+
+    searchWindow.show()
+  }
+
+
+
 
   $scope.downloadPSD = function (imageURL,imgName, imgId) {
     console.log("Downloading..."+imageURL)
@@ -199,9 +181,8 @@ angular.module('flowApp')
         console.log('content-type:', res.headers['content-type']);
         console.log('content-length:', res.headers['content-length']);
 
-         var AWS = require('aws-sdk');
-         AWS.config.region = 'us-west-1';
-
+        var AWS = require('aws-sdk');
+            AWS.config.region = 'us-west-1';
 
             AWS.config.update({
                 accessKeyId:  "AKIAJVSGAOUL32MUL33A",
@@ -209,20 +190,13 @@ angular.module('flowApp')
                 "region": "us-west-1"
             });
 
-//console.log("exploded url: "+uri.substring(uri.lastIndexOf('/')+1))
-         /*var s3 = new AWS.S3();
-         var params = {Bucket: 'asset-raw', Key: 'iphone2.psd'};
-         var file = require('fs').createWriteStream(filename);
-         s3.getObject(params).createReadStream().pipe(file);*/
-
          var s3 = new AWS.S3();
-
          var params = {Bucket: 'asset-raw', Key: uri.substring(uri.lastIndexOf('/')+1)};
          var file = require('fs').createWriteStream(filename);
 
-        s3.getObject(params).
-          on('httpData', function(chunk) { /*console.log(chunk.length);*/ file.write(chunk); }).
-          on('httpDownloadProgress', function (progress) {
+        s3.getObject(params)
+          .on('httpData', function(chunk) { /*console.log(chunk.length);*/ file.write(chunk); })
+          .on('httpDownloadProgress', function (progress) {
             progress_callback(Math.round(progress.loaded/progress.total*100.0));
             //console.log("Downloaded" + progress.loaded + "of"+ progress.total+ "bytes");
           })
@@ -232,50 +206,17 @@ angular.module('flowApp')
     };
 
   //spinner start loading for image on div ID xxx
-    download(imageURL, imgName, function(percent){
-      // console.log('progess '+percent);
-        document.getElementById('percent-' + imgId).innerHTML= percent+"%";
-  }, function(){
-      console.log('done');
-      console.log(imgId);
+      download(imageURL, imgName, function(percent){
+                // console.log('progess '+percent);
+                document.getElementById('percent-' + imgId).innerHTML= percent+"%";
+          }, function(){
+              console.log('done');
+              console.log(imgId);
 
-      //Spinner loads
-        document.getElementById('loader-' + imgId).style.visibility= "hidden";
-        console.log('Loader jquery:' + document.getElementById('loader-' + imgId))
-      // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';
-  });
-
-  /*
-      var options = {url: imageURL};
-      $http.get(options, imgName, function (error, result) {
-          if (error) {
-              console.error("Error:"+error);
-          } else {
-              console.log('File downloaded at: ' + result.file);
+            //Spinner loads
+              document.getElementById('loader-' + imgId).style.visibility= "hidden";
+              console.log('Loader jquery:' + document.getElementById('loader-' + imgId))
+            // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';
+             });
           }
-      });
-  */
-  /*
-  $http.get(imageURL).success(function(response) {
-  //$http.get(imageURL,{responseType: "blob"}).success(function(response) {
-  //  $http.get(imageURL,{responseType: "arraybuffer"}).success(function(response) {
-        console.log("Downloaded! "+imageURL)
-        //console.log("data! "+image_data)
-
-        //var byteArray = new Uint8Array(response);
-      //  var blob = new Blob([response], {type: "image/png"});
-
-                           try {
-                              console.log("Saving "+imgName)
-
-                              require('fs').writeFileSync(imgName, response, 'binary');
-                              console.log('Saved image!');
-                            } catch (err) {
-                                throw err;
-                            }
-
-
-      })*/
-
-  }
-}])
+      }])
