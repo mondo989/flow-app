@@ -81,10 +81,12 @@ a.save {
   width: 16.0%;
   display: inline-block;
   position: relative;
-  border: 2px solid #f3f3f3;
+  border: 10px solid #f3f3f3;
   /*background: url('https://s3-us-west-1.amazonaws.com/asset-img/iphone2.png');*/
   background-size: 80% 100%;
   background-repeat: no-repeat;
+  background-color: rgba(0,0,0,.4);
+
 }
 .asset-main-container a {
   text-decoration: none;
@@ -97,6 +99,7 @@ a.save {
 
 .asset-png {
   width: 100%;
+  border-radius: 12px;
   height: 120px;
   position: absolute;
   left: 0;
@@ -108,14 +111,26 @@ a.save {
   right: 0;
   left: 0;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 11px;
+
+  -webkit-animation: fadeInUp 10s;
+  -moz-animation: fadeInUp 10s;
+  -o-animation: fadeInUp 10s;
+  animation: fadeInUp 10s;
 }
 
 .load-percent {
   position: absolute;
-  color: black;
+  color: white;
   bottom: 0;
   right: 0;
-  font-size: 20px;
+  text-shadow: 1px 1px #000;
+  font-weight: bold;
+  font-size: 40px;
   margin-right: 10px;
+
+  -webkit-animation: fadeInUp 5s;
+  -moz-animation: fadeInUp 5s;
+  -o-animation: fadeInUp 5s;
+  animation: fadeInUp 5s;
 }

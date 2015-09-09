@@ -6,14 +6,12 @@ var url = require('url')
 
 require('electron-debug')(); //- This allows debugging CMD+ALT+I
 
-
-
 var bottomCarousel;
 
 app.on('ready', function() {
   var mainWindow = new BrowserWindow({
     width: 900,
-    height: 600,
+    height: 630,
     resizable: true,
     frame: false,
     "node-integration": true

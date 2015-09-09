@@ -199,26 +199,6 @@ angular.module('flowApp')
         console.log('content-type:', res.headers['content-type']);
         console.log('content-length:', res.headers['content-length']);
 
-        //1 WAY OF DONWLOADING FILE
-        //request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-
-        //2nd WAY OF DOWNLOAD FILE
-        /*var file = fs.createWriteStream(filename);
-
-         // request the file from a remote server
-         var rem = request(uri);
-         rem.on('data', function(chunk) {
-
-           console.log('chunk size:'+chunk.length)
-           // instead of loading the file into memory
-           // after the download, we can just pipe
-           // the data as it's being downloaded
-           file.write(chunk);
-         });
-         rem.on('end', callback);
-
-         */
-         //3rd WAY OF DOWNLOADING FILE
          var AWS = require('aws-sdk');
          AWS.config.region = 'us-west-1';
 
@@ -235,8 +215,6 @@ angular.module('flowApp')
          var file = require('fs').createWriteStream(filename);
          s3.getObject(params).createReadStream().pipe(file);*/
 
-
-
          var s3 = new AWS.S3();
 
          var params = {Bucket: 'asset-raw', Key: uri.substring(uri.lastIndexOf('/')+1)};
@@ -247,29 +225,24 @@ angular.module('flowApp')
           on('httpDownloadProgress', function (progress) {
             progress_callback(Math.round(progress.loaded/progress.total*100.0));
             //console.log("Downloaded" + progress.loaded + "of"+ progress.total+ "bytes");
-          }).
-          on('httpDone', function() { file.end();  end_callback(); }).
-
-          send();
-
-
+          })
+          .on('httpDone', function() { file.end();  end_callback(); })
+          .send();
       });
     };
-    //spinner start loading for image on div ID xxx
 
+  //spinner start loading for image on div ID xxx
     download(imageURL, imgName, function(percent){
-      console.log('progess '+percent);
+      // console.log('progess '+percent);
         document.getElementById('percent-' + imgId).innerHTML= percent+"%";
   }, function(){
       console.log('done');
       console.log(imgId);
+
+      //Spinner loads
         document.getElementById('loader-' + imgId).style.visibility= "hidden";
         console.log('Loader jquery:' + document.getElementById('loader-' + imgId))
-      //spinner stop loading for image on div ID xxx
-
-  // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';
-
-      //img src to file://hddrfrf/rf/erf/ref/img.psd
+      // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';
   });
 
   /*
