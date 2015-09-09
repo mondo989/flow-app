@@ -172,12 +172,12 @@ angular.module('flowApp')
          pathname:  '__dirname + '/img'/'+$scope.assets[i]._id+'.png',
          slashes: true,
        })*/
-     $scope.downloadPSD($scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png');
+     $scope.downloadPSD($scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png', $scope.assets[i]._id);
     }
     console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
   });
 
-  $scope.downloadPSD = function (imageURL,imgName) {
+  $scope.downloadPSD = function (imageURL,imgName, imgId) {
     console.log("Downloading..."+imageURL)
 
     var fs = require('fs'),
@@ -195,6 +195,9 @@ angular.module('flowApp')
 
     download(imageURL, imgName, function(){
       console.log('done');
+      console.log(imgId);
+        document.getElementById('loader-' + imgId).style.visibility= "hidden";
+        console.log('Loader jquery:' + document.getElementById('loader-' + imgId))
       //spinner stop loading for image on div ID xxx
 
   // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';

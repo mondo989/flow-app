@@ -37,3 +37,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: "templates/directives/search.html"
   }
 })
+
+.directive("loader", function(){
+  return {
+    templateUrl: "templates/directives/loader.html"
+  }
+})
