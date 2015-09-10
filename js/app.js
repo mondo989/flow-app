@@ -43,3 +43,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: "templates/directives/loader.html"
   }
 })
+
+
+window.fns = {
+  assetSearch: {
+    focusOnSearchInput: function(){
+      document.querySelector("#query").focus()
+    }
+  }
+}
