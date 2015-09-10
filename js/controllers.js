@@ -1,7 +1,7 @@
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
-  window.fns.assetSearch.focusOnSearchInput()
+  setTimout(function(){window.fns.assetSearch.focusOnSearchInput()},3000)
   window.$scope = $scope
   $scope.searchTags = []
 
