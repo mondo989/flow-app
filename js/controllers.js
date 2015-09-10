@@ -1,6 +1,9 @@
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
+  $scope.$on('$viewContentLoaded', function(){
+    window.fns.assetSearch.focusOnSearchInput()
+  });
   window.$scope = $scope
   $scope.searchTags = []
 
