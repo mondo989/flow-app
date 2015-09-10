@@ -1,0 +1,23 @@
+body {
+  font-family: "Open Sans";
+  overflow: hidden;
+}
+
+input::-webkit-input-placeholder,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  font-family: "Open Sans";
+}
+input:-moz-placeholder,
+input:-moz-placeholder,
+textarea:-moz-placeholder,
+textarea:-moz-placeholder {
+  font-family: "Open Sans";
+}
+input:-ms-input-placeholder,
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  font-family: "Open Sans";
+}
