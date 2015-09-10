@@ -45,6 +45,7 @@ angular.module('flowApp')
       var query = $scope.query.trim()
       $scope.searchTags = query ? $scope.query.split(" ") : []
       $scope.query = ""
+      document.querySelector("#query").focus()
     })
 
 
