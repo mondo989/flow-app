@@ -45,6 +45,12 @@ a.right {
   height: 120px;
   top: 0;
   right: 0;
+
+  -webkit-animation: fadeInLeftBig 5s;
+  -moz-animation: fadeInLeftBig 5s;
+  -o-animation: fadeInLeftBig 5s;
+  animation: fadeInLeftBig 5s;
+
 }
 .trash-btn {
   margin-left: 0px;
@@ -57,7 +63,27 @@ a.right {
 }
 .fa-search {
   font-size: 25px;
-  padding: 20px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.fa-search.inactive {
+  font-size: 30px;
+  color: green!important;
+  border: 2px solid #ccc;
+  border-radius: 120px;
+
+  -webkit-transition:  .5s ease;
+  transition:  .5s ease;
+
+
+  -webkit-animation: pulse 5s infinte;
+  -moz-animation: pulse 5s infinte;
+  -o-animation: pulse 5s infinte;
+  animation: pulse 5s infinte;
+}
+.fa-search.inactive:hover {
+  background: #ccc;
 }
 .fa-trash-o {
   font-size: 30px;
@@ -97,6 +123,7 @@ a.save {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  margin: 0 3px;
 }
 /*.asset-container:hover {
   border: 2px solid #ccc;
@@ -104,10 +131,11 @@ a.save {
 .asset-png {
   width: 100%;
   border-radius: 12px;
-  height: 120px;
+  height: 115px;
   position: absolute;
   left: 0;
   right: 0;
+  margin: 0 auto;
 }
 #loader-1 {
   position: absolute;
@@ -133,4 +161,9 @@ a.save {
   -moz-animation: fadeInUp 5s;
   -o-animation: fadeInUp 5s;
   animation: fadeInUp 5s;
+}
+.click-area {
+  width: 90%;
+  display: block;
+  position: absolute;
 }

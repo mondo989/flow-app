@@ -89,14 +89,11 @@ angular.module('flowApp')
     var selectedItems = document.querySelectorAll('.selected');
 
     for (i = 0; i < selectedItems.length; ++i) {
-
       for(j=0;j<$scope.assets.hits.hits.length;j++)
       {
-
         if($scope.assets.hits.hits[j]._id==selectedItems[i].attributes[0].value)
         {
           console.log("copy this selected item's metadata from elastic search and send to carousell view"+selectedItems[i].attributes[0].value)
-
           itemsToDisplay.push($scope.assets.hits.hits[j])
         }
       }
@@ -115,6 +112,8 @@ angular.module('flowApp')
 
 }])
 
+
+// Onboarding Controller Yoooo!
 .controller('onboarding', ['$scope', function($scope) {
   // console.log("Hey sunshine")
   $scope.onBoardingTransitions = function(){
@@ -144,8 +143,6 @@ angular.module('flowApp')
   });
 
 
-
-
 // Makes search window hide on Bottom Carousel Click
   $scope.hideSearchWindow = function() {
 
@@ -155,6 +152,9 @@ angular.module('flowApp')
     var searchWindow = windows[1]
 
     searchWindow.hide()
+
+    document.querySelector('.fa-search').classList.toggle('inactive');
+
   }
 
   $scope.showSearchWindow = function() {
@@ -165,6 +165,7 @@ angular.module('flowApp')
     var searchWindow = windows[1]
 
     searchWindow.show()
+      document.querySelector('.fa-search').classList.toggle('active');
   }
 
 
