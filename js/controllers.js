@@ -1,7 +1,6 @@
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
-
   window.$scope = $scope
   $scope.searchTags = []
 
@@ -59,10 +58,6 @@ angular.module('flowApp')
   $scope.deleteTag = function($index){
     $scope.searchTags.splice($index, 1)  // Something's fucked up :)
     $scope.search()
-  }
-
-  $scope.editTags = function(){
-    $scope.query = $scope.searchTags.join(" ")
   }
 
   $scope.newViewTransition = function () {
