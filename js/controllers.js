@@ -61,10 +61,6 @@ angular.module('flowApp')
     $scope.search()
   }
 
-  $scope.editTags = function(){
-    $scope.query = $scope.searchTags.join(" ")
-  }
-
   $scope.newViewTransition = function () {
     // console.log("Bae");
      var assetFilter = document.querySelector('.checkbox-options-holder');
