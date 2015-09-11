@@ -65,22 +65,26 @@ a.right {
   font-size: 25px;
   padding: 10px;
   margin-top: 10px;
-}
-
-.fa-search.inactive {
-  font-size: 30px;
-  color: green!important;
-  border: 2px solid #ccc;
+  color: blue;
+  border: 2px solid #ccc!important;
+  background: #f3f3f3!important;
   border-radius: 120px;
 
-  -webkit-transition:  .5s ease;
-  transition:  .5s ease;
+  -webkit-transition:  1s ease;
+  transition:  1s ease;
+}
+
+.fa-search.attention {
+  font-size: 25px;
+  padding: 10px;
+  color: white!important;
+  border: 2px solid #f3f3f3!important;
+  background: #ccc!important;
 
 
-  -webkit-animation: pulse 5s infinte;
-  -moz-animation: pulse 5s infinte;
-  -o-animation: pulse 5s infinte;
-  animation: pulse 5s infinte;
+  -webkit-transition:  1s ease;
+  transition:  1s ease;
+
 }
 .fa-search.inactive:hover {
   background: #ccc;

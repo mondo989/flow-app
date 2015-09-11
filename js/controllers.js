@@ -153,7 +153,13 @@ angular.module('flowApp')
 
     searchWindow.hide()
 
-    document.querySelector('.fa-search').classList.toggle('inactive');
+    // document.querySelector('.fa-search').classList.toggle('inactive');
+
+
+    setInterval(function(){
+     document.querySelector('.fa-search').classList.toggle('attention');
+  }, 2000);
+
 
   }
 
