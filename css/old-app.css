@@ -118,6 +118,8 @@ span.tags-container {
 .asset {
   background: #fff!important;
   margin: 1px .5px;
+  padding-right: 0;
+  padding-left: 0;
   border: 2px solid #f3f3f3!important;
   list-style-type: none;
   -webkit-transition: 2s;
@@ -138,9 +140,10 @@ span.tags-container {
   -moz-animation: appear 1.1s;
   -o-animation: appear 1.1s;
   animation: appear 1.1s;
-  border: 2px solid #ccc!important;
+  border: 2px solid #bbb!important;
   background: #f0f0f0!important;
   border-radius: 6px;
+  box-shadow: inset 0 0 100px #ccc;
   /* 			-ms-transform: scale(1.02); IE 9
 	   	-webkit-transform: scale(1.02); Safari
 	    				transform: scale(1.02); */
@@ -155,13 +158,13 @@ span.tags-container {
   opacity: 1;
   background: #f3f3f3!important;
 }
-.asset img {
+.asset img.asset-img-png  {
   margin: 0 auto;
   max-height: 140px;
   height: 140px;
-  max-width: 240px;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  /*max-width: 240px;*/
+  width: 100%;
+  margin-top: 10px;
 }
 #get-assets-container {
   margin-top: 100px;
@@ -234,7 +237,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   margin-left: 3px;
   opacity: .5;
 }
-.fa-chevron-down {
+.form-search .fa-chevron-down {
   position: absolute;
   margin-top: 30px;
   font-size: 32px;
@@ -413,4 +416,90 @@ img.asset-img {
 .animation.ng-leave.ng-leave-active {
   opacity: 0;
   left: -150%;
+}
+
+
+.author-row {
+  display: inline-block;
+  border-top: 1px solid #f3f3f3;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: left;
+  margin-left: 20px;
+  padding: 3.5px 0;
+}
+.author-row img {
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  border-radius: 120px;
+
+}
+.author-row a {
+  margin-left: 10px;
+  color: #2200CC;
+}
+
+.ranking-holder{
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  margin-top: 5px;
+  padding: 5px;
+  display: block;
+  background: rgba(0, 0, 0, 0.04);!important;
+  border-radius: 15px;
+}
+
+.upvote, .downvote {
+  display: inline;
+  font-size: 15px;
+
+}
+.upvote i, .downvote i {
+  color: #888;
+  color: #fff;
+  text-shadow: 0 0 1.5px black;
+}
+
+.hover-wrapper {
+
+}
+
+.content-holder li:hover span.hover-wrapper {
+  -webkit-transition: 2s!important;
+  transition: 2s!important;
+  display: inline;
+}
+
+span.ranking-number {
+  display: inherit;
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 1px 1px 0 black;
+}
+.favorites {
+  position: absolute;
+  top:0;
+  right:0;
+  margin: 20px;
+  margin-top: 20px;
+  font-size: 25px;
+  margin-right: 15px;
+  color: #f3f3f3;
+}
+
+.favorites i {
+  color: #ccc;
+  opacity: .6;
+}
+
+.photoshop, .illustrator  {
+  width: 30px!important;
+}
+
+.sketch {
+  width: 40px;
 }

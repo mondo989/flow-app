@@ -79,7 +79,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   margin-left: 3px;
   opacity: .5;
 }
-.fa-chevron-down {
+.form-search .fa-chevron-down {
   position: absolute;
   margin-top: 30px;
   font-size: 32px;

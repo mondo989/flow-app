@@ -3,32 +3,18 @@
 
 <div>
   <div class="full-row" ng-controller="assetSearch">
-    <!-- <form class="form-search">
-      <div>
-          <input ng-model="query" ng-click="editTags()" ng-change="updateQuery(); addTag();" autocomplete="off" type="text" id="query"  class="search" placeholder="Search Assets" />
-        <span class="tags-container">
-          <li class="tags-list tags-anim" ng-repeat="tag in searchTags">
-            {{tag}}
-            <a title="{{$index}}" ng-click="deleteTag($index)"><i class="fa fa-close"></i></a>
-          </li>
-        </span>
-      <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
-      <a href="#" ng-click="assetFilterClicked()"><i class="fa fa-chevron-down"></i></a>
-      <button class="btn-submit" ng-click="search()" type="submit"></button>
-      </div>
-    </form> -->
 
     <search></search>
 
     <div class="row checkbox-options-holder inactive checkbox-options-holder-anim">
       <input type="checkbox" value="None" id="slideOne" name="check" checked />
-      <label for="slideOne">Photoshop</label>
+      <label for="slideOne"> <img class="photoshop" src="img/photoshop.png" alt=""> </label>
 
       <input type="checkbox" value="None" id="slideTwo" name="check" checked />
-      <label for="slideTwo">Illustrator</label>
+      <label for="slideTwo"><img class="illustrator" src="img/illustrator.png" alt=""></label>
 
       <input type="checkbox" value="None" id="slideThree" name="check" checked />
-      <label for="slideThree">Sketch</label>
+      <label for="slideThree"><img class="sketch" src="img/sketch.png" alt=""></label>
 
       <input type="checkbox" value="None" id="slideFour" name="check" checked />
       <label for="slideFour">Static Assets</label>
@@ -37,7 +23,32 @@
     <ul class="content-holder">  <!--    {{ assets }} -->
       <img class="f-logo" src="img/f-logo.png" alt="">
       <li ng-id="{{asset._id}}" ng-repeat="asset in assets.hits.hits" ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
-        <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}">
+        <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
+
+
+      <span class="hover-wrapper">
+        <div class="ranking-holder">
+          <span class="upvote">
+            <a href="#">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+          </span>
+          <span class="ranking-number">120</span>
+          <span class="downvote">
+            <a href="#">
+              <i class="fa fa-chevron-down"></i>
+            </a>
+          </span>
+        </div>
+
+          <div class="favorites">
+            <a href="#"><i class="fa fa-star"></i></a>
+          </div>
+        </span>
+
+
+        <span class="author-row"><img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt=""> <a href="#">Lorem Ipsum</a></span>
       </li>
     </ul>
 
