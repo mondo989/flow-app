@@ -464,7 +464,25 @@ img.asset-img {
   color: #fff;
   text-shadow: 0 0 1.5px black;
 }
-.hover-wrapper {}
+.hover-wrapper .downvote i, .hover-wrapper .favorites {
+  opacity: 0;
+}
+
+.asset:hover .hover-wrapper .downvote,
+.asset:hover .hover-wrapper .favorites{
+  display: block!important;
+ }
+
+.asset:hover .hover-wrapper .favorites, .asset:hover .hover-wrapper .downvote i  {
+ -webkit-transition: .5s!important;
+ transition: .5s!important;
+  opacity: 1;
+}
+
+ .asset:hover .hover-wrapper .ranking-number {
+   font-size: 20px;
+ }
+
 .content-holder li:hover span.hover-wrapper {
   -webkit-transition: 2s!important;
   transition: 2s!important;
