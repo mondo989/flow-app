@@ -1,0 +1,87 @@
+body {
+  background: white;
+}
+
+.author-img {
+  border-radius: 120px;
+  width: 80px;
+  border: 1px solid #f3f3f3;
+  margin-top: 33px;
+}
+
+.author-content {
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 8px;
+  display: block;
+}
+.author-content.anim {
+  -webkit-animation: fadeInDown 1s;
+  -moz-animation: fadeInDown 1s;
+  -o-animation: fadeInDown 1s;
+  animation: fadeInDown 1s;
+}
+.author-content .tagline {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.author-holder h4 {
+  display: inline;
+  margin: 0 10px;
+}
+
+.author-holder i {
+  font-size: 20px;
+  margin: 10px 0;
+}
+.author-holder {
+
+}
+
+.author {
+  font-family: 'Open Sans'!important;
+  position: relative;
+}
+.author h1 {
+  font-family: 'Open Sans'!important;
+}
+.author h4 {
+  color: #ccc;
+  font-size: 15px;
+  font-family: 'Open Sans'!important;
+}
+.author h6 {
+  font-family: 'Open Sans'!important;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  font-size: 16px;
+  line-height: 1.3;
+  opacity: .8;
+}
+
+.author .content-holder {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.author h4 i {
+  margin: 7px;
+  font-size: 20px;
+}
+.asset img.asset-img-png {
+  margin-top: 0;
+}
+
+.author .fa-search {
+  position: absolute;
+  left:0;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 40px;
+    color: #ccc;
+}
+
+i.fa-twitter {
+  margin-right: 3px!important;
+}

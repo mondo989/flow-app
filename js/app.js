@@ -28,6 +28,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/intro",
       templateUrl: "templates/intro.html"
     })
+    .state("author", {
+      url: "/author",
+      templateUrl: "templates/author.html"
+    })
 })
 
 
