@@ -120,13 +120,11 @@ span.tags-container {
   margin: 1px .5px;
   padding-right: 0;
   padding-left: 0;
-  border: 2px solid #ddd!important;
+  border: 2px solid #f3f3f3!important;
   list-style-type: none;
-  -webkit-transition: 2s;
-  -moz-transition: 2s;
-  -ms-transition: 2s;
-  -o-transition: 2s;
-  transition: 2s;
+  -webkit-transition: 1s;
+  transition: 1s;
+  margin: 1.5px;
 }
 .asset.notSelected {
   -webkit-animation: appear 1.1s;
@@ -164,7 +162,6 @@ span.tags-container {
   height: 140px;
   /*max-width: 240px;*/
   width: 100%;
-  margin-top: 10px;
 }
 #get-assets-container {
   margin-top: 100px;
@@ -447,17 +444,16 @@ img.asset-img {
 .ranking-holder {
   position: absolute;
   left: 8px;
-  top: 10px;
-  margin-top: 5px;
+  top: 8px;
   padding: 5px;
   display: block;
-  background: rgba(0, 0, 0, 0.04);
-  !important;
   border-radius: 15px;
 }
 .upvote, .downvote {
   display: inline;
-  font-size: 15px;
+  font-size: 19px;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 .upvote i, .downvote i {
   color: #888;
@@ -468,19 +464,19 @@ img.asset-img {
   opacity: 0;
 }
 
-.asset:hover .hover-wrapper .downvote,
-.asset:hover .hover-wrapper .favorites{
-  display: block!important;
+
+ .asset:hover .hover-wrapper .downvote, .asset:hover .hover-wrapper .upvote {
+   font-size: 25px;
  }
 
-.asset:hover .hover-wrapper .favorites, .asset:hover .hover-wrapper .downvote i  {
+.asset:hover .hover-wrapper .favorites {
  -webkit-transition: .5s!important;
  transition: .5s!important;
   opacity: 1;
 }
 
  .asset:hover .hover-wrapper .ranking-number {
-   font-size: 20px;
+   font-size: 23px;
  }
 
 .content-holder li:hover span.hover-wrapper {
@@ -490,10 +486,16 @@ img.asset-img {
 }
 span.ranking-number {
   display: inherit;
-  font-size: 25px;
+  font-size: 17px;
   font-weight: bold;
   color: #fff;
   text-shadow: 0 0 .20px black, 1px 1px 1px black;
+  -webkit-transition: .5s;
+  transition: .5s;
+
+  margin-top: -2.5px!important;
+margin-bottom: -2.5px!important;
+
 }
 .favorites {
   position: absolute;
