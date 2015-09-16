@@ -94,7 +94,7 @@ span.tags-container {
   padding-top: 5px;
 }
 .container {
-  background: yellow;
+  background: white;
 }
 .search-holder {
   background: #f3f3f3;
@@ -144,7 +144,39 @@ span.tags-container {
 	   	-webkit-transform: scale(1.02); Safari
 	    				transform: scale(1.02); */
   z-index: 900;
+
 }
+
+.asset.selected img.asset-img-png {
+  -webkit-transition: 1s;e
+  transition: 1s;
+
+   -webkit-filter: grayscale(0.5) blur(2px);
+}
+
+.fa-check-circle-o {
+  display: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.asset.selected .fa-check-circle-o {
+  display: block;
+  position: absolute;
+  top:0;
+  margin-top: 30px;
+  right: 0;
+  left: 0;
+  font-size: 80px;
+  color: white!important;
+  z-index: 90000000000;
+
+  -webkit-animation:fadeInUp .3s;
+  animation: fadeInUp .3s;
+
+
+}
+
 .asset:hover {
   -webkit-transition: .5s;
   -moz-transition: .5s;
@@ -177,11 +209,11 @@ span.tags-container {
   right: 0;
   left: 0;
   margin-left: 0px;
-  z-index: 10000;
-  -webkit-animation: fadeInUp 1s;
-  -moz-animation: fadeInUp 1s;
-  -o-animation: fadeInUp 1s;
-  animation: fadeInUp 1s;
+  z-index: 100000000000000000;
+  -webkit-animation: fadeInUp .5s;
+  -moz-animation: fadeInUp .5s;
+  -o-animation: fadeInUp .5s;
+  animation: fadeInUp .5s;
   opacity: 1;
 }
 .get-assets-btn {
@@ -199,8 +231,8 @@ span.tags-container {
 }
 .get-assets-btn:hover {
   background: white;
-  color: green;
-  border: 1px solid green;
+  color: #3fae45;
+  border: 1px solid #3fae45;
   opacity: .9;
 }
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
@@ -500,11 +532,16 @@ margin-bottom: -2.5px!important;
 .price {
   position: absolute;
   bottom: 6px;
-  right: 0;
+  right: -15px;
   margin: 0 20px;
   font-size: 27px;
   margin-right: 15px;
-  color: #f3f3f3;
+  color: #fff;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  z-index: 9000000000000;
+  border: 1px solid #f3f3f3;
 }
 .price a {
   color: #3fae45;
