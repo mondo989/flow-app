@@ -32,6 +32,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/author",
       templateUrl: "templates/author.html"
     })
+    .state("asset-detail", {
+      url: "/asset-detail",
+      templateUrl: "templates/asset-detail.html"
+    })
 })
 
 
