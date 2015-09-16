@@ -1,3 +1,8 @@
+#query {
+  border: 0px !important;
+  border-bottom: 3px solid #ccc !important;
+  border-radius:0px;
+}
 .full-row {
   width: 100%!important;
   margin: 0 auto;
