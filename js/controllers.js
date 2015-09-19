@@ -43,7 +43,7 @@ angular.module('flowApp')
     var query = $scope.query.trim()
     if (!$scope.searchTags.length && !query) {console.log("No query."); return false;}
     if ($scope.searchTags.indexOf(query)>=0) {console.log("No duplicate tags pls."); return false}
-    else {
+    else if (query) {
       if (query.indexOf(" ")>=0) $scope.searchTags = $scope.searchTags.concat(query.split(" "))
       else $scope.searchTags.push(query)
     }
