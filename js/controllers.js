@@ -48,6 +48,7 @@ angular.module('flowApp')
     var q = $scope.searchTags.join(" ")
     if ($scope.lastQ == q) {console.log("No query."); return false;}
     $scope.lastQ = q
+    document.querySelector(".content-holder").scrollTop = 0
     var dataObj = {
       "query": {
         "match": {
