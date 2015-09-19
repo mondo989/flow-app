@@ -27,7 +27,7 @@ angular.module('flowApp')
   document.addEventListener("keydown", function(e){ // this is firing twice.
     var query = $scope.query.trim()
     if (e.keyCode == 13 && !query) {
-      window.scrollBy(0, 400)
+      document.querySelector(".content-holder").scrollTop += 400
     }
     if (e.keyCode == 8 && !query) {
       $scope.searchTags.pop()
