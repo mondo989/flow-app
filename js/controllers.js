@@ -36,8 +36,8 @@ angular.module('flowApp')
   })
   
   $scope.search = function(){
-    if (!$scope.searchTags.length) {console.log("No query."); return false;}
     var query = $scope.query.trim()
+    if (!$scope.searchTags.length && !query) {console.log("No query."); return false;}
     if (query) {
       if (query.indexOf(" ")>=0) $scope.searchTags.concat(query.split(" "))
       else $scope.searchTags.push(query)
