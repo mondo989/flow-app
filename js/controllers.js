@@ -27,24 +27,19 @@ angular.module('flowApp')
   document.addEventListener("keydown", function(e){ // this is firing twice.
     if (e.keyCode == 13 && !$scope.query.trim()) {
       window.scrollBy(0, 400)
-      e.preventDefault()
-      e.stopPropagation();
-      return false
     }
     if (e.keyCode == 8) {
       $scope.searchTags.pop()
       $scope.search()
-      e.preventDefault()
-      e.stopPropagation();
-      return false
     }
+    e.preventDefault()
   })
   
   $scope.search = function(){
     var query = $scope.query.trim()
     if (!query) {console.log("No query."); return false;}
     else {
-      if (query.indexOf(" ")>=0) $scope.searchTags.concat(query.split(" "))
+      if (query.indexOf(" ")>=0) $scope.searchTags = $scope.searchTags.concat(query.split(" "))
       else $scope.searchTags.push(query)
     }
     $scope.query = ""
