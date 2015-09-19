@@ -29,7 +29,7 @@ angular.module('flowApp')
     if (e.keyCode == 13 && !query) {
       window.scrollBy(0, 400)
     }
-    if (e.keyCode == 8 !query) {
+    if (e.keyCode == 8 && !query) {
       $scope.searchTags.pop()
       $scope.search()
     }
