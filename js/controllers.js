@@ -52,16 +52,16 @@ angular.module('flowApp')
     if ($scope.lastQ == q) {console.log("No query."); return false;}
     $scope.lastQ = q
     var dataObj = {
-        "query": {
-          "match": {
-            "tags": {
-              "query": q,
-              // Filtering by Type Soooon!     "query": $scope.query + "type:"+$scope.type,
-              "operator": "AND"
-            }
+      "query": {
+        "match": {
+          "tags": {
+            "query": q,
+            // Filtering by Type Soooon!     "query": $scope.query + "type:"+$scope.type,
+            "operator": "AND"
           }
-        },"size" : 50
-      };
+        }
+      },"size" : 50
+    };
 
     $http.post("http://ec2-54-153-123-48.us-west-1.compute.amazonaws.com:9200/assets/_search", dataObj).success(function(data) {
       $scope.assets = data
