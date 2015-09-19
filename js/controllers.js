@@ -48,11 +48,14 @@ angular.module('flowApp')
       else $scope.searchTags.push(query)
     }
     $scope.query = ""
+    var q = $scope.searchTags.join(" ")
+    if ($scope.lastQ == q) {console.log("No query."); return false;}
+    $scope.lastQ = q
     var dataObj = {
         "query": {
           "match": {
             "tags": {
-              "query": $scope.searchTags.join(" "),
+              "query": q,
               // Filtering by Type Soooon!     "query": $scope.query + "type:"+$scope.type,
               "operator": "AND"
             }
