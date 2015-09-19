@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="css/search.css">
 
-<form class="form-search">
+<form ng-submit="search()" class="form-search">
   <div>
-      <input ng-model="query" ng-click="editTags()" ng-change="updateQuery(); addTag();" autocomplete="off" type="text" id="query"  class="search" placeholder="Search Assets" />
+    <input ng-model="query" autocomplete="off" type="text" id="query"  class="search" placeholder="Search Assets" />
     <span class="tags-container">
       <li class="tags-list tags-anim" ng-repeat="tag in searchTags">
         {{tag}}
@@ -11,6 +11,5 @@
     </span>
     <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
     <a href="#" ng-click="assetFilterClicked()"><i class="fa fa-chevron-down"></i></a>
-    <button class="btn-submit" ng-click="search()" type="submit"></button>
   </div>
 </form>
