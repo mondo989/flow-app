@@ -1,7 +1,8 @@
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
-  window.$scope = $scope
+  window.$scope = $scope // For testing
+  $scope.query = ""
   $scope.searchTags = []
 
 
@@ -23,22 +24,26 @@ angular.module('flowApp')
     settingsBtn.classList.toggle('spin');
   }
 
-  document.addEventListener("keydown", function(e){
+  document.addEventListener("keydown", function(e){ // this is firing twice.
     if (e.keyCode == 13 && !$scope.query.trim()) {
       window.scrollBy(0, 400)
       e.preventDefault()
+      e.stopPropagation();
+      return false
     }
     if (e.keyCode == 8) {
       $scope.searchTags.pop()
       $scope.search()
       e.preventDefault()
+      e.stopPropagation();
+      return false
     }
   })
   
   $scope.search = function(){
     var query = $scope.query.trim()
-    if (!$scope.searchTags.length && !query) {console.log("No query."); return false;}
-    if (query) {
+    if (!query) {console.log("No query."); return false;}
+    else {
       if (query.indexOf(" ")>=0) $scope.searchTags.concat(query.split(" "))
       else $scope.searchTags.push(query)
     }
