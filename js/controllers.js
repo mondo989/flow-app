@@ -1,8 +1,8 @@
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
-
-  window.$scope = $scope
+  window.$scope = $scope // For testing
+  $scope.query = ""
   $scope.searchTags = []
 
   //clicks to assets events download assets button
@@ -22,22 +22,26 @@ angular.module('flowApp')
     var settingsBtn = document.querySelector('.fa-cog');
     settingsBtn.classList.toggle('spin');
   }
-  document.addEventListener("keydown", function(e){
-    if (e.keyCode == 13 && !$scope.query.trim()) {
+  document.addEventListener("keypress", function(e){ // this is firing twice.
+    var query = $scope.query.trim()
+    if (e.keyCode == 13 && !query) {
       window.scrollBy(0, 400)
-      e.preventDefault()
     }
-    if (e.keyCode == 8) {
+    if (e.keyCode == 8 && !query) {
       $scope.searchTags.pop()
+      $scope.$apply()
       $scope.search()
       e.preventDefault()
+      e.stopPropagation()
+      return false
     }
   })
   $scope.search = function(){
-    if (!$scope.searchTags.length) {console.log("No query."); return false;}
     var query = $scope.query.trim()
-    if (query) {
-      if (query.indexOf(" ")>=0) $scope.searchTags.concat(query.split(" "))
+    if (!$scope.searchTags.length && !query) {console.log("No query."); return false;}
+    if ($scope.searchTags.indexOf(query)>=0) {console.log("No duplicate tags pls."); return false}
+    else if (query) {
+      if (query.indexOf(" ")>=0) $scope.searchTags = $scope.searchTags.concat(query.split(" "))
       else $scope.searchTags.push(query)
     }
     $scope.query = ""
