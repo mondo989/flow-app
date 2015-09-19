@@ -2,12 +2,6 @@
 
 
 <div>
-  <style>
-  .asset, .asset:hover, .asset.selected{
-  background: #fff !important;
-box-shadow: none;
-}
-  li.selected .filter{z-index:1234000000;width:100%;position:absolute;height: 140px; top:0px;left:0px;background:rgba(63, 174, 69,.3)}</style>
   <div class="full-row" ng-controller="assetSearch">
 
     <search></search>
@@ -32,12 +26,13 @@ box-shadow: none;
     </div>
 
     <ul class="content-holder">
-      <!--    {{ assets }} -->
       <img class="f-logo" src="img/f-logo.png" alt="">
+
       <li ng-id="{{asset._id}}" ng-repeat="asset in assets.hits.hits" ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
         <i class="fa fa-check-circle-o"></i>
         <div class="filter"></div>
+
         <span class="hover-wrapper">
           <div class="ranking-holder">
             <span class="upvote">
@@ -46,7 +41,6 @@ box-shadow: none;
               </a>
             </span>
             <span class="ranking-number">120</span>
-
           </div>
 
           <div class="downloads">
@@ -61,6 +55,7 @@ box-shadow: none;
             <a ui-sref="asset-detail">$5</a>
           </div>
         </span>
+
         <span class="author-row">
           <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
           <a ui-sref="author">Lorem Ipsum</a>

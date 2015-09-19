@@ -163,6 +163,13 @@ a.save {
   -o-animation: fadeInUp 5s;
   animation: fadeInUp 5s;
 }
+
+.asset-anim {
+-webkit-animation: fadeInDown 1s;
+  animation: fadeInDown 1s;
+
+}
+
 .click-area {
   width: 90%;
   display: block;

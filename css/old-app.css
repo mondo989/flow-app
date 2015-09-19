@@ -502,10 +502,14 @@ img.asset-img {
 
 .upvote i.fa-star {
   color: gold;
-  opacity: .2;
+  opacity: .7;
 }
-.hover-wrapper .downvote i, .hover-wrapper .favorites {
+.hover-wrapper .upvote, .hover-wrapper .ranking-number, .hover-wrapper .downloads {
   opacity: 0;
+}
+
+.asset:hover .hover-wrapper .upvote, .asset:hover .hover-wrapper .ranking-number, .asset:hover .hover-wrapper .downloads   {
+  opacity: 1;
 }
 
 /*
@@ -584,4 +588,19 @@ margin-bottom: -2.5px!important;
 }
 .sketch {
   width: 40px;
+}
+
+.asset, .asset:hover, .asset.selected {
+  background: #fff !important;
+  box-shadow: none;
+}
+
+li.selected .filter {
+  z-index:1234000000;
+  width:100%;
+  position:absolute;
+  height: 140px;
+  top:0px;
+  left:0px;
+  background:rgba(63, 174, 69,.3)
 }
