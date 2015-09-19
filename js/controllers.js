@@ -31,6 +31,7 @@ angular.module('flowApp')
     }
     if (e.keyCode == 8 && !query) {
       $scope.searchTags.pop()
+      $scope.$apply()
       $scope.search()
     }
   })
