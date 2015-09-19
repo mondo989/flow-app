@@ -4,9 +4,6 @@ angular.module('flowApp')
   window.$scope = $scope
   $scope.searchTags = []
 
-  $http.get("db/db.json").success(function(data) {
-    $scope.gotAssets = data;
-  });
 
   //clicks to assets events download assets button
   $scope.downloadActivationQueue = function () {
@@ -26,12 +23,31 @@ angular.module('flowApp')
     settingsBtn.classList.toggle('spin');
   }
 
+  document.addEventListener("keydown", function(e){
+    if (e.keyCode == 13 && !$scope.query.trim()) {
+      window.scrollBy(0, 400)
+      e.preventDefault()
+    }
+    if (e.keyCode == 8) {
+      $scope.searchTags.pop()
+      $scope.search()
+      e.preventDefault()
+    }
+  })
+  
   $scope.search = function(){
+    if (!$scope.searchTags.length) {console.log("No query."); return false;}
+    var query = $scope.query.trim()
+    if (query) {
+      if (query.indexOf(" ")>=0) $scope.searchTags.concat(query.split(" "))
+      else $scope.searchTags.push(query)
+    }
+    $scope.query = ""
     var dataObj = {
         "query": {
           "match": {
             "tags": {
-              "query": $scope.query,
+              "query": $scope.searchTags.join(" "),
               // Filtering by Type Soooon!     "query": $scope.query + "type:"+$scope.type,
               "operator": "AND"
             }
@@ -41,20 +57,9 @@ angular.module('flowApp')
 
     $http.post("http://ec2-54-153-123-48.us-west-1.compute.amazonaws.com:9200/assets/_search", dataObj).success(function(data) {
       $scope.assets = data
-      var query = $scope.query.trim()
-      $scope.searchTags = query ? $scope.query.split(" ") : []
-      $scope.query = ""
     })
-
-
-    // $http.get("db/db.json", {params:{s:$scope.query}}).success(function(data) {
-    //   $scope.assets = data
-    //   var query = $scope.query.trim()
-    //   $scope.searchTags = query ? $scope.query.split(" ") : []
-    //   $scope.query = ""
-    // })
   }
-
+  
   $scope.deleteTag = function($index){
     $scope.searchTags.splice($index, 1)  // Something's fucked up :)
     $scope.search()
