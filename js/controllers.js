@@ -24,7 +24,7 @@ angular.module('flowApp')
     settingsBtn.classList.toggle('spin');
   }
 
-  document.addEventListener("keydown", function(e){ // this is firing twice.
+  document.addEventListener("keypress", function(e){ // this is firing twice.
     var query = $scope.query.trim()
     if (e.keyCode == 13 && !query) {
       document.querySelector(".content-holder").scrollTop += 400
