@@ -20,7 +20,7 @@ app.on('ready', function() {
 
   bottomCarousel = new BrowserWindow({
     width: 1700,
-    height: 120,
+    height: 100,
     frame: false,
     show: false,
     transparent: true,

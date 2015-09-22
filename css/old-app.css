@@ -135,6 +135,7 @@ span.tags-container {
   margin: 3px .5px;
   padding-right: 0;
   padding-left: 0;
+  box-shadow:    0 0 0 2px hsl(0, 0%, 95%)!important;
   border-bottom: 3px solid #f3f3f3;
   list-style-type: none;
   -webkit-transition: 1s;
@@ -154,6 +155,7 @@ span.tags-container {
   animation: appear 1.1s;
   background: #f3f3f3!important;
   border-bottom: 3px solid #3fae45;
+
   box-shadow: inset 0 0 100px #ccc;
   /* 			-ms-transform: scale(1.02); IE 9
 	   	-webkit-transform: scale(1.02); Safari
@@ -175,10 +177,10 @@ span.tags-container {
   display: block;
   position: absolute;
   top:0;
-  margin-top: 30px;
+  margin-top: 40px;
   right: 0;
   left: 0;
-  font-size: 80px;
+  font-size: 45px;
   color: white!important;
   z-index: 90000000000;
 
@@ -282,12 +284,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   opacity: .1;
   transition: 1s;
 }
-.fa-chevron-down.rotateInMod {
-  -webkit-animation: rotateInMod 1s;
-  -moz-animation: rotateInMod 1s;
-  -o-animation: rotateInMod 1s;
-  animation: rotateInMod 1s;
-}
+
 a .fa-chevron-down:hover {
   opacity: .5;
 }
@@ -320,7 +317,7 @@ a .fa-chevron-down:hover {
   margin: 0 auto;
   position: absolute;
   right: 0;
-  opacity: .04;
+  opacity: .025;
   width: 300px;
   left: 0;
   margin-top: 40px;
@@ -465,19 +462,20 @@ img.asset-img {
   position: relative;
 }
 .author-row img {
-  width: 22px;
-  height: 22px;
+  width: 45px;
+  height: 45px;
   margin-left: 15px;
-  margin-top: 0;
+  margin-top: -17px;
   border-radius: 120px;
+  border: 4px solid #f3f3f3;
 }
 .author-row a {
   margin-left: 8px;
   color: #3078ca;
   opacity: .6;
-  font-size: 13px;
+  font-size: 16px;
   display: inline-block;
-  margin-top: 2px;
+  font-weight: 500;
   position: absolute;
 }
 .ranking-holder {
@@ -588,6 +586,13 @@ margin-bottom: -2.5px!important;
 }
 .sketch {
   width: 40px;
+}
+
+a.notSelected {
+  background: red;
+}
+a.selected {
+  background: black;
 }
 
 .asset, .asset:hover, .asset.selected {

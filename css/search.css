@@ -1,6 +1,6 @@
 #query {
   border: 0px !important;
-  border-bottom: 3px solid #ccc !important;
+  border-bottom: 1px solid #ccc !important;
   border-radius:0px;
 }
 .full-row {
@@ -86,21 +86,51 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 }
 .form-search .fa-chevron-down {
   position: absolute;
-  margin-top: 30px;
-  font-size: 32px;
-  margin-left: 15px;
-  opacity: .1;
+  margin-top: 10px;
+  font-size: 35px;
+  margin-left: 0px;
+  opacity: .07;
   transition: 1s;
 }
-.fa-chevron-down.rotateInMod {
-  -webkit-animation: rotateInMod 1s;
-  -moz-animation: rotateInMod 1s;
-  -o-animation: rotateInMod 1s;
-  animation: rotateInMod 1s;
+
+a.selected i {
+  -webkit-transform: rotate(180deg!imp); /* Chrome, Safari, Opera */
+    transform: rotate(180deg)!important;
 }
+
+i.fa-cog {
+  display: none;
+}
+
+a.selected + a i.fa-cog {
+  display: block!important;
+
+}
+
 a .fa-chevron-down:hover {
   opacity: .5;
 }
+
+.input-search {
+  opacity: .1;
+  font-size: 35px;
+}
+
+.dynamic-copy-holder {
+  background: red;
+  width: 80%;
+  margin: 0 auto;
+  position: absolute;
+  top:40px;
+  left: 0;
+  right: 0;
+  font-size: 30px;
+}
+
+.description-text {
+  background: blue;
+}
+
 .form-search .search {
   /* border: 1px solid #ccc; */
   -webkit-border-radius: 3px;
@@ -127,6 +157,7 @@ a .fa-chevron-down:hover {
   color: black!important;
   outline: 0;
 }
+
 
 .tags-list {
   list-style-type: none;

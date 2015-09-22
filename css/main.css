@@ -28,6 +28,14 @@ a.skip {
   animation: fadeIn 2s;
 }
 
+.login-sty {
+  font-size: 19px!important;
+}
+
+a.next {
+  opacity: .4;
+  font-size: 17px;
+}
 
 .f-logo {
   width: 65px;

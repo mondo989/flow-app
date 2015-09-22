@@ -2,14 +2,20 @@
 
 <form ng-submit="search()" class="form-search">
   <div>
+
     <input ng-model="query" autocomplete="off" type="text" id="query"  class="search" placeholder="Search Assets" />
+    <!-- <span class="dynamic-copy-holder">
+      Search for
+      <span class="description-text">iphone</span>
+    </span> -->
     <span class="tags-container">
+      <i class="fa fa-search input-search"></i>
       <li class="tags-list tags-anim" ng-repeat="tag in searchTags">
         {{tag}}
         <a title="{{$index}}" ng-click="deleteTag($index)"><i class="fa fa-close"></i></a>
       </li>
     </span>
     <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
-    <a href="#" ng-click="assetFilterClicked()"><i class="fa fa-chevron-down"></i></a>
+    <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="fa fa-chevron-down"></i></a>
   </div>
 </form>
