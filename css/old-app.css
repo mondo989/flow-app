@@ -15,6 +15,9 @@ html, body {
   bottom: 45px;
   right: 18px;
   font-size: 25px;
+
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 .info i {
   color: #ccc;
@@ -23,15 +26,36 @@ html, body {
   width: 25px;
   height: 25px;
 }
-.info:hover .file-type, .info:hover .file-size {
+.info:hover .file-type{
+-webkit-animation: fadeInUp .5s;
+  animation: fadeInUp .5s;
   opacity: 1;
 }
 
+
+
+ .info:hover .file-size {
+   -webkit-animation: fadeInRight .5s;
+     animation: fadeInRight .5s;
+  opacity: 1;
+
+}
+
+
 i.icon-search {
-  padding: 30px;
+  padding: 20px;
   font-size: 30px;
   color: black;
 }
+
+i.fa.fa-info-circle {
+  font-size: 21px;
+  border: 1px solid rgba(0,0,0, .045);
+  border-radius: 98px;
+  padding: 1px 2px;
+  padding-left: 3px;
+}
+
 .loading {
   width: 150px;
   margin: auto;
@@ -88,6 +112,8 @@ span.tags-container {
   margin-top: 6.5px;
   margin-left: 39px;
 }
+
+
 .full-row {
   width: 100%!important;
   margin: 0 auto;
@@ -505,7 +531,7 @@ img.asset-img {
 
 .upvote i.fa-star {
   color: white;
-  opacity: .2;
+  opacity: .25;
 }
 .hover-wrapper .upvote, .hover-wrapper .ranking-number, .hover-wrapper .downloads {
   -webkit-transition: .7s;
@@ -660,5 +686,7 @@ li.selected .filter {
   width: 23px;
   margin-right: 1px;
   height: 23px;
-  opacity: .3;
+  -webkit-transition: 2s;
+  transition: 2s;
+  opacity: .7;
 }
