@@ -26,20 +26,6 @@
   border:0;
 }
 
-.form-search li {
-  display: inline;
-  padding: 9px;
-  padding-left: 15px;
-  list-style-type: none;
-  background: #f3f3f3;
-  border-radius: 10px;
-  box-shadow: 0 0 0 1px hsl(0, 0%, 80%);
-  border: 2px solid #f0f0f0;
-  margin: 0 2.5px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
 
 .form-search {
   display: inline-block;
@@ -90,7 +76,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   font-size: 35px;
   margin-left: 0px;
   opacity: .07;
-  transition: 1s;
+  transition: .5s;
 }
 
 a.selected i {
@@ -117,7 +103,6 @@ a .fa-chevron-down:hover {
 }
 
 .dynamic-copy-holder {
-  background: red;
   width: 80%;
   margin: 0 auto;
   position: absolute;
@@ -176,5 +161,5 @@ span.tags-container {
   position: absolute;
   left: 0;
   margin-top: 6.5px;
-  margin-left: 39px;
+  margin-left: 25px;
 }

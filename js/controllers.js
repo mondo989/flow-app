@@ -23,6 +23,9 @@ angular.module('flowApp')
     settingsBtn.classList.toggle('spin');
   }
   document.addEventListener("keypress", function(e){ // this is firing twice.
+    console.log("hi", e.keyCode)
+    // console.log("hi", e)
+
     var query = $scope.query.trim()
     if (e.keyCode == 13 && !query) {
       document.querySelector(".content-holder").scrollTop += 400
@@ -31,9 +34,10 @@ angular.module('flowApp')
       $scope.searchTags.pop()
       $scope.$apply()
       $scope.search()
-      e.preventDefault()
-      e.stopPropagation()
-      return false
+      // e.preventDefault()
+      // e.stopPropagation()
+      console.log("hi")
+      // return false
     }
   })
   $scope.search = function(){
@@ -160,7 +164,6 @@ angular.module('flowApp')
 
     // document.querySelector('.fa-search').classList.toggle('inactive');
 
-
     setInterval(function(){
      document.querySelector('.fa-search').classList.toggle('attention');
   }, 2000);
@@ -178,8 +181,6 @@ angular.module('flowApp')
     searchWindow.show()
       document.querySelector('.fa-search').classList.toggle('active');
   }
-
-
 
 
   $scope.downloadPSD = function (imageURL,imgName, imgId) {
@@ -232,3 +233,18 @@ angular.module('flowApp')
              });
           }
       }])
+
+
+.controller('placeholderCtrl', ['$scope', function($scope) {
+  var tempName = ["iPhone", "iPad", "iPhone", "icons"];
+
+  $scope.assetDemo = tempName;
+
+  for (var i = 0; i < tempName.length; i++) {
+    setInterval(function(){
+        tempName[i]
+    }, 1000)
+  }
+
+
+}])

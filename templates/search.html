@@ -1,27 +1,48 @@
 <link rel="stylesheet" href="css/old-app.css">
-
+<link rel="stylesheet" href="css/search.css">
 
 <div>
   <div class="full-row" ng-controller="assetSearch">
 
-    <search></search>
+
+    <form ng-submit="search()" class="form-search">
+      <div>
+
+        <input ng-model="query" autocomplete="off" type="text" id="query" class="search" />
+        <!-- <span ng-controller="placeholderCtrl" class="dynamic-copy-holder"> -->
+        <!-- Search for -->
+        <!-- <span class="description-text">{{assetDemo}}</span> -->
+        <!-- </span> -->
+        <span class="tags-container">
+          <i class="fa fa-search input-search"></i>
+          <li class="tags-list tags-anim" ng-repeat="tag in searchTags">
+            {{tag}}
+            <a title="{{$index}}" ng-click="deleteTag($index)"><i class="fa fa-close"></i></a>
+          </li>
+        </span>
+        <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
+        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="fa fa-chevron-down"></i></a>
+      </div>
+    </form>
+
+
 
     <div class="row checkbox-options-holder inactive checkbox-options-holder-anim">
-      <input type="checkbox" value="None" id="slideOne" name="check" checked />
+
       <label for="slideOne">
-        <img class="photoshop" src="img/photoshop.png" alt=""> </label>
+        <img ng-click="photoshopChosen=!photoshopChosen;" ng-class="{notSelected:!photoshopChosen, selected:photoshopChosen}" class="photoshop" src="img/photoshop.png" alt="">
+      </label>
 
-      <input type="checkbox" value="None" id="slideTwo" name="check" checked />
       <label for="slideTwo">
-        <img class="illustrator" src="img/illustrator.png" alt="">
+        <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt="">
       </label>
 
-      <input type="checkbox" value="None" id="slideThree" name="check" checked />
+
       <label for="slideThree">
-        <img class="sketch" src="img/sketch.png" alt="">
+        <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt="">
       </label>
 
-      <input type="checkbox" value="None" id="slideFour" name="check" checked />
+
       <label for="slideFour">Static Assets</label>
     </div>
 
@@ -29,14 +50,16 @@
       <img class="f-logo" src="img/f-logo.png" alt="">
 
       <li ng-id="{{asset._id}}" ng-repeat="asset in assets.hits.hits" ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
-        <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
         <i class="fa fa-check-circle-o"></i>
         <div class="filter"></div>
+
+        <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
 
         <span class="hover-wrapper">
           <div class="ranking-holder">
             <span class="upvote">
-              <a href="#">
+              <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
                 <i class="fa fa-star"></i>
               </a>
             </span>
@@ -48,18 +71,27 @@
           </div>
 
           <div class="info">
+            <span class="file-type">
+              <img  src="img/photoshop.png" alt="">
+            </span>
+            <span class="file-size">270mb</span>
             <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
           </div>
 
           <div class="price">
             <!-- <a ui-sref="asset-detail">$5</a> -->
           </div>
+
         </span>
+
+
 
         <span class="author-row">
           <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
           <a ui-sref="author">Lorem Ipsum</a>
         </span>
+
+
       </li>
     </ul>
 

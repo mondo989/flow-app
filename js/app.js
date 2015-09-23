@@ -39,12 +39,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
 })
 
 
-.directive("search", function(){
-  return {
-    controller: "assetSearch",
-    templateUrl: "templates/directives/search.html"
-  }
-})
+// .directive("search", function(){
+//   return {
+//     controller: "assetSearch",
+//     templateUrl: "templates/directives/search.html"
+//   }
+// })
 
 .directive("loader", function(){
   return {

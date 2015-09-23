@@ -33,7 +33,7 @@ a.right {
   margin: 0 auto;
   width: 90%;
   margin-left: 40px;
-  padding-top: 5px;
+  padding-top: 2.5px;
 }
 .sub-carousel-holder {
   position: absolute;
@@ -56,7 +56,7 @@ a.right {
   left: 0;
   right: 10px;
   top: 0;
-  opacity: .2;
+  opacity: 1;
 }
 .fa-search {
   font-size: 25px;
@@ -87,8 +87,8 @@ a.right {
   background: #ccc;
 }
 .fa-trash-o {
-  font-size: 30px;
-  padding-top: 10px;
+  font-size: 17px;
+  padding-top: 12.5px;
 }
 .fa-floppy-o {
   font-size: 25px;
@@ -108,7 +108,7 @@ a.save {
   margin-left: 10px;
 }
 .asset-container {
-  border-radius: 12px;
+  border-radius: 5px;
   height: 95px;
   color: #f3f3f3;
   width: 12.0%;
@@ -131,7 +131,7 @@ a.save {
 }*/
 .asset-png {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 5px;
   height: 95px;
   position: absolute;
   left: 0;
@@ -156,7 +156,7 @@ a.save {
   right: 0;
   text-shadow: 1px 1px #000;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 35px;
   margin-right: 10px;
   -webkit-animation: fadeInUp 5s;
   -moz-animation: fadeInUp 5s;
