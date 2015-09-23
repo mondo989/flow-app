@@ -230,6 +230,7 @@ span.tags-container {
   transition: .5s;
   opacity: 1;
   background: #f3f3f3!important;
+  border-bottom: 3px solid #ccc;
 }
 .asset img.asset-img-png {
   margin: 0 auto;
@@ -526,7 +527,7 @@ img.asset-img {
 .upvote i, .downvote i {
   color: #888;
   color: #fff;
-  text-shadow: 0 0 1.5px black;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 1);
 }
 
 .upvote i.fa-star {
@@ -560,7 +561,7 @@ a.star.selected i {
   color: gold;
   display: block;
 
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 7px;
 
   -webkit-transform: rotate(0)!important;
@@ -624,8 +625,8 @@ margin-bottom: -2.5px!important;
 }
 .downloads {
   position: absolute;
-  top:0;
-  right: 0;
+  top:5px;
+  right: 2px;
   margin-top: 10px;
   font-size: 13px;
   margin-right: 15px;
@@ -656,6 +657,10 @@ margin-bottom: -2.5px!important;
 .asset, .asset:hover, .asset.selected {
   background: #fff !important;
   box-shadow: none;
+}
+
+.asset.selected:hover {
+  border-bottom:3px solid #3fae45;
 }
 
 li.selected .filter {

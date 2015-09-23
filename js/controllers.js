@@ -30,7 +30,7 @@ angular.module('flowApp')
     if (e.keyCode == 13 && !query) {
       document.querySelector(".content-holder").scrollTop += 400
     }
-    if (e.keyCode == 8 && !query) {
+    if (e.keyCode == 61 && !query) {
       $scope.searchTags.pop()
       $scope.$apply()
       $scope.search()
