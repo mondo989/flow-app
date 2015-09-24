@@ -45,6 +45,7 @@ i.fa.fa-info-circle {
   border-radius: 98px;
   padding: 1px 2px;
   padding-left: 3px;
+  opacity: .75;
 }
 .loading {
   width: 150px;
@@ -77,7 +78,10 @@ i.fa.fa-info-circle {
   font-size: 16px;
   font-weight: 600;
   padding-right: 10px;
+  margin-top: 25px;
+
 }
+
 button.btn-submit {
   /*Button calls function creating tag*/
   position: absolute;
@@ -99,7 +103,14 @@ li.tags-anim {
 span.tags-container {
   position: absolute;
   left: 0;
-  margin-left: 39px;
+  margin-top: -15px;
+  margin-left: 40px;
+}
+
+.ion-ios-close-empty {
+  color: black;
+  opacity: 1!important;
+  font-size: 20px;
 }
 .full-row {
   width: 100%!important;
@@ -191,14 +202,15 @@ span.tags-container {
   display: block;
   position: absolute;
   top: 0;
-  margin-top: 40px;
+  margin-top: 23px;
   right: 0;
   left: 0;
-  font-size: 45px;
+  font-size: 95px;
+  opacity: .8;
   color: white!important;
   z-index: 90000000000;
-  -webkit-animation: fadeInUp .3s;
-  animation: fadeInUp .3s;
+  -webkit-animation: fadeInUpMod .3s;
+  animation: fadeInUpMod .3s;
 }
 .asset:hover {
   -webkit-transition: .5s;
@@ -283,8 +295,9 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   animation: rotateInApp 2s;
 }
 .fa-close {
-  font-size: 16px;
+  font-size: 20px;
   margin-left: 3px;
+
   opacity: .2;
 }
 .fa-close:hover {
@@ -307,7 +320,7 @@ a .fa-chevron-down:hover {
   border-radius: 3px;
   color: #999;
   height: 60px;
-  width: 102%;
+  width: 97.7%;
   margin-left: -40px;
   opacity: 0.9;
   font-size: 27px;
@@ -511,7 +524,7 @@ img.asset-img {
 }
 .upvote i.fa-star {
   color: white;
-  opacity: .25;
+  opacity: .95;
 }
 .hover-wrapper .upvote, .hover-wrapper .ranking-number, .hover-wrapper .downloads {
   -webkit-transition: .7s;

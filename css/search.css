@@ -57,12 +57,19 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   -o-animation: rotateInApp 2s;
   animation: rotateInApp 2s;
 }
+
+.ion-ios-arrow-down {
+  font-size: 350px;
+  opacity: 1!important;
+  padding: 0!important;
+}
+
 .form-search .fa-chevron-down {
   position: absolute;
-  margin-top: 10px;
-  font-size: 35px;
-  margin-left: 0px;
-  opacity: .07;
+  margin-top: 11px;
+  font-size: 47px;
+  margin-left: 10px;
+  opacity: .2!important;
   transition: .5s;
 }
 a.selected i {
@@ -80,9 +87,11 @@ a .fa-chevron-down:hover {
   opacity: .5;
 }
 .input-search {
-  opacity: .125;
-  font-size: 37px;
+  opacity: .17;
+  font-size: 57px;
   padding-right: 10px;
+  float: left;
+  margin-top: 16px;
 }
 .dynamic-copy-holder {
   width: 80%;
@@ -96,21 +105,7 @@ a .fa-chevron-down:hover {
 .description-text {
   background: blue;
 }
-.form-search .search {
-  /* border: 1px solid #ccc; */
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  color: #999;
-  height: 60px;
-  width: 102%;
-  margin-left: -40px;
-  opacity: 0.9;
-  font-size: 27px;
-  display: inline;
-  text-align: center;
-  font-weight: 200;
-}
+
 .form-search .search:hover {
   opacity: 1;
 }

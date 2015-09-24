@@ -13,16 +13,16 @@
         <!-- <span class="description-text">{{assetDemo}}</span> -->
         <!-- </span> -->
         <span class="tags-container">
-          <i class="fa fa-search input-search search-anim"></i>
+          <i class="fa input-search ion-ios-search-strong search-anim"></i>
           <li class="tags-list tags-anim" ng-repeat="tag in searchTags">
             {{tag}}
             <a title="{{$index}}" ng-click="deleteTag($index)">
-              <i class="fa fa-close"></i>
+              <i class="fa fa-close ion-ios-close-empty"></i>
             </a>
           </li>
         </span>
         <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
-        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="fa fa-chevron-down chevron-down-anim"></i></a>
+        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="fa fa-chevron-down ion-ios-arrow-down  chevron-down-anim"></i></a>
       </div>
     </form>
 
@@ -52,7 +52,7 @@
 
       <li ng-id="{{asset._id}}" ng-repeat="asset in assets.hits.hits" ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
 
-        <i class="fa fa-check-circle-o"></i>
+        <i class="fa fa-check-circle-o ion-ios-checkmark"></i>
         <div class="filter"></div>
 
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
