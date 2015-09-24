@@ -1,7 +1,7 @@
 #query {
   border: 0px !important;
   border-bottom: 1px solid #ccc !important;
-  border-radius:0px;
+  border-radius: 0px;
 }
 .full-row {
   width: 100%!important;
@@ -20,13 +20,9 @@
 .full-row input:hover {
   opacity: 1!important;
 }
-
-
 .form-search a {
-  border:0;
+  border: 0;
 }
-
-
 .form-search {
   display: inline-block;
   z-index: 2;
@@ -38,10 +34,6 @@
   margin: 0 auto;
   margin-top: 25px;
 }
-
-
-
-
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   border: 1px solid gray;
 }
@@ -65,11 +57,6 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   -o-animation: rotateInApp 2s;
   animation: rotateInApp 2s;
 }
-.fa-close {
-  font-size: 17px;
-  margin-left: 3px;
-  opacity: .5;
-}
 .form-search .fa-chevron-down {
   position: absolute;
   margin-top: 10px;
@@ -78,44 +65,37 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   opacity: .07;
   transition: .5s;
 }
-
 a.selected i {
-  -webkit-transform: rotate(180deg!imp); /* Chrome, Safari, Opera */
-    transform: rotate(180deg)!important;
+  -webkit-transform: rotate(180deg!imp);
+  /* Chrome, Safari, Opera */
+  transform: rotate(180deg)!important;
 }
-
 i.fa-cog {
   display: none;
 }
-
 a.selected + a i.fa-cog {
   display: block!important;
-
 }
-
 a .fa-chevron-down:hover {
   opacity: .5;
 }
-
 .input-search {
-  opacity: .1;
-  font-size: 35px;
+  opacity: .125;
+  font-size: 37px;
+  padding-right: 10px;
 }
-
 .dynamic-copy-holder {
   width: 80%;
   margin: 0 auto;
   position: absolute;
-  top:40px;
+  top: 40px;
   left: 0;
   right: 0;
   font-size: 30px;
 }
-
 .description-text {
   background: blue;
 }
-
 .form-search .search {
   /* border: 1px solid #ccc; */
   -webkit-border-radius: 3px;
@@ -142,11 +122,10 @@ a .fa-chevron-down:hover {
   color: black!important;
   outline: 0;
 }
-
-
 .tags-list {
   list-style-type: none;
   display: inline-block!important;
+  z-index: 900000;
 }
 .tags-list:hover {
   background: white;
@@ -157,9 +136,15 @@ li.tags-anim {
   -o-animation: fadeInUp .5s;
   animation: fadeInUp .5s;
 }
-span.tags-container {
-  position: absolute;
-  left: 0;
-  margin-top: 6.5px;
-  margin-left: 25px;
+.search-anim {
+  -webkit-animation: fadeInDownMod 1s ease;
+  -moz-animation: fadeInDownMod 1s ease;
+  -o-animation: fadeInDownMod 1s ease;
+  animation: fadeInDownMod 1s ease;
+}
+.chevron-down-anim {
+  -webkit-animation: fadeInUpMod 1s ease;
+  -moz-animation: fadeInUpMod 1s ease;
+  -o-animation: fadeInUpMod 1s ease;
+  animation: fadeInUpMod 1s ease;
 }

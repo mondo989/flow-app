@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/old-app.css">
 <link rel="stylesheet" href="css/author.css">
 
-<div controller="authorCtrl" class="author text-center">
+<div controller="authorCtrl" class="author text-center" style="background:white;">
 
   <a ui-sref="search"><i class="fa fa-search"></i></a>
 
@@ -28,220 +28,512 @@
 
   <ul class="content-holder ">
     <!--    {{ assets }} -->
-    <li class="col-sm-4 asset anim" style="width: 32%;">
-      <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
-      <span class="hover-wrapper">
-        <div class="ranking-holder">
-          <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
-            </a>
-          </span>
-          <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
-        </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
-        </div>
-      </span>
-    </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
-      <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
-      <span class="hover-wrapper">
-        <div class="ranking-holder">
-          <span class="upvote">
-            <a href="#">
-              <i class="fa fa-star-o"></i>
-            </a>
-          </span>
-          <span class="ranking-number">120</span>
 
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
+      <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
+      <span class="hover-wrapper">
+        <div class="ranking-holder">
+          <span class="upvote">
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
+            </a>
+          </span>
+          <span class="ranking-number">120</span>
         </div>
 
         <div class="downloads">
           <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
         </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
         <div class="price">
-          <a ui-sref="asset-detail">$5</a>
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
-        <span class="author-row">
-          <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
-          <a ui-sref="author">Lorem Ipsum</a>
-        </span>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
+
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
       <span class="hover-wrapper">
         <div class="ranking-holder">
           <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
             </a>
           </span>
           <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
         </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
       <span class="hover-wrapper">
         <div class="ranking-holder">
           <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
             </a>
           </span>
           <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
         </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
       <span class="hover-wrapper">
         <div class="ranking-holder">
           <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
             </a>
           </span>
           <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
         </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
       <span class="hover-wrapper">
         <div class="ranking-holder">
           <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
             </a>
           </span>
           <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
         </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
       <span class="hover-wrapper">
         <div class="ranking-holder">
           <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
             </a>
           </span>
           <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
         </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
       <span class="hover-wrapper">
         <div class="ranking-holder">
           <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
             </a>
           </span>
           <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
         </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
       <span class="hover-wrapper">
         <div class="ranking-holder">
           <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
             </a>
           </span>
           <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
         </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
-    <li class="col-sm-4 asset anim" style="width: 32%;">
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
       <span class="hover-wrapper">
         <div class="ranking-holder">
           <span class="upvote">
-            <a href="#">
-              <i class="fa fa-chevron-up"></i>
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
             </a>
           </span>
           <span class="ranking-number">120</span>
-          <span class="downvote">
-            <a href="#">
-              <i class="fa fa-chevron-down"></i>
-            </a>
-          </span>
         </div>
-        <div class="favorites">
-          <a href="#"><i class="fa fa-star"></i></a>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
         </div>
       </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
     </li>
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
+      <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
+      <span class="hover-wrapper">
+        <div class="ranking-holder">
+          <span class="upvote">
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
+            </a>
+          </span>
+          <span class="ranking-number">120</span>
+        </div>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
+        </div>
+      </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
+    </li>
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
+      <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
+      <span class="hover-wrapper">
+        <div class="ranking-holder">
+          <span class="upvote">
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
+            </a>
+          </span>
+          <span class="ranking-number">120</span>
+        </div>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
+        </div>
+      </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
+    </li>
+
+    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+
+      <i class="fa fa-check-circle-o"></i>
+      <div class="filter"></div>
+
+      <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
+
+      <span class="hover-wrapper">
+        <div class="ranking-holder">
+          <span class="upvote">
+            <a ng-click="starChosen=!starChosen;" ng-class="{notSelected:!starChosen, selected:starChosen}" class="star" href="#">
+              <i class="fa fa-star"></i>
+            </a>
+          </span>
+          <span class="ranking-number">120</span>
+        </div>
+
+        <div class="downloads">
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+        </div>
+
+        <div class="info">
+          <span class="file-type">
+            <img  src="img/photoshop.png" alt="">
+          </span>
+          <span class="file-size">270mb</span>
+          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="price">
+          <!-- <a ui-sref="asset-detail">$5</a> -->
+        </div>
+      </span>
+
+
+
+      <span class="author-row">
+        <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
+        <a ui-sref="author">Lorem Ipsum</a>
+      </span>
+
+    </li>
+
   </ul>
 
 </div>
