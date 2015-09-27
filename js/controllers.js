@@ -248,3 +248,9 @@ angular.module('flowApp')
 
 
 }])
+
+
+.controller('authorCtrl', ['$scope', function($scope) {
+
+  console.log('Author Controller done loadin')
+}])
