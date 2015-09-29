@@ -548,7 +548,6 @@ a.star.selected i {
   color: gold;
   display: block;
   font-size: 25px;
-  margin-bottom: 7px;
   -webkit-transform: rotate(0)!important;
   transform: rotate(0)!important;
 }
@@ -658,6 +657,7 @@ li.selected .filter {
   font-size: 13px;
   font-weight: bold;
   color: #000;
+  text-shadow: .05px .05px .05px white;
   opacity: 0;
 }
 .file-type img {

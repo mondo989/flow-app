@@ -5,7 +5,7 @@ angular.module('flowApp')
   $scope.query = ""
   $scope.searchTags = []
 
-  //clicks to assets events download assets button
+
   $scope.downloadActivationQueue = function () {
     // console.log('button appears');
       document.getElementById("get-assets-container").className = "active";
@@ -22,24 +22,7 @@ angular.module('flowApp')
     var settingsBtn = document.querySelector('.fa-cog');
     settingsBtn.classList.toggle('spin');
   }
-  document.addEventListener("keypress", function(e){ // this is firing twice.
-    console.log("hi", e.keyCode)
-    // console.log("hi", e)
 
-    var query = $scope.query.trim()
-    if (e.keyCode == 13 && !query) {
-      document.querySelector(".content-holder").scrollTop += 400
-    }
-    if (e.keyCode == 61 && !query) {
-      $scope.searchTags.pop()
-      $scope.$apply()
-      $scope.search()
-      // e.preventDefault()
-      // e.stopPropagation()
-      console.log("hi")
-      // return false
-    }
-  })
   $scope.search = function(){
     var query = $scope.query.trim()
     if (!$scope.searchTags.length && !query) {console.log("No query."); return false;}
@@ -66,6 +49,7 @@ angular.module('flowApp')
     };
     $http.post("http://ec2-54-153-123-48.us-west-1.compute.amazonaws.com:9200/assets/_search", dataObj).success(function(data) {
       $scope.assets = data
+      window.ls.set("lastSearch", {query: $scope.query, searchTags: $scope.searchTags})
     })
   }
 
@@ -82,9 +66,6 @@ angular.module('flowApp')
      chevronDown.classList.toggle('rotateInMod');
   }
 
-
-
-// function called when user clicks download assets
   $scope.downloadAssets = function() {
     var remote = require('remote');
     var BrowserWindow = remote.require('browser-window');
@@ -113,6 +94,38 @@ angular.module('flowApp')
        }
      bottomCarousel.webContents.send('ping', itemsToDisplay);
    }
+
+
+
+
+   document.addEventListener("keypress", function(e){ // this is firing twice.
+     console.log("hi", e.keyCode)
+     // console.log("hi", e)
+
+     var query = $scope.query.trim()
+     if (e.keyCode == 13 && !query) {
+       document.querySelector(".content-holder").scrollTop += 400
+     }
+     if (e.keyCode == 61 && !query) {
+       $scope.searchTags.pop()
+       $scope.$apply()
+       $scope.search()
+       // e.preventDefault()
+       // e.stopPropagation()
+       console.log("hi")
+       // return false
+     }
+   })
+
+   var lastSearch = window.ls.get("lastSearch")
+
+   if (lastSearch) {
+     $scope.query = lastSearch.query || ""
+     $scope.searchTags = lastSearch.searchTags || []
+     $scope.search()
+   }
+
+
 /*
    $scope.toggleAssets = function(param) {
     console.log("recieved:" + param )

@@ -1,8 +1,10 @@
+window.ls = {get: function(k){return JSON.parse(localStorage.getItem(k))}, set: function(k,v){return localStorage.setItem(k,JSON.stringify(v))}, del: function(k){return localStorage.setItem(k,undefined)}}
+
 var app = angular.module('flowApp', ['ui.bootstrap', 'ui.router', 'elasticsearch']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider
-    .otherwise('/main');
+    .otherwise('/search');
   $stateProvider
     .state("main", {
       url: "/main",
