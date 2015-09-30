@@ -4,7 +4,7 @@ var app = angular.module('flowApp', ['ui.bootstrap', 'ui.router', 'elasticsearch
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider
-    .otherwise('/search');
+    .otherwise('/author');
   $stateProvider
     .state("main", {
       url: "/main",

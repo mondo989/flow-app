@@ -3,16 +3,35 @@
 
 <div ng-controller="authorCtrl" class="author text-center" style="background:white;">
 
-  <section id="uploadModal">
+  <section class="uploadModal" id="uploadModal">
     <div class="container">
-      <h1>Drag asset in screen</h1>
-      <h3>Add in tags:</h3>
-      <input class="tags-input" type="text">
+      <div class="row main-core">
+        <a class="close-modal"  ng-click="closeModal()">
+          <i class="ion-ios-close-outline"></i>
+        </a>
+        <h1>
+          Drag a
+            <span class="asset-type-holder">
+              <img src="img/photoshop.png" alt="">
+              <img src="img/illustrator.png" alt="">
+              <img src="img/sketch.png" alt="">
+            </span>
+          file in screen
+        </h1>
+            <span class="author-upload-copy"> or <a href="#">click here</a> to upload</span>
+        <br>
+        <div class="tags-row " >
+        <h3>Add in tags:</h3>
+          <i class="ion-ios-redo-outline"></i>
+          <input class="tags-input" type="text">
+          <h3 class="comma-copy">Press Enter to add new</h3>
+        </div>
+      </div>
     </div>
   </section>
 
 
-  <a ui-sref="search"><i class="fa fa-search"></i></a>
+  <a ui-sref="search"><i class="fa fa-search ion-ios-search-strong"></i></a>
 
   <span class="author-content anim">
     <img src="https://randomuser.me/api/portraits/med/men/48.jpg" class="author-img" alt="">
@@ -38,8 +57,8 @@
   <ul class="content-holder ">
     <!--    {{ assets }} -->
 
-    <li class="col-sm-4 asset anim upload" style="width: 32%; background: red;">
-      <a href="#" ng-click="modalClicked(); modalClicked=!modalClicked;" ng-class="{notSelected:!modalClicked, selected:modalClicked}">
+    <li class="col-sm-4 asset anim upload" style="width: 32%;">
+      <a href="#" ng-click="ModalListClicked(); ">
         <i class="fa ion-android-add-circle"></i>
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
         <h3 class="upload-copy text-center">Upload Asset</h3>

@@ -265,5 +265,13 @@ angular.module('flowApp')
 
 .controller('authorCtrl', ['$scope', function($scope) {
 
+  $scope.ModalListClicked = function () {
+    document.querySelector('.uploadModal').classList.toggle('active');
+  }
+  $scope.closeModal = function() {
+    document.querySelector('.uploadModal').classList.toggle('active');
+  }
+
+
   console.log('Author Controller done loadin')
 }])
