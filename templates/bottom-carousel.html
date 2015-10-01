@@ -4,7 +4,8 @@
   <a class="tabs left" href="#"><i class="fa fa-angle-left"></i> </a>
   <div class="row text-center asset-main-container" >
     <span ng-click="hideSearchWindow();" class="click-area">
-     <a ng-repeat="asset in assets" class="asset-anim" ng-href="{{asset._source.imgPsd}}" >
+     <!-- <a ng-click="openOutsideApplication();" ng-repeat="asset in assets" class="asset-anim" ng-href="{{asset._source.imgPsd}}" > -->
+    <a ng-click="openOutsideApplication();" ng-repeat="asset in assets" class="asset-anim" >
       <img ng-src="{{asset._source.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">
         <loader id="loader-{{asset._id}}"></loader>
       <div class="asset-container">

@@ -24,6 +24,7 @@ angular.module('flowApp')
   }
 
   $scope.search = function(){
+
     var query = $scope.query.trim()
     if (!$scope.searchTags.length && !query) {console.log("No query."); return false;}
     if ($scope.searchTags.indexOf(query)>=0) {console.log("No duplicate tags pls."); return false}
@@ -96,9 +97,7 @@ angular.module('flowApp')
    }
 
 
-
-
-   document.addEventListener("keypress", function(e){ // this is firing twice.
+   document.addEventListener("keypress", function(e){
      console.log("hi", e.keyCode)
      // console.log("hi", e)
 
@@ -124,7 +123,6 @@ angular.module('flowApp')
      $scope.searchTags = lastSearch.searchTags || []
      $scope.search()
    }
-
 
 /*
    $scope.toggleAssets = function(param) {
@@ -153,6 +151,14 @@ angular.module('flowApp')
   window.$scope = $scope
   $scope.assets = []
 
+
+
+
+
+
+
+
+
   require('ipc').on('ping', function(message) {
     $scope.$apply(function() {
       $scope.assets=message
@@ -162,6 +168,22 @@ angular.module('flowApp')
         $scope.downloadPSD($scope.assets[i]._source.imgPsd,'./imgs/'+ $scope.assets[i]._id+'.psd', $scope.assets[i]._id);
       }
     console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
+
+
+    $scope.openOutsideApplication = function() {
+
+            var fs = require('fs'),
+            exec = require('child_process').exec;
+
+// {{asset._source.imgPsd}}
+
+            console.log('opening Photoshop');
+            // This is a static string, it needs to be a variable at the end
+             var child = exec('open -a "Adobe\ Photoshop\ CS6" "/Users/armandoflores/Desktop/flow-app/imgs/AU-1YVAQr0A0Z0XKxgoJ.psd"',
+             function (err, stdout, stderr) { console.log('heyyyyyi',err,stdout, stderr) });
+           }
+
+
   });
 
 
@@ -174,8 +196,6 @@ angular.module('flowApp')
     var searchWindow = windows[1]
 
     searchWindow.hide()
-
-    // document.querySelector('.fa-search').classList.toggle('inactive');
 
     setInterval(function(){
      document.querySelector('.fa-search').classList.toggle('attention');
@@ -259,9 +279,7 @@ angular.module('flowApp')
     }, 1000)
   }
 
-
 }])
-
 
 .controller('authorCtrl', ['$scope', function($scope) {
 

@@ -2,6 +2,9 @@ var app = require('app')
 var BrowserWindow = require('browser-window')
 var ipc = require('ipc')
 
+
+var mongoose = require('mongoose');
+
 var url = require('url')
 
 require('electron-debug')(); //- This allows debugging CMD+ALT+I

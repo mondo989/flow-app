@@ -3,8 +3,6 @@
 
 <div>
   <div class="full-row" ng-controller="assetSearch">
-
-
     <form ng-submit="search()" class="form-search">
       <div>
         <input ng-model="query" autocomplete="off" type="text" id="query" class="search" autofocus/>
@@ -99,12 +97,15 @@
     </div>
   </div>
 
+
   <script>
+  console.log("loaded yo")
+    require('./mongoose.js')
     require('./main.js')
-  </script>
 
 
-  <script>
+
+
     var ipc = require('ipc')
 
     var button = document.createEvent('button')
