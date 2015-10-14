@@ -1,0 +1,19 @@
+{
+  "name": "flow-app",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-prebuilt": "^0.30.1",
+    "express": "^4.13.0"
+  },
+  "dependencies": {
+    "electron-debug": "^0.1.0",
+    "mongoose": "^4.1.9"
+  }
+}

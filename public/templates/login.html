@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/signin.css">
 
 
-<div class="container">
+<div ng-controller="LoginCtrl" class="container">
   <div class="row text-center main-container">
     <img class="top-flow" src="img/f-logo.png" alt="">
     <img class="top-flow-copy" src="img/flow-png.png" alt="">
@@ -11,9 +11,25 @@
     <input type="email" name="email" id="email-address" data-validate="required, password" placeholder="Password" aria-required="true" class="email">
     <!-- <img class="flow-logo" src="img/flow-png.png" alt="">-->
     <br>
+
+    <button ng-click="authenticate('facebook')">Sign in with Facebook</button>
+    <button ng-click="authenticate('google')">Sign in with Google</button>
+    <button ng-click="authenticate('github')">Sign in with GitHub</button>
+    <button ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
+    <button ng-click="authenticate('twitter')">Sign in with Twitter</button>
+    <button ng-click="authenticate('foursquare')">Sign in with Foursquare</button>
+    <button ng-click="authenticate('yahoo')">Sign in with Yahoo</button>
+    <button ng-click="authenticate('live')">Sign in with Windows Live</button>
+    <button ng-click="authenticate('twitch')">Sign in with Twitch</button>
+
+
     <br>
     <a class="signup-signin-btn" ui-sref="search">Log In</a>
     <br>
+
+
+
+
 
     <p class="sign-in"> Or, <a class="sign-in" ui-sref="signup"> Sign Up</a> </p>
   </div>

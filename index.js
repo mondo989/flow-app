@@ -1,51 +1,21 @@
-var app = require('app')
-var BrowserWindow = require('browser-window')
-var ipc = require('ipc')
+var express = require("express"),
+    app = express()
 
+// mongoose.connect(secrets.db);
+// mongoose.connection.on("error", console.error.bind(console, "MongoDB Connection Error. Please make sure that MongoDB is running."));
 
-var mongoose = require('mongoose');
-
-var url = require('url')
-
-require('electron-debug')(); //- This allows debugging CMD+ALT+I
-
-var bottomCarousel;
-
-app.on('ready', function() {
-  var mainWindow = new BrowserWindow({
-    width: 900,
-    height: 630,
-    resizable: true,
-    frame: false,
-    "node-integration": true
-  })
-  mainWindow.loadUrl('file://' + __dirname + '/index.html')
-
-  bottomCarousel = new BrowserWindow({
-    width: 1700,
-    height: 100,
-    frame: false,
-    show: false,
-    transparent: true,
-    x: 0,
-    y: 2699,
-    "always-on-top": true
-  })
-
-  console.log(bottomCarousel.webContents);
-
-  console.log("awesome dirname: " + __dirname);
-
-   var indexUrl = url.format({
-    protocol: 'file',
-    pathname:  __dirname + '/index.html',
-    slashes: true,
-    hash: 'bottom-carousel'
-  })
-
-  console.log(indexUrl)
-  bottomCarousel.loadUrl(indexUrl)
-
-  console.log("We passed the step")
-
+app.get("/test", isAuthenticated, function(req, res, next){
+  res.send("123")
 })
+
+function isAuthenticated(req, res, next){
+  if (false) next()
+  else res.sendStatus(403)
+}
+
+
+app.listen(3000)
+
+
+
+module.exports = app;

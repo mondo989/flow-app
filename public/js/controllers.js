@@ -5,7 +5,6 @@ angular.module('flowApp')
   $scope.query = ""
   $scope.searchTags = []
 
-
   $scope.downloadActivationQueue = function () {
     // console.log('button appears');
       document.getElementById("get-assets-container").className = "active";
@@ -48,7 +47,7 @@ angular.module('flowApp')
         }
       },"size" : 50
     };
-    $http.post("http://ec2-54-153-123-48.us-west-1.compute.amazonaws.com:9200/assets/_search", dataObj).success(function(data) {
+    $http.post("http://www.tryflow.io:9200/assets/_search", dataObj).success(function(data) {
       $scope.assets = data
       window.ls.set("lastSearch", {query: $scope.query, searchTags: $scope.searchTags})
     })
@@ -130,7 +129,9 @@ angular.module('flowApp')
    }
 */
 
-}])
+}])  // End of asset search controller
+
+
 
 
 // Onboarding Controller Yoooo!
@@ -182,6 +183,8 @@ angular.module('flowApp')
              var child = exec('open -a "Adobe\ Photoshop\ CS6" "/Users/armandoflores/Desktop/flow-app/imgs/AU-1YVAQr0A0Z0XKxgoJ.psd"',
              function (err, stdout, stderr) { console.log('heyyyyyi',err,stdout, stderr) });
            }
+
+
 
 
   });
