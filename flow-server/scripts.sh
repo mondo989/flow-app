@@ -1,6 +1,7 @@
 #!/bin/bash
 # Command line tools scripts for source code management
 
+DEVROOT=/www/flow.dev/
 DEVDIR=/www/flow.dev/flow-server/
 LIVEDIR=/www/flow.io/flow-server/
 EXECFN=flowserver.js
@@ -12,7 +13,7 @@ case "$1" in
 		git add .
 		git commit -m "Deployment"
 		cd $LIVEDIR
-		git pull $DEVDIR
+		git pull $DEVROOT
 		cd $DEVDIR
 		echo "done"
 		;;
