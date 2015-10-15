@@ -24,9 +24,16 @@ app.post("/", function(req, res) {
 	var email = req.body["email"];
 	if (!validator.validate(email))
 		return errorOutput("Not valid email address");
-	console.log("email",email);
-	fs.appendFileSync("/home/ec2-user/leads.txt", email+"\n");
-	res.send("Thank you pageholder!");
+	db.collection('usr_users').insertOne( {
+		"email" : email,
+		"password" : null,
+		"state" : "unapproved",
+		"signup_date" : new Date()
+	}, function(err, mongores) {
+		console.log("New user signup",email);
+		res.send("Thank you pageholder!");
+	});
+
 })
 
 module.exports = {"app" : app};

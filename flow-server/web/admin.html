@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Flow Admin Interface</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="/static/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/static/jquery.tmpl.min.js"></script>
+
+	<script type="text/javascript" src="/static/tablesorter/jquery.tablesorter.min.js"></script>
+	<link rel="stylesheet" href="/static/tablesorter/style.css" type="text/css" media="print, projection, screen" />
+
+</head>
+<body>
+
+<h1>Users:</h1>
+<table cellspacing="1" class="tablesorter" style="width:660px;">
+<thead>
+	<tr><th>Signup</th><th>Email</th><th>Status</th><th>Approve</th></tr>
+</thead>
+<tbody id="userlisting">
+</tbody>
+</table>
+
+<script id="tmpl_users" type="text/x-jquery-tmpl">
+<tr><td>${register}</td><td>${email}</td><td>${state}</td><td><a href="#" onclick="javascript: return userApprove(${id});">Approve</a></td></tr>
+</script>
+
+<script type="text/javascript">
+
+$(function() {
+	$("table").tablesorter({widthFixed: true });
+	$.ajax({ type:"GET", url:"/api/admin/userlist", dataType:"JSON", success: function(res) {
+		console.log(res);
+		$("#userlisting").html("");
+		$("#tmpl_users").tmpl(res).appendTo("#userlisting");
+	} } );
+});
+
+
+</script>
+
+
+</body>
+</html>

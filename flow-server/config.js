@@ -1,16 +1,25 @@
-var sqlite3 = require('sqlite3').verbose();
+var MongoClient = require('mongodb').MongoClient;
 
 config  = {
 		consoleMode : true,
+		mongodb : "mongodb://localhost:27017/flowapp",
+		admin : {user : "flow", password: "mondo989"}
 };
 
 
 // initialization takes place here
 init = function(callback) {
-	GLOBAL.db = new sqlite3.Database('/home/ec2-user/flow.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, function(err, res) {
+	MongoClient.connect(config.mongodb, function(err, db) {
+		if (err != null) {
+			console.error(err);
+			process.exit();
+		}
+		GLOBAL.db = db;
 		callback(null, null);
 	});
 };
+
+GLOBAL.config = config;
 
 module.exports = {"config" : config, "init" : init};
 
