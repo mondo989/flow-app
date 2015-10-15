@@ -1,8 +1,8 @@
 #!/bin/bash
 # Command line tools scripts for source code management
 
-DEVDIR=/www/flow.dev/
-LIVEDIR=/www/flow.io/
+DEVDIR=/www/flow.dev/flow-server/
+LIVEDIR=/www/flow.io/flow-server/
 EXECFN=flowserver.js
 
 case "$1" in
