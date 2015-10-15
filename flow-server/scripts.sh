@@ -10,8 +10,11 @@ case "$1" in
 	deploy)
 		echo "doing full deploy"
 		cd $DEVDIR
-		git add .
-		git commit -m "Deployment"
+		git status -s | grep -v '??' &> /dev/null && {
+			echo "Committing current changes in dev repo..."
+			git add .
+			git commit -m "Deployment"
+		}
 		cd $LIVEDIR
 		git pull $DEVROOT
 		cd $DEVDIR
