@@ -59,8 +59,10 @@
 					</div>
 					<div class="signup-holder signup-anim">
 						<div class="col-md-5" style="margin-left: -10px; padding-left:0;">
-							<input class="signup-input" type="text">
-							<a class=" signup-btn" href="#">
+							<form action="/" method="post" style="display:inline" id="cmain">
+							<input class="signup-input" name="email" type="email" placeholder="my@email.com" />
+							</form>
+							<a class=" signup-btn" href="#" onclick="javascript:$('#cmain').submit(); return false;">
 								<!-- <i class="ion-paper-airplane"></i>--> Sign Up
 							</a>
 							<div class="text-center">
@@ -226,12 +228,12 @@
 	<div class="level level-outro text-center">
 		<div class=container>
 			<div class="row">
-				<form class=contact method=get action="/" accept-charset="UTF-8">
+				<form class=contact method=post action="/" accept-charset="UTF-8">
 					<div class="h2 mb-20">We're in Closed Beta</div>
 					<p class="mb-35">Enter your email and we’ll send you a link when the product is ready
 
 						<div class="input-holder">
-							<input type=tel class="email-input" name="tel" placeholder="Enter Email" required>
+							<input type=email class="email-input" name="email" placeholder="Enter Email" required>
 							<input type=submit class="submit" value=Submit>
 						</div>
 				</form>
@@ -261,7 +263,7 @@
 	</div>
 
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script>
 		window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')
 	</script>
