@@ -22,7 +22,7 @@
 </table>
 
 <script id="tmpl_users" type="text/x-jquery-tmpl">
-<tr><td>${register}</td><td>${email}</td><td>${state}</td><td><a href="#" onclick="javascript: return userApprove(${id});">Approve</a></td></tr>
+<tr><td>${register}</td><td>${email}</td><td>${state}</td><td id="approve_${id}"><a href="#" onclick="javascript: return userApprove('${_id}');">Approve</a></td></tr>
 </script>
 
 <script type="text/javascript">
@@ -36,6 +36,16 @@ $(function() {
 	} } );
 });
 
+// approves a user
+function userApprove(id) {
+	$.ajax({ type:"GET", url:"/api/admin/approve/"+id, dataType:"JSON", success: function(res) {
+		console.log(res);
+		window.location.reload();
+		// $("#userlisting").html("");
+		// $("#tmpl_users").tmpl(res).appendTo("#userlisting");
+	} } );
+
+}
 
 </script>
 
