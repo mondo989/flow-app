@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require('body-parser');
 var basicAuth = require('basic-auth');
 var app = express();
+var ObjectID = require('mongodb').ObjectID;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -40,10 +41,12 @@ app.get("/api/admin/userlist", function(req, res) {
 });
 
 // admin approval function
-app.get("/api/admin/approve", function(req, res) {
-	//var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : ""} );
-	// res.send(output);
-	res.json({"err" : "unimplemented"});
+app.get("/api/admin/approve/:id", function(req, res) {
+	if (req.params["id"] === undefined)
+		return res.status(400).json({"err" : "no id"});
+	db.collection("usr_users").update({_id : ObjectID(req.params["id"])}, {$set : {"state" : "approved"}}, function(err, dres) {
+		return res.json({"ok" : "ok" });
+	});
 });
 
 module.exports = {"app" : app};

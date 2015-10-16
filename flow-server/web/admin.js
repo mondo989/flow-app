@@ -24,5 +24,5 @@ app.get("/admin/", function(req, res) {
 	res.send(output);
 });
 
-console.log(config);
 module.exports = {"app" : app};
+
