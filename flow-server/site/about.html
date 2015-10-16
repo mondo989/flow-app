@@ -6,8 +6,8 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	
-	
+
+
 	<title>Appi - Free Bootstrap Theme</title>
 	<link rel=stylesheet href="css/main.css">
 	<link rel=stylesheet href="css/owl.carousel.css">
@@ -17,7 +17,7 @@
 	<link rel=stylesheet href="css/ie.css">
 	<![endif]-->
 		<script src="js/vendor/modernizr.js"></script>
-	
+
 		<script src="js/vendor/respond.min.js"></script>
 
 </head>
@@ -26,16 +26,16 @@
 
 <div class="header">
 	<div class="container rel text-left">
-		<a class="brand brand-color" href="index.html">APPI</a>
+		<a class="brand brand-color" href="/">APPI</a>
 
 				<nav class=nav>
 			<ul>
-				<li><a href="index.html">Home</a>
-				<li class="active"><a href="about.html">About</a>
+				<li><a href="/">Home</a>
+				<li class="active"><a href="/about">About</a>
 			</ul>
 		</nav>
 	</div>
-</div>	
+</div>
 
 
 <div class="level level-hero hero-careers has-hint">
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 
-	</div>	
+	</div>
 
 	<div class="hint-arrow hint-arrow-contrast"></div>
 
@@ -70,23 +70,23 @@
 		<div class="row">
 			<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
 				<h1 class="mb-25 sm-mb-20 heading scaled color-dark heading-bordered bordered-above">Neque porro quisquam est qui dolorem ipsum.</h1>
-				
+
 				<h2 class="text-center w-300 color-dark mb-70 sm-mb-40 xs-mb-20">Want to know more?</h2>
 			</div>
 		</div>
 
 		<div class="row mb-60 xs-mb-20">
-		
+
 			<div class="col-sm-6 col-lg-4 col-lg-offset-2 xs-mb-20">
 				<div class="has-icon">
-					<i class="icon icon-laptop"></i>	
+					<i class="icon icon-laptop"></i>
 					<h3 class="mb-25 md-mb-10">Service Item 1.</h3>
 					<p class="smaller">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
 
 
 				</div>
 			</div>
-			
+
 			<div class="col-sm-6 col-lg-4">
 				<div class="has-icon">
 					<i class="icon icon-phone"></i>
@@ -94,20 +94,20 @@
 					<p class="smaller">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
 				</div>
 			</div>
-		
+
 		</div>
 
 		<div class="row xs-mb-20">
-		
+
 			<div class="col-sm-6 col-lg-4 col-lg-offset-2 xs-mb-20">
 				<div class="has-icon">
-					<i class="icon icon-flame"></i>	
+					<i class="icon icon-flame"></i>
 					<h3 class="mb-25 md-mb-10">Service Item 3.</h3>
 					<p class="smaller">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
 
 				</div>
 			</div>
-			
+
 			<div class="col-sm-6 col-lg-4">
 				<div class="has-icon">
 					<i class="icon icon-camera"></i>
@@ -115,7 +115,7 @@
 					<p class="smaller">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
 				</div>
 			</div>
-		
+
 		</div>
 
 	</div>
@@ -169,10 +169,10 @@
 
 <div class="footer text-center">
 	<p>
-		<a href="index.html">BLACKTIE.CO</a> | Copyright 2015
+		<a href="/">BLACKTIE.CO</a> | Copyright 2015
 	</p>
 
-</div>	
+</div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 <!-- //-beg- concat_js -->
@@ -185,10 +185,10 @@
 
 
     var windowWidth = function() {
-        var e = window, 
+        var e = window,
         a = 'inner';
 
-        if ( !( 'innerWidth' in window ) ) { 
+        if ( !( 'innerWidth' in window ) ) {
             a = 'client';
             e = document.documentElement || document.body;
         }
@@ -197,7 +197,7 @@
 
     var carouselPadding = function() {
 
-        var limit =  1690; 
+        var limit =  1690;
         if ( Modernizr.mq("( min-width: " + limit + "px ) ") ) {
 
             padding = Math.round( ( windowWidth() - limit ) / 2 );
@@ -205,18 +205,18 @@
         }
 
         else {
-            
+
             padding = 0;
-        
+
         }
 
         return padding;
     };
 
     var owl = $(".carousel");
-    
+
     owl.owlCarousel({
-     
+
         items : 1,
         loop : true,
         // margin : 10,
@@ -251,6 +251,6 @@
 </script>
 
 
-	
+
 </body>
 </html>
