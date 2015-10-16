@@ -31,7 +31,8 @@ app.post("/", function(req, res) {
 		"signup_date" : new Date()
 	}, function(err, mongores) {
 		console.log("New user signup",email);
-		res.send("Thank you pageholder!");
+		return res.redirect(301, "/thank-you-form");
+		// res.send("Thank you pageholder!");
 	});
 
 })
