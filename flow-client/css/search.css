@@ -143,3 +143,12 @@ li.tags-anim {
   -o-animation: fadeInUpMod 1s ease;
   animation: fadeInUpMod 1s ease;
 }
+
+.close-app {
+  float: right;
+  margin-right: 10px;
+  margin-top: 0;
+  color: black;
+  opacity: .5!important;
+  font-size:30px!important;
+}
