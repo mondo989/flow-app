@@ -1,0 +1,100 @@
+.signup-btn {
+  background: #ccc;
+}
+.signup-holder {
+  margin-top: 40px!important;
+  display: block;
+  background: red;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.signup-input {
+  height: 50px;
+  width: 300px;
+  margin-left: 0;
+  padding-left: 0;
+}
+.beta-copy {
+  margin-top: 10px;
+  display: block;
+}
+
+a.signup-btn {
+  padding: 15px 20px;
+  border-radius: 10px;
+}
+
+.red {
+  background: red;
+}
+
+
+
+
+.input-holder {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.input-holder .email-input {
+  width: 70%;
+  height: 60px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+}
+.input-holder .submit {
+  padding: 20px 30px;
+  margin-bottom: 0!important;
+  margin-top: 0!important;
+  text-transform: none;
+  font-weight: bold;
+  letter-spacing: .5px;
+}
+
+.fadeInRight {
+  -moz-animation: fadeInLeft 1s ease-out;
+  -webkit-animation: fadeInLeft 1s ease-out;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.signup-anim {
+  /*-moz-animation: fadeInDownBig 5s ease-out;
+  -webkit-animation: fadeInDownBig 5s ease-out;
+  animation: fadeInDownBig 5s ease-out;*/
+}
+.v-center {
+  padding-top: 150px;
+}
+
+.icon {
+  border-radius: 120px;
+}
+
+.footer a.icon-holder {
+  text-decoration: none;
+  border-radius: 120px;
+  border: 2px solid #e5e5e5;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+}
+
+.footer a.icon-holder i {
+  font-size: 40px;
+  margin-top: 7px!important;
+  display: inline-block;
+}
+
+.fmenu a {
+  margin-top: 40px;
+  font-size: 10px;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.feature-container h3 {
+  letter-spacing: 0!important;
+  font-size: 25px;
+}
