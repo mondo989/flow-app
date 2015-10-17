@@ -12,6 +12,30 @@ var Mustache = require("mustache");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // login API
+app.post("/api/login", function(req, webres) {
+	async.waterfall([
+		// search for the user
+		function(cb) {
+			return db.collection("usr_users").find({email : req.body["email"] }).toArray(cb);
+		},
+		// search for appropiate session cookie
+		function(res, cb) {
+			if (res.length == 0) {
+				return webres.status(404).json({"err" : "No such user"});
+			}
+			return db.collection("usr_sessions").find({user_id : ObjectID(res[0]["_id"]), cookie : req.body["code"] }).toArray(cb);
+		},
+		// authenticate
+		function(res, cb) {
+			if (res.length == 0) {
+				return webres.status(404).json({"err" : "Bad authentication code"});
+			}
+			webres.json({"ok" : "ok"});
+		}
+	]);
+
+})
+
 app.get("/api/login", function(req, res) {
 	//var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : ""} );
 	// res.send(output);

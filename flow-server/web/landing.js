@@ -40,9 +40,15 @@ app.post("/", function(req, res) {
 
 // returns about page
 app.get("/about", function(req, res) {
-	var output = Mustache.render(fs.readFileSync("./site/about.html", "utf8"), {"err" : ""} );
+	var output = Mustache.render(fs.readFileSync("./web/about.html", "utf8"), {"err" : ""} );
 	res.send(output);
 });
+
+app.get("/logintest", function(req, res) {
+	var output = Mustache.render(fs.readFileSync("./web/logintest.html", "utf8"), {"err" : ""} );
+	res.send(output);
+});
+
 
 module.exports = {"app" : app};
 
