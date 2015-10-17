@@ -1,4 +1,5 @@
 package/
 release/
 FlowApp-darwin-x64/
-
+FlowApp-win32-x64/
+node_modules/electron-windows-installer/vendor/SquirrelSetup.log
