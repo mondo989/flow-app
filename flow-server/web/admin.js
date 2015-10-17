@@ -10,7 +10,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // add basic authentication for modules listed from here:
 app.use("/admin/*", function(req, res, next) {
 	var user = basicAuth(req);
-
     if (!user || user.name !== config.admin.user || user.pass !== config.admin.password) {
       res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
       return res.send(401);
