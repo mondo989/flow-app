@@ -23,6 +23,7 @@ html, body {
   border-radius: 120px;
   width: 25px;
   height: 25px;
+  opacity: .6!important;
 }
 .info:hover .file-type {
   -webkit-animation: fadeInUp .5s;
@@ -411,7 +412,7 @@ img.asset-img {
   -o-animation: fadeIn 2s;
   animation: fadeIn 2s;
   overflow-y: scroll;
-  padding-left: 21.5px;
+  padding-left: 28.5px;
   margin-top: -10px;
 }
 .content-row {
