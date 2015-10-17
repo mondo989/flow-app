@@ -210,3 +210,13 @@ a.close-modal {
   width: 50px;
   opacity: .7;
 }
+
+.ion-android-arrow-back {
+float: left;
+margin-top: 25px;
+font-size: 40px;
+color: #ccc;
+opacity: 1;
+margin-left: 25px;
+
+}
