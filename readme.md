@@ -27,7 +27,7 @@ Then open your browser at http://127.200.0.10:1337/
 ```
 > npm install electron-packager -g
 > cd flow-installer
-> ./build-maxosx.sh
+> ./build-macosx.sh
 ```
 
 This will build the full app into flow-installer/FlowApp-darwin-x64
