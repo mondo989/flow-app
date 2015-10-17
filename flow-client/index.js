@@ -9,6 +9,11 @@ require('electron-debug')(); //- This allows debugging CMD+ALT+I
 var bottomCarousel;
 
 app.on('ready', function() {
+  var electronScreen = require("screen");
+
+  var size = electronScreen.getPrimaryDisplay().workAreaSize;
+  console.log(size);
+
   var mainWindow = new BrowserWindow({
     width: 900,
     height: 630,
@@ -19,13 +24,13 @@ app.on('ready', function() {
   mainWindow.loadUrl('file://' + __dirname + '/index.html')
 
   bottomCarousel = new BrowserWindow({
-    width: 1700,
+    width: size.width-200,
     height: 100,
     frame: false,
     show: false,
     transparent: true,
-    x: 0,
-    y: 2699,
+    x: 100,
+    y: size.height - 150,
     "always-on-top": true
   })
 
