@@ -69,9 +69,12 @@ angular.module('flowApp')
   $scope.downloadAssets = function() {
     var remote = require('remote');
     var BrowserWindow = remote.require('browser-window');
-    console.log(BrowserWindow.getAllWindows())
+    console.log(JSON.stringify(BrowserWindow.getAllWindows(), 0, 4));
     var windows = BrowserWindow.getAllWindows()
-    var bottomCarousel = windows[0]
+    var bottomCarousel = windows[0];
+    for (var i = 0; i < windows.length;i++)
+      if (windows[i]["webContents"]["browserWindowOptions"]["always-on-top"] !== undefined)
+         bottomCarousel = windows[i];
 
     bottomCarousel.show()
 
@@ -161,11 +164,15 @@ angular.module('flowApp')
 
 
   require('ipc').on('ping', function(message) {
+    console.log(JSON.stringify(message));
     $scope.$apply(function() {
       $scope.assets=message
     });
 
+      var fs = require("fs");
+        console.log(process.cwd());
       for(i=0;i<$scope.assets.length;i++) {
+        console.log('./imgs/'+ $scope.assets[i]._id+'.psd');
         $scope.downloadPSD($scope.assets[i]._source.imgPsd,'./imgs/'+ $scope.assets[i]._id+'.psd', $scope.assets[i]._id);
       }
     console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"

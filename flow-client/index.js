@@ -34,6 +34,9 @@ app.on('ready', function() {
     "always-on-top": true
   })
 
+  GLOBAL.mainWindow = mainWindow;
+  GLOBAL.bottomCarousel = bottomCarousel;
+
   console.log(bottomCarousel.webContents);
 
   console.log("awesome dirname: " + __dirname);
