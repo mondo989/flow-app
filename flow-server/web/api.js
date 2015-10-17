@@ -3,6 +3,11 @@ var bodyParser = require('body-parser');
 var basicAuth = require('basic-auth');
 var app = express();
 var ObjectID = require('mongodb').ObjectID;
+var mailgun = require('mailgun-js')({apiKey: "key-ac816160451f257bd27fb69c6645efeb", domain: "tryflow.io"});
+var fs = require("fs");
+var async = require("async");
+var crypto = require("crypto");
+var Mustache = require("mustache");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -40,13 +45,54 @@ app.get("/api/admin/userlist", function(req, res) {
 	});
 });
 
+function randomValueHex(len) {
+    return crypto.randomBytes(Math.ceil(len/2))
+        .toString('hex') // convert to hexadecimal format
+        .slice(0,len);   // return required number of characters
+};
+
 // admin approval function
-app.get("/api/admin/approve/:id", function(req, res) {
-	if (req.params["id"] === undefined)
+app.get("/api/admin/approve/:id", function(req, webres) {
+	if ((req.params["id"] === undefined) || ((req.params["id"].length < 12)))
 		return res.status(400).json({"err" : "no id"});
-	db.collection("usr_users").update({_id : ObjectID(req.params["id"])}, {$set : {"state" : "approved"}}, function(err, dres) {
-		return res.json({"ok" : "ok" });
-	});
+
+	var cookie = randomValueHex(16);
+	var userdata = null;
+
+	async.waterfall([
+		// search for the user
+		function(cb) {
+			return db.collection("usr_users").find({_id : ObjectID(req.params["id"])}).toArray(cb);
+		},
+		// add new desktop client session
+		function(res, cb) {
+			if (res.length == 0) {
+				return webres.status(400).json({"err" : "not found"});
+			}
+			userdata = res[0];
+			return db.collection('usr_sessions').insertOne( {
+				"user_id" : res[0]["_id"],
+				"cookie" : cookie,
+				"cohort_date" : new Date()
+			}, cb);
+		},
+		// send email via mailgun
+		function(res, cb) {
+			var data = {
+			  from: 'Armando <hello@tryflow.io>',
+			  to: userdata["email"],
+			  subject: 'Welcome to Flow!',
+			  text: Mustache.render(fs.readFileSync("./web/mail_activate.html", "utf8"), {"email" : userdata["email"], "code" : cookie} )
+			};
+			return mailgun.messages().send(data, cb);
+		},
+		function(res, cb) {
+			return db.collection("usr_users").update({_id : ObjectID(req.params["id"])}, {$set : {"state" : "approved"}}, cb);
+		},
+		function(res, cb) {
+			return webres.json({"ok" : "ok" });
+		}
+		]);
 });
 
 module.exports = {"app" : app};
