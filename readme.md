@@ -20,18 +20,18 @@ Then open your browser at http://127.200.0.10:1337/
 # Installer code
 
 ** Installer on Mac:
-> npm install electron-packager -g
-> cd flow-installer
-> ./build-maxosx.sh
+`> npm install electron-packager -g
+`> cd flow-installer
+`> ./build-maxosx.sh
 
 This will build the full app into flow-installer/FlowApp-darwin-x64
 
 ** Installer on Windows
-> npm install electron-packager -g
-> cd flow-installer
-> ./build-windows.bat
+`> npm install electron-packager -g
+`> cd flow-installer
+`> ./build-windows.bat
 
 ** Uploading an install:
-> node upload.js
+`> node upload.js
 This will automatically figure out the platform, and upload the generated setup
 
