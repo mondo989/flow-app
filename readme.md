@@ -1,6 +1,7 @@
 # Flow app
 
 ** Start client
+
 `> cd flow-client && npm start
 
 ============================================
@@ -9,9 +10,11 @@
 Site: tryflow.io
 
 Test server locally:
+
 `> cd flow-server && ssh -L 27017:127.0.0.1:27017 -i ./config/elasticsearch-ec2.pem ec2-user@tryflow.io
 
 Open another terminal, and:
+
 `> cd flow-server && node flowserver.js
 
 Then open your browser at http://127.200.0.10:1337/
