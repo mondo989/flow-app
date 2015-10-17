@@ -10,13 +10,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // returns main landing page
 app.get("/", function(req, res) {
-	var output = Mustache.render(fs.readFileSync("./site/index.html", "utf8"), {"err" : ""} );
+	var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : ""} );
 	res.send(output);
 });
 
 app.post("/", function(req, res) {
 	errorOutput = function(err) {
-		var output = Mustache.render(fs.readFileSync("./site/index.html", "utf8"), {"err" : err} );
+		var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : err} );
 		res.send(output);
 	}
 	if ((req.body == undefined) || (req.body["email"] == undefined) || (req.body["email"] == ""))
@@ -45,3 +45,4 @@ app.get("/about", function(req, res) {
 });
 
 module.exports = {"app" : app};
+

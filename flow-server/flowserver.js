@@ -26,9 +26,7 @@ if (!module.parent) {
 		app.use(bodyParser.urlencoded({ extended: false }));
 		app.use(compression({ threshold: 512}));
 		app.use('/static/', express.static(__dirname + '/static/'));
-		app.use('/css/', express.static(__dirname + '/site/css/'));
-		app.use('/img/', express.static(__dirname + '/site/img/'));
-		app.use('/js/', express.static(__dirname + '/site/js/'));
+		app.use('/site/', express.static(__dirname + '/web/site/'));
 
 		for (var cname in webapps) {
 			app.use(webapps[cname]["app"]);
