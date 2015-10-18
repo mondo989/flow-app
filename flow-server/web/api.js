@@ -49,7 +49,7 @@ app.post("/api/search", function(req, webres) {
 			if (res.length == 0) {
 				return webres.status(404).json({"err" : "Bad authentication code"});
 			}
-			webres.json("tags" : req.body["tags"]);
+			webres.json( {"tags" : req.body["tags"] } );
 		}
 	]);
 });
