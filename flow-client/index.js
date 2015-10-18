@@ -19,6 +19,7 @@ app.on('ready', function() {
     height: 630,
     resizable: true,
     frame: false,
+    title : "Flow Assets",
     "node-integration": true
   })
   mainWindow.loadUrl('file://' + __dirname + '/index.html')
@@ -31,6 +32,7 @@ app.on('ready', function() {
     transparent: true,
     x: 100,
     y: size.height - 150,
+    title : "Flow Downloads",
     "always-on-top": true
   })
 
@@ -54,3 +56,9 @@ app.on('ready', function() {
   console.log("We passed the step")
 
 })
+
+
+app.on('window-all-closed', function() {
+  console.log("all windows closed");
+  app.quit();
+});

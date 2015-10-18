@@ -1,3 +1,15 @@
+// returns the window defined by it's title
+var getWindowByTitle = function(title) {
+    var remote = require('remote');
+    var BrowserWindow = remote.require('browser-window');
+    var windows = BrowserWindow.getAllWindows()
+    var res = null;
+    for (var i = 0; i < windows.length;i++)
+      if (windows[i]["webContents"]["browserWindowOptions"]["title"] == title )
+        return windows[i];
+    return null;
+}
+
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
@@ -54,6 +66,8 @@ angular.module('flowApp')
   }
 
   $scope.deleteTag = function($index){
+    console.log($scope.searchTags);
+    process.exit(1);
     $scope.searchTags.splice($index, 1)  // Something's fucked up :)
     $scope.search()
   }
@@ -67,15 +81,7 @@ angular.module('flowApp')
   }
 
   $scope.downloadAssets = function() {
-    var remote = require('remote');
-    var BrowserWindow = remote.require('browser-window');
-    console.log(JSON.stringify(BrowserWindow.getAllWindows(), 0, 4));
-    var windows = BrowserWindow.getAllWindows()
-    var bottomCarousel = windows[0];
-    for (var i = 0; i < windows.length;i++)
-      if (windows[i]["webContents"]["browserWindowOptions"]["always-on-top"] !== undefined)
-         bottomCarousel = windows[i];
-
+    var bottomCarousel = getWindowByTitle("Flow Downloads");
     bottomCarousel.show()
 
     var itemsToDisplay = []
@@ -131,6 +137,16 @@ angular.module('flowApp')
     console.log("recieved:" + param )
    }
 */
+
+  // closes this window; if all windows are closed, the app exits
+  $scope.closeClicked = function() {
+    var bottomCarousel = getWindowByTitle("Flow Downloads");
+    if ((bottomCarousel != null) && (!bottomCarousel.isVisible()) ) {
+      bottomCarousel.close();
+    }
+    var mainWindow = getWindowByTitle("Flow Assets");
+    mainWindow.close();
+  }
 
 }])  // End of asset search controller
 
@@ -199,11 +215,7 @@ angular.module('flowApp')
 
 // Makes search window hide on Bottom Carousel Click
   $scope.hideSearchWindow = function() {
-
-    var remote = require('remote');
-    var BrowserWindow = remote.require('browser-window');
-    var windows = BrowserWindow.getAllWindows()
-    var searchWindow = windows[1]
+    var searchWindow = getWindowByTitle("Flow Assets")
 
     searchWindow.hide()
 
@@ -223,6 +235,16 @@ angular.module('flowApp')
 
     searchWindow.show()
       document.querySelector('.fa-search').classList.toggle('active');
+  }
+
+  // closes the carousel
+  $scope.closeBottomCarousel = function() {
+    var mainWindow = getWindowByTitle("Flow Assets");
+    if ((mainWindow != null) && (!mainWindow.isVisible()) ) {
+      mainWindow.close();
+    }
+    var bottomCarousel = getWindowByTitle("Flow Downloads");
+    bottomCarousel.close();
   }
 
 
