@@ -1,3 +1,15 @@
+// returns the window defined by it's title
+var getWindowByTitle = function(title) {
+    var remote = require('remote');
+    var BrowserWindow = remote.require('browser-window');
+    var windows = BrowserWindow.getAllWindows()
+    var res = null;
+    for (var i = 0; i < windows.length;i++)
+      if (windows[i]["webContents"]["browserWindowOptions"]["title"] == title )
+        return windows[i];
+    return null;
+}
+
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
@@ -54,12 +66,11 @@ angular.module('flowApp')
   }
 
   $scope.deleteTag = function($index){
-    $scope.searchTags.splice($index, 1)  // Something's fucked up :)
+    $scope.searchTags.splice($index, 1)
     $scope.search()
   }
 
   $scope.newViewTransition = function () {
-    // console.log("Bae");
      var assetFilter = document.querySelector('.checkbox-options-holder');
      assetFilter.classList.toggle('inactive');
      var chevronDown = document.querySelector('.fa-chevron-down');
@@ -67,15 +78,7 @@ angular.module('flowApp')
   }
 
   $scope.downloadAssets = function() {
-    var remote = require('remote');
-    var BrowserWindow = remote.require('browser-window');
-    console.log(JSON.stringify(BrowserWindow.getAllWindows(), 0, 4));
-    var windows = BrowserWindow.getAllWindows()
-    var bottomCarousel = windows[0];
-    for (var i = 0; i < windows.length;i++)
-      if (windows[i]["webContents"]["browserWindowOptions"]["always-on-top"] !== undefined)
-         bottomCarousel = windows[i];
-
+    var bottomCarousel = getWindowByTitle("Flow Downloads");
     bottomCarousel.show()
 
     var itemsToDisplay = []
@@ -132,6 +135,16 @@ angular.module('flowApp')
    }
 */
 
+  // closes this window; if all windows are closed, the app exits
+  $scope.closeClicked = function() {
+    var bottomCarousel = getWindowByTitle("Flow Downloads");
+    if ((bottomCarousel != null) && (!bottomCarousel.isVisible()) ) {
+      bottomCarousel.close();
+    }
+    var mainWindow = getWindowByTitle("Flow Assets");
+    mainWindow.close();
+  }
+
 }])  // End of asset search controller
 
 
@@ -170,59 +183,68 @@ angular.module('flowApp')
     });
 
       var fs = require("fs");
+      var os = require("os");
         console.log(process.cwd());
       for(i=0;i<$scope.assets.length;i++) {
-        console.log('./imgs/'+ $scope.assets[i]._id+'.psd');
-        $scope.downloadPSD($scope.assets[i]._source.imgPsd,'./imgs/'+ $scope.assets[i]._id+'.psd', $scope.assets[i]._id);
+        console.log(os.tmpdir()+'/'+ $scope.assets[i]._id+'.psd');
+        $scope.downloadPSD($scope.assets[i]._source.imgPsd,os.tmpdir()+'/'+ $scope.assets[i]._id+'.psd', $scope.assets[i]._id);
       }
     console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
 
 
-    $scope.openOutsideApplication = function() {
+    $scope.openOutsideApplication = function(asset) {
+      console.log("openOutsideApplication");
 
-            var fs = require('fs'),
-            exec = require('child_process').exec;
+      var id = asset._id;
+      var os = require("os");
+      var fs = require('fs'),
+      exec = require('child_process').exec;
 
-// {{asset._source.imgPsd}}
+      console.log('opening Photoshop');
+      // uses the ID given above to open the photoshop file
+      if (os.platform() == "win32") {
+        var child = exec('start "" "'+os.tmpdir()+'/'+asset._id+'.psd"',
+             function (err, stdout, stderr) {  });
 
-            console.log('opening Photoshop');
-            // This is a static string, it needs to be a variable at the end
-             var child = exec('open -a "Adobe\ Photoshop\ CS6" "/Users/armandoflores/Desktop/flow-app/imgs/AU-1YVAQr0A0Z0XKxgoJ.psd"',
-             function (err, stdout, stderr) { console.log('heyyyyyi',err,stdout, stderr) });
-           }
-
-
-
-
+      } else if (os.platform() == "darwin") {
+        var child = exec('open -a "Adobe\ Photoshop\ CS6" '+os.tmpdir()+'/'+asset._id+".psd",
+             function (err, stdout, stderr) { console.log('heyyyyyi'); console.log(err); console.log(stdout); console.log(stderr); });
+      }
+    }
   });
 
 
 // Makes search window hide on Bottom Carousel Click
+/*
   $scope.hideSearchWindow = function() {
-
-    var remote = require('remote');
-    var BrowserWindow = remote.require('browser-window');
-    var windows = BrowserWindow.getAllWindows()
-    var searchWindow = windows[1]
+    console.log("hideSearchWindow");
+    var searchWindow = getWindowByTitle("Flow Assets")
 
     searchWindow.hide()
 
     setInterval(function(){
      document.querySelector('.fa-search').classList.toggle('attention');
   }, 2000);
-
-
   }
+*/
 
   $scope.showSearchWindow = function() {
-
     var remote = require('remote');
     var BrowserWindow = remote.require('browser-window');
     var windows = BrowserWindow.getAllWindows()
-    var searchWindow = windows[1]
-
+    var searchWindow = getWindowByTitle("Flow Assets");
     searchWindow.show()
-      document.querySelector('.fa-search').classList.toggle('active');
+    document.querySelector('.fa-search').classList.toggle('active');
+  }
+
+  // closes the carousel
+  $scope.closeBottomCarousel = function() {
+    var mainWindow = getWindowByTitle("Flow Assets");
+    if ((mainWindow != null) && (!mainWindow.isVisible()) ) {
+      mainWindow.close();
+    }
+    var bottomCarousel = getWindowByTitle("Flow Downloads");
+    bottomCarousel.close();
   }
 
 
@@ -299,7 +321,27 @@ angular.module('flowApp')
   $scope.closeModal = function() {
     document.querySelector('.uploadModal').classList.toggle('active');
   }
-
-
   console.log('Author Controller done loadin')
 }])
+
+.controller("LoginCtrl", ['$scope', function($scope) {
+  $scope.authenticate = function() {
+    console.log("authenticate");
+    var mainWindow = getWindowByTitle("Flow Assets");
+    mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    return false;
+  }
+
+  // open default browser at tryflow.io
+  $scope.requestInvite = function() {
+      var os = require("os");
+      var execSync = require('child_process').execSync;
+      if (os.platform() == "win32") {
+        var child = execSync('start "" "https://tryflow.io"');
+      } else if (os.platform() == "darwin") {
+        var child = execSync('open "https://tryflow.io"');
+      }
+      return false;
+  }
+
+}]);
