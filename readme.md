@@ -1,6 +1,6 @@
 # Flow app
 
-** Start client
+Start client
 ```
 > cd flow-client && npm start
 ```
@@ -11,9 +11,10 @@ Site: tryflow.io
 
 Test server locally:
 ```
-> cd flow-server && ssh -L 27017:127.0.0.1:27017 -i ./config/elasticsearch-ec2.pem ec2-user@tryflow.io
+> cd flow-server && ssh -L 27017:127.0.0.1:27017  -L 9200:127.0.0.1:9200 -i ./config/elasticsearch-ec2.pem ec2-user@tryflow.io
 ```
-Open another terminal, and:
+This will open a reverse tunnel from the server's MongoDB, and Elastic Search services, and makes them available locally.
+Next, open another terminal, and:
 ```
 > cd flow-server && node flowserver.js
 ```
@@ -45,3 +46,16 @@ This will build the full app into flow-installer/FlowApp-darwin-x64
 
 This will automatically figure out the platform, and upload the generated setup
 
+============================================
+# API docs:
+
+* /api/login
+
+authenticates a user; parameters: email & code
+
+* /api/search
+
+Search for assets; parameters are:
+* code : user authentication code
+* tags : array of tags to be searched for
+* author : display only results from author

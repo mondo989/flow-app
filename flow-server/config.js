@@ -1,4 +1,5 @@
 var MongoClient = require('mongodb').MongoClient;
+var elasticsearch = require('elasticsearch');
 
 config  = {
 		consoleMode : true,
@@ -15,6 +16,9 @@ init = function(callback) {
 			process.exit();
 		}
 		GLOBAL.db = db;
+		GLOBAL.ec = new elasticsearch.Client({
+		  host: '127.0.0.1:9200',
+		});
 		callback(null, null);
 	});
 };
