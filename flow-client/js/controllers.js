@@ -13,9 +13,15 @@ var getWindowByTitle = function(title) {
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
+  console.log(JSON.stringify(getWindowByTitle("Flow Assets")));
+
   window.$scope = $scope // For testing
   $scope.query = ""
   $scope.searchTags = []
+
+  $scope.$on('userLogin', function(event, args) {
+    console.log("User logged in");
+  });
 
   $scope.downloadActivationQueue = function () {
     // console.log('button appears');
@@ -35,6 +41,9 @@ angular.module('flowApp')
   }
 
   $scope.search = function(){
+    var usercode = getWindowByTitle("Flow Assets").usercode;
+    console.log(JSON.stringify(getWindowByTitle("Flow Assets")));
+    console.log(usercode);
 
     var query = $scope.query.trim()
     if (!$scope.searchTags.length && !query) {console.log("No query."); return false;}
@@ -48,18 +57,8 @@ angular.module('flowApp')
     if ($scope.lastQ == q) {console.log("No query."); return false;}
     $scope.lastQ = q
     document.querySelector(".content-holder").scrollTop = 0
-    var dataObj = {
-      "query": {
-        "match": {
-          "tags": {
-            "query": q,
-            // Filtering by Type Soooon!     "query": $scope.query + "type:"+$scope.type,
-            "operator": "AND"
-          }
-        }
-      },"size" : 50
-    };
-    $http.post("http://www.tryflow.io:9200/assets/_search", dataObj).success(function(data) {
+    var dataObj = { "tags" : $scope.searchTags, "code" : usercode  };
+    $http.post("https://tryflow.io/api/search", dataObj).success(function(data) {
       $scope.assets = data
       window.ls.set("lastSearch", {query: $scope.query, searchTags: $scope.searchTags})
     })
@@ -167,14 +166,6 @@ angular.module('flowApp')
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
   window.$scope = $scope
   $scope.assets = []
-
-
-
-
-
-
-
-
 
   require('ipc').on('ping', function(message) {
     console.log(JSON.stringify(message));
@@ -324,11 +315,26 @@ angular.module('flowApp')
   console.log('Author Controller done loadin')
 }])
 
-.controller("LoginCtrl", ['$scope', function($scope) {
+.controller("LoginCtrl", ['$scope', '$http', function($scope, $http) {
   $scope.authenticate = function() {
-    console.log("authenticate");
-    var mainWindow = getWindowByTitle("Flow Assets");
-    mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    $http.post("https://tryflow.io/api/login", {"email" : $scope.email, "code" : $scope.password }).success(function(data) {
+      // success on login. Save cookie & log user in
+      if (data["ok"] != "ok") {
+        $scope.loginError = "Login error."
+        return false;
+      }
+      var mainWindow = getWindowByTitle("Flow Assets");
+      mainWindow.loadUrl('file://' + __dirname + '/index.html');
+      mainWindow.useremail = $scope.email;
+      mainWindow.usercode = $scope.password;
+      // save down auth file
+      var fs = require('fs');
+      var os = require("os");
+      fs.writeFileSync(os.homedir()+"/.flow/profile.ini", $scope.email+"\t"+$scope.password);
+    }).error(function(res) {
+      $scope.loginError = "Wrong email, or password."
+    })
+
     return false;
   }
 
@@ -344,4 +350,14 @@ angular.module('flowApp')
       return false;
   }
 
-}]);
+  // init
+  var mainWindow = getWindowByTitle("Flow Assets");
+  if (mainWindow.useremail != "")
+    $scope.email = mainWindow.useremail;
+  if (mainWindow.usercode != "")
+    $scope.password = mainWindow.usercode;
+  if (($scope.email != "") && ($scope.password != ""))
+    $scope.authenticate();
+
+
+}])

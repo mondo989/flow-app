@@ -20,15 +20,6 @@ app.on('ready', function() {
 
   var size = electronScreen.getPrimaryDisplay().workAreaSize;
 
-  // detect, if there's a user login already, using ~/.flow/profile.ini
-  var cookie = "";
-  if (!fileExists(os.homedir()+"/.flow"))
-    fs.mkdirSync(os.homedir()+"/.flow");
-  if (!fileExists(os.homedir()+"/.flow/profile.ini"))
-    fs.writeFileSync(os.homedir()+"/.flow/profile.ini", "");
-  else
-    cookie = fs.readFileSync(os.homedir()+"/.flow/profile.ini");
-
   var mainWindow = new BrowserWindow({
     width: 900,
     height: 630,
@@ -37,10 +28,25 @@ app.on('ready', function() {
     title : "Flow Assets",
     "node-integration": true
   })
-  if (cookie != "")
-    mainWindow.loadUrl('file://' + __dirname + '/index.html')
-  else
-    mainWindow.loadUrl('file://' + __dirname + '/index.html#login')
+  mainWindow.useremail = "";
+  mainWindow.usercode = "";
+
+  // detect, if there's a user login already, using ~/.flow/profile.ini
+  var cookie = "";
+  if (!fileExists(os.homedir()+"/.flow"))
+    fs.mkdirSync(os.homedir()+"/.flow");
+  if (!fileExists(os.homedir()+"/.flow/profile.ini"))
+    fs.writeFileSync(os.homedir()+"/.flow/profile.ini", "");
+  else {
+    var cookiefile = fs.readFileSync(os.homedir()+"/.flow/profile.ini").toString();
+    var csv = cookiefile.split("\t");
+    if (csv.length > 1) {
+      mainWindow.useremail = csv[0];
+      mainWindow.usercode = csv[1];
+    }
+  }
+  mainWindow.loadUrl('file://' + __dirname + '/index.html#login')
+
 
   var bottomCarousel = new BrowserWindow({
     width: size.width-200,
