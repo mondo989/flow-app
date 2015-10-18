@@ -8,9 +8,10 @@
     <h2>Log In</h2>
     <br>
     <input type="email" name="email" id="email-address" data-validate="required, email" placeholder="Email address" aria-required="true" class="email">
-    <input type="email" name="email" id="email-address" data-validate="required, password" placeholder="Password" aria-required="true" class="email">
+    <input type="password" name="code" id="code" data-validate="required, password" placeholder="Password" aria-required="true" class="email">
     <!-- <img class="flow-logo" src="img/flow-png.png" alt="">-->
     <br>
+    <!--
 
     <button ng-click="authenticate('facebook')">Sign in with Facebook</button>
     <button ng-click="authenticate('google')">Sign in with Google</button>
@@ -22,15 +23,11 @@
     <button ng-click="authenticate('live')">Sign in with Windows Live</button>
     <button ng-click="authenticate('twitch')">Sign in with Twitch</button>
 
-
+    -->
     <br>
-    <a class="signup-signin-btn" ui-sref="search">Log In</a>
+    <a class="signup-signin-btn" ng-click="authenticate();" href="#login">Log In</a>
     <br>
 
-
-
-
-
-    <p class="sign-in"> Or, <a class="sign-in" ui-sref="signup"> Sign Up</a> </p>
+    <p class="sign-in"> Or, <a class="sign-in" ng-click="requestInvite();" href="#login">Request an Invite</a> </p>
   </div>
 </div>

@@ -324,7 +324,27 @@ angular.module('flowApp')
   $scope.closeModal = function() {
     document.querySelector('.uploadModal').classList.toggle('active');
   }
-
-
   console.log('Author Controller done loadin')
 }])
+
+.controller("LoginCtrl", ['$scope', function($scope) {
+  $scope.authenticate = function() {
+    console.log("authenticate");
+    var mainWindow = getWindowByTitle("Flow Assets");
+    mainWindow.loadUrl('file://' + __dirname + '/index.html');
+    return false;
+  }
+
+  // open default browser at tryflow.io
+  $scope.requestInvite = function() {
+      var os = require("os");
+      var execSync = require('child_process').execSync;
+      if (os.platform() == "win32") {
+        var child = execSync('start "" "https://tryflow.io"');
+      } else if (os.platform() == "darwin") {
+        var child = execSync('open "https://tryflow.io"');
+      }
+      return false;
+  }
+
+}]);
