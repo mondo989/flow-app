@@ -49,7 +49,24 @@ app.post("/api/search", function(req, webres) {
 			if (res.length == 0) {
 				return webres.status(404).json({"err" : "Bad authentication code"});
 			}
-			webres.json( {"tags" : req.body["tags"] } );
+			// webres.json( {"tags" :  } );
+			ec.search({
+			  index: 'assets',
+			  body: {
+			      "query": {
+			        "match": {
+			          "tags": {
+			            "query": req.body["tags"].join(" "),
+			            "operator": "AND"
+			          }
+			        }
+			      },"size" : 50
+			    },
+			}).then(function (resp) {
+				webres.send(resp);
+			}, function(err) {
+				webres.status(500).json({"err" : err});
+			});
 		}
 	]);
 });
