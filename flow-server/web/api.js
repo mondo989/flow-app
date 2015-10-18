@@ -10,6 +10,7 @@ var crypto = require("crypto");
 var Mustache = require("mustache");
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // login API
 app.post("/api/login", function(req, webres) {
@@ -33,14 +34,7 @@ app.post("/api/login", function(req, webres) {
 			webres.json({"ok" : "ok"});
 		}
 	]);
-
 })
-
-app.get("/api/login", function(req, res) {
-	//var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : ""} );
-	// res.send(output);
-	res.json({"err" : "unimplemented"});
-});
 
 app.get("/api/search", function(req, res) {
 	//var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : ""} );
