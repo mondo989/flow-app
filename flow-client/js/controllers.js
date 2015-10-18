@@ -66,14 +66,11 @@ angular.module('flowApp')
   }
 
   $scope.deleteTag = function($index){
-    console.log($scope.searchTags);
-    process.exit(1);
-    $scope.searchTags.splice($index, 1)  // Something's fucked up :)
+    $scope.searchTags.splice($index, 1)
     $scope.search()
   }
 
   $scope.newViewTransition = function () {
-    // console.log("Bae");
      var assetFilter = document.querySelector('.checkbox-options-holder');
      assetFilter.classList.toggle('inactive');
      var chevronDown = document.querySelector('.fa-chevron-down');
