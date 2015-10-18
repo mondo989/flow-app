@@ -10,6 +10,7 @@ var crypto = require("crypto");
 var Mustache = require("mustache");
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // login API
 app.post("/api/login", function(req, webres) {
@@ -33,19 +34,24 @@ app.post("/api/login", function(req, webres) {
 			webres.json({"ok" : "ok"});
 		}
 	]);
-
 })
 
-app.get("/api/login", function(req, res) {
+app.post("/api/search", function(req, webres) {
 	//var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : ""} );
 	// res.send(output);
-	res.json({"err" : "unimplemented"});
-});
-
-app.get("/api/search", function(req, res) {
-	//var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : ""} );
-	// res.send(output);
-	res.json({"err" : "unimplemented"});
+	async.waterfall([
+		// search for the user
+		function(cb) {
+			return db.collection("usr_sessions").find({cookie : req.body["code"] }).toArray(cb);
+		},
+		// authenticate & search
+		function(res, cb) {
+			if (res.length == 0) {
+				return webres.status(404).json({"err" : "Bad authentication code"});
+			}
+			webres.json( {"tags" : req.body["tags"] } );
+		}
+	]);
 });
 
 
