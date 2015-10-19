@@ -1,18 +1,6 @@
 // This is for the search query to come back
 window.ls = {get: function(k){return JSON.parse(localStorage.getItem(k))}, set: function(k,v){return localStorage.setItem(k,JSON.stringify(v))}, del: function(k){return localStorage.setItem(k,undefined)}}
 
-//
-// //
-//   mongoose.connection.on("error", function() {
-//     console.error("MongoDB Connection Error. Please make sure that MongoDB is running.");
-//   });
-
-
-
-
-
-
-
 var app = angular.module('flowApp', ['ui.bootstrap', 'ui.router', 'elasticsearch']);
 
 app.config(function($stateProvider, $urlRouterProvider) {

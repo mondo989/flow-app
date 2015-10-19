@@ -291,6 +291,7 @@ angular.module('flowApp')
       }])
 
 
+// This is for the onboarding process
 .controller('placeholderCtrl', ['$scope', function($scope) {
   var tempName = ["iPhone", "iPad", "iPhone", "icons"];
 
