@@ -1,17 +1,12 @@
-
 body {
   letter-spacing: -.25px;
 }
-
 section {
   background: #f3f3f3;
 }
-
 section.what-is-flow {
   padding: 40px 0;
 }
-
-
 .signup-btn {
   background: #ccc;
 }
@@ -21,18 +16,14 @@ section.what-is-flow {
   margin: 0 auto;
   text-align: center;
 }
-
-
 .beta-copy {
   margin-top: 10px;
   display: block;
 }
-
 a.signup-btn {
   padding: 15px 20px;
   border-radius: 10px;
 }
-
 .btn-submit {
   background: black;
   color: white;
@@ -40,7 +31,7 @@ a.signup-btn {
   border-radius: 5px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  border:0;
+  border: 0;
   display: inline-block;
   width: 120px;
   height: 50px;
@@ -52,14 +43,11 @@ a.signup-btn {
   -moz-transition: .3s;
   transition: .3s;
 }
-
-
 .invite:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
   transform: scale(1.1);
 }
-
 .signup-input {
   height: 50px;
   width: 300px;
@@ -70,21 +58,17 @@ a.signup-btn {
   border: 0;
   text-align: center;
 }
-
 .signup-holder form {
   text-align: left;
 }
-
 .red {
   background: red;
 }
-
 .subheading {
   margin-top: 20px;
   font-weight: 500;
   opacity: .7;
 }
-
 .signup-copy {
   margin-left: 130px;
   margin-top: 10px;
@@ -92,15 +76,10 @@ a.signup-btn {
   font-weight: 400;
   letter-spacing: 0;
 }
-
-
-
-
 .input-holder {
   width: 80%;
   margin: 0 auto;
 }
-
 .input-holder .email-input {
   width: 70%;
   height: 60px;
@@ -116,13 +95,11 @@ a.signup-btn {
   font-weight: bold;
   letter-spacing: .5px;
 }
-
 .fadeInRight {
   -moz-animation: fadeInLeft 1s ease-out;
   -webkit-animation: fadeInLeft 1s ease-out;
   animation: fadeInLeft 1s ease-out;
 }
-
 .signup-anim {
   /*-moz-animation: fadeInDownBig 5s ease-out;
   -webkit-animation: fadeInDownBig 5s ease-out;
@@ -131,200 +108,181 @@ a.signup-btn {
 .v-center {
   padding-top: 150px;
 }
-
 .icon {
   border-radius: 120px;
 }
-
 .footer a.icon-holder {
   text-decoration: none;
   border-radius: 120px;
   border: 2px solid #e5e5e5;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   display: inline-block;
 }
-
 .footer a.icon-holder i {
-  font-size: 40px;
-  margin-top: 7px!important;
+  font-size: 27px;
+  margin-top: 5px!important;
   display: inline-block;
 }
-
 .fmenu a {
   margin-top: 40px;
   font-size: 10px;
   text-decoration: none;
   font-weight: 400;
 }
-
 .feature-container h3 {
   letter-spacing: 0!important;
   font-size: 25px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .ion-ios-arrow-left, .ion-ios-arrow-right {
   opacity: .5;
 }
 
-
-
-
 /* carousel */
-#quote-carousel
-{
+
+#quote-carousel {
   padding: 0 10px 30px 10px;
   margin-top: 30px;
 }
 
 /* Control buttons  */
-#quote-carousel .carousel-control
-{
+
+#quote-carousel .carousel-control {
   background: none;
   color: #222;
   font-size: 2.3em;
   text-shadow: none;
   margin-top: 30px;
 }
+
 /* Previous button  */
-#quote-carousel .carousel-control.left
-{
+
+#quote-carousel .carousel-control.left {
   left: -12px;
 }
+
 /* Next button  */
-#quote-carousel .carousel-control.right
-{
+
+#quote-carousel .carousel-control.right {
   right: -12px !important;
 }
+
 /* Changes the position of the indicators */
-#quote-carousel .carousel-indicators
-{
+
+#quote-carousel .carousel-indicators {
   right: 50%;
   top: auto;
   bottom: 0px;
   margin-right: -19px;
 }
+
 /* Changes the color of the indicators */
-#quote-carousel .carousel-indicators li
-{
+
+#quote-carousel .carousel-indicators li {
   background: #c0c0c0;
 }
-#quote-carousel .carousel-indicators .active
-{
+#quote-carousel .carousel-indicators .active {
   background: #333333;
 }
-#quote-carousel img
-{
+#quote-carousel img {
   width: 250px;
   height: 100px
 }
+
 /* End carousel */
 
 .item blockquote {
-    border-left: none;
-    margin: 0;
+  border-left: none;
+  margin: 0;
 }
-
 .item blockquote img {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-
 .item blockquote p:before {
-    content: "\f10d";
-    font-family: 'Fontawesome';
-    float: left;
-    margin-right: 10px;
+  content: "\f10d";
+  font-family: 'Fontawesome';
+  float: left;
+  margin-right: 10px;
 }
-
-
 
 /**
   MEDIA QUERIES
 */
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    #quote-carousel
-    {
-      margin-bottom: 0;
-      padding: 0 40px 30px 40px;
-    }
 
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  #quote-carousel {
+    margin-bottom: 0;
+    padding: 0 40px 30px 40px;
+  }
 }
 
 /* Small devices (tablets, up to 768px) */
+
 @media (max-width: 768px) {
-
-    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
-
-    #quote-carousel .carousel-indicators {
-        bottom: -20px !important;
-    }
-    #quote-carousel .carousel-indicators li {
-        display: inline-block;
-        margin: 0px 5px;
-        width: 10px;
-        height: 10px;
-    }
-    #quote-carousel .carousel-indicators li.active {
-        margin: 0px 5px;
-        width: 15px;
-        height: 15px;
-    }
+  /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+  #quote-carousel .carousel-indicators {
+    bottom: -20px !important;
+  }
+  #quote-carousel .carousel-indicators li {
+    display: inline-block;
+    margin: 0px 5px;
+    width: 10px;
+    height: 10px;
+  }
+  #quote-carousel .carousel-indicators li.active {
+    margin: 0px 5px;
+    width: 15px;
+    height: 15px;
+  }
 }
-
-
 .heading span {
-    display: inline-block!important;
+  display: inline-block!important;
 }
-
 h1.heading span.element {
   display: block!important;
 }
 
-
-
-
-
 /*Typed JS*/
 
-.typed-cursor{
+.typed-cursor {
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0% {
     opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@-webkit-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
-}
-@-moz-keyframes blink{
-    0% { opacity:1; }
-    50% { opacity:0; }
-    100% { opacity:1; }
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
