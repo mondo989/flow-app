@@ -1026,7 +1026,6 @@ input.text:focus {
 
 .hero-home {
 	background-image: url("../img/bg-default.jpg");
-	background-color: #523129;
 	min-height: 400px;
 }
 
@@ -1165,7 +1164,7 @@ input.text:focus {
 
 .v-center {
 	display: table-cell;
-	
+
 }
 
 .fullscreen-video {

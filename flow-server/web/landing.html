@@ -14,7 +14,7 @@
 	<link rel=stylesheet href="site/css/main.css">
 	<link rel=stylesheet href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
-
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel=stylesheet href="site/css/custom.css">
 
 
@@ -50,8 +50,8 @@
 				<div class=v-center>
 					<div class="row">
 						<div class="col-xs-10 col-sm-6 fadeInRight">
-							<h1 class="mb-10 heading">Create Things,
-								<span>Faster.</span>
+							<h1 class="mb-10 heading">Design Things,
+								<span class="element"></span>
 							</h1>
 
 							<!-- <form action="" method="post">
@@ -59,31 +59,30 @@
 							<button type="submit">Get Invite! and other placeholder call-to-actions.</button>
 							</form> -->
 
-
-
-							<div class="subheading mb-20">Flow is the easiest way to find
-								<br>and use PSD/AI assets while designing.
+							<div class="subheading">Flow is the easiest way to discover
+								<br>and use design assets while designing.
 							</div>
 						</div>
 					</div>
 
-<!--  Correct form for signup.-->
-
-
-
+					<!--  Correct form for signup.-->
 
 					<div class="signup-holder signup-anim">
 						<form action="" method="post">
-							<input class="signup-input" name="email" type="email" value="" placeholder="designer@domain.com" />{{{err}}}<br /><br />
-							<button type="submit">Get Invite! and other placeholder call-to-actions.</button>
+							<input class="signup-input" name="email" type="email" value="" placeholder="designer@domain.com" />
+							<!-- {{{err}}} -->
+							<button class="btn-submit invite" type="submit">Get Invite!</button>
+
+							<p class="text-left signup-copy">Sign Up for beta access</p>
+
 						</form>
 
 
 						<!-- <div class="col-md-5" style="margin-left: -10px; padding-left:0;">
 							<input class="signup-input" type="text">
 							<a class=" signup-btn" href="#"> -->
-								<!-- <i class="ion-paper-airplane"></i>-->Sign Up
-							<!-- </a>
+						<!-- <i class="ion-paper-airplane"></i>-->
+						<!-- </a>
 							<div class="text-center">
 								<span class="beta-copy">Signup for beta access</span>
 							</div>
@@ -95,13 +94,101 @@
 			<div class=hint-arrow></div>
 		</div>
 	</div>
+
+
+	<section class="what-is-flow">
+		<div class="container">
+			<div class="row">
+				<h1 class="text-center">What is flow?</h1>
+
+
+
+
+				<div class="container">
+					<div class='row'>
+						<div class='col-md-10 col-md-offset-1'>
+							<div class="carousel slide" data-ride="carousel" id="quote-carousel">
+								<!-- Bottom Carousel Indicators -->
+								<ol class="carousel-indicators">
+									<li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+									<li data-target="#quote-carousel" data-slide-to="1"></li>
+									<li data-target="#quote-carousel" data-slide-to="2"></li>
+								</ol>
+
+								<!-- Carousel Slides / Quotes -->
+								<div class="carousel-inner">
+
+									<!-- Quote 1 -->
+									<div class="item active">
+										<blockquote>
+											<div class="row">
+												<div class="col-sm-3 text-center">
+													<img class="img-circle" src="https://media.giphy.com/media/oDLDbBgf0dkis/giphy.gif" style="width: 100px;height:100px;">
+													<!--<img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" style="width: 100px;height:100px;">-->
+												</div>
+												<div class="col-sm-9">
+													<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
+													<small>Someone famous</small>
+												</div>
+											</div>
+										</blockquote>
+									</div>
+									<!-- Quote 2 -->
+									<div class="item">
+										<blockquote>
+											<div class="row">
+												<div class="col-sm-3 text-center">
+													<img class="img-circle" src="https://media.giphy.com/media/9WoajAy4xBoIg/giphy.gif" style="width: 100px;height:100px;">
+												</div>
+												<div class="col-sm-9">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor nec lacus ut tempor. Mauris.</p>
+													<small>Someone famous</small>
+												</div>
+											</div>
+										</blockquote>
+									</div>
+									<!-- Quote 3 -->
+									<div class="item">
+										<blockquote>
+											<div class="row">
+												<div class="col-sm-3 text-center">
+													<img class="img-circle" src="https://media.giphy.com/media/7r4g8V2UkBUcw/giphy.gif" style="width: 100px;height:100px;">
+												</div>
+												<div class="col-sm-9">
+													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rutrum elit in arcu blandit, eget pretium nisl accumsan. Sed ultricies commodo tortor, eu pretium mauris.</p>
+													<small>Someone famous</small>
+												</div>
+											</div>
+										</blockquote>
+									</div>
+								</div>
+
+								<!-- Carousel Buttons Next/Prev -->
+								<a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa ion-ios-arrow-left"></i></a>
+								<a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa ion-ios-arrow-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+			</div>
+		</div>
+
+	</section>
+
+
+
 	<div class=level>
 
 		<div class="container mb-100 xs-mb-40">
 			<div class="row">
 				<div class="col-sm-10 col-md-9 col-sm-offset-1">
-					<h1 class="mb-10 xs-mb-10 heading color-dark heading-bordered">design,
-						<br class=hidden-xs> design</h1>
+					<h1 class="mb-10 xs-mb-10 heading color-dark heading-bordered">designer
+						<br class=hidden-xs> Problems</h1>
 					<br>
 					<p class="xs-mw">
 
@@ -131,65 +218,75 @@
 						<!--
 								The problem with current methods of finding design assets is that it takes a large amount of time to search, find, and download assets, while having the distractions of using your browser.
 							<br>
-								Flow solves this problem by providing a tool that allows  to search and use psd's/ai files without leaving their workflow. -->
-				</div>
-				<!-- <div class="col-sm-5 col-sm-offset-1">
-					<h2 class="w-300 color-dark mb-10 xs-mb-10">Lorem Ipsum Dolor Sit.</h2>
+								Flow solves this problem by providing a tool that allows  to search and use psd's/ai files without leaving their workflow.
 
-				</div> -->
+
+
+
+
+							-->
+				</div>
+				<div class="col-sm-5 col-sm-offset-1">
+					<!-- <h2 class="w-300 color-dark mb-10 xs-mb-10">Lorem Ipsum Dolor Sit.</h2> -->
+
+				</div>
 			</div>
 		</div>
 
-		<img src="site/img/flow-demo.gif" alt class="mb-80 hidden-xs iphone-inline" style="min-width: 800px!important;">
+		<img src="site/img/demo-a.gif" alt class="mb-80 " style="min-width: 800px!important;">
 		<!-- <img src="site/img/v2/iphone6.min.png" alt class="mb-80 hidden-xs iphone-inline"> -->
 
-		<div class="container feature-container">
-			<div class="row mb-90 xs-mb-0">
 
-				<div class="col-md-1 col-sm-1">
-					<i class="icon icon-check"></i>
-				</div>
-				<div class="col-md-3 col-sm-3">
-					<h3 class="mb-15">Drag-N-Drop</h3>
-					<p class="smaller xs-mb-40 xs-mw">The easiest way to use your assets
+		<section class="features">
+			<div class="container feature-container">
+				<div class="row mb-90 xs-mb-0">
+
+					<div class="col-md-1 col-sm-1">
+						<i class="icon icon-check"></i>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<h3 class="mb-15">Drag-N-Drop</h3>
+						<p class="smaller xs-mb-40 xs-mw">The fastest way to discover and use assets
+					</div>
+
+					<div class="col-md-1 col-sm-1">
+						<i class="icon icon-calendar"></i>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<h3 class="mb-15">+20k Assets</h3>
+						<p class="smaller xs-mb-40 xs-mw">Photshop, Illustrator, Sketch, with more to come!
+					</div>
+
+					<div class="col-md-1 col-sm-1">
+						<i class="icon icon-user"></i>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<h3 class="mb-15">Cross Platform</h3>
+						<p class="smaller xs-mb-40 xs-mw">Use on Mac or Windows
+					</div>
 				</div>
 
-				<div class="col-md-1 col-sm-1">
-					<i class="icon icon-calendar"></i>
-				</div>
-				<div class="col-md-3 col-sm-3">
-					<h3 class="mb-15">+20k Assets</h3>
-					<p class="smaller xs-mb-40 xs-mw">Photshop, Illustrator, Sketch, with more to come!
-				</div>
 
-				<div class="col-md-1 col-sm-1">
-					<i class="icon icon-user"></i>
-				</div>
-				<div class="col-md-3 col-sm-3">
-					<h3 class="mb-15">Cross Platform</h3>
-					<p class="smaller xs-mb-40 xs-mw">Use on Mac or Windows
+				<!--  Second Row  -->
+				<div class=row>
+					<div class="col-sm-1 col-sm-offset-2">
+						<i class="icon icon-user"></i>
+					</div>
+					<div class="col-sm-3">
+						<h3 class="mb-15">No file Management</h3>
+						<p class="smaller xs-mb-40 xs-mw">Only save what you use, the extra downloads get deleted.
+					</div>
+					<div class="col-sm-1">
+						<i class="icon icon-clock"></i>
+					</div>
+					<div class="col-sm-3">
+						<h3 class="mb-15">Search Designers</h3>
+						<p class="smaller xs-mb-40 xs-mw">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+					</div>
 				</div>
 			</div>
 
-
-			<!--  Second Row  -->
-			<div class=row>
-				<div class="col-sm-1 col-sm-offset-2">
-					<i class="icon icon-user"></i>
-				</div>
-				<div class="col-sm-3">
-					<h3 class="mb-15">No file Management</h3>
-					<p class="smaller xs-mb-40 xs-mw">Only save what you use, the extra downloads get deleted.
-				</div>
-				<div class="col-sm-1">
-					<i class="icon icon-clock"></i>
-				</div>
-				<div class="col-sm-3">
-					<h3 class="mb-15">Search Designers</h3>
-					<p class="smaller xs-mb-40 xs-mw">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-				</div>
-			</div>
-		</div>
+		</section>
 	</div>
 
 	<div class="level level-img-right">
@@ -286,6 +383,25 @@
 	<!-- <script src="js/modal.js"></script> -->
 	<script src="site/js/main.js"></script>
 	<!-- //-end- concat_js -->
+
+
+
+<script src="site/js/typed.js"></script>
+<script>
+    $(function(){
+        $(".element").typed({
+            strings: ["Faster.", "Better.", "Save Time."],
+            typeSpeed: 100
+        });
+    });
+</script>
+
+
+
+
+
+
+
 
 </body>
 
