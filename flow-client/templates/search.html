@@ -13,7 +13,7 @@
        </span> -->
         <span class="tags-container">
           <i class="fa input-search ion-ios-search-strong search-anim"></i>
-          <li class="tags-list tags-anim" ng-repeat="tag in searchTags">
+          <li class="tags-list tags-anim" ng-repeat="tag in searchTags track by $index">
             {{tag}}
             <a title="{{$index}}" ng-click="deleteTag($index)">
               <i class="fa fa-close ion-ios-close-empty"></i>
@@ -49,7 +49,7 @@
     <ul class="content-holder">
       <img class="f-logo" src="img/f-logo.png" alt="">
 
-      <li ng-id="{{asset._id}}" ng-repeat="asset in assets.hits.hits" ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+      <li ng-id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
 
         <i class="fa fa-check-circle-o ion-ios-checkmark"></i>
         <div class="filter"></div>
