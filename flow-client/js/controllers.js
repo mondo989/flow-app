@@ -5,7 +5,9 @@ var getWindowByTitle = function(title) {
     var windows = BrowserWindow.getAllWindows()
     var res = null;
     for (var i = 0; i < windows.length;i++)
-      if (windows[i]["webContents"]["browserWindowOptions"]["title"] == title )
+      if ((windows[i]["webContents"] === undefined) || (windows[i]["webContents"]["browserWindowOptions"] === undefined))
+        return null;
+      else if (windows[i]["webContents"]["browserWindowOptions"]["title"] == title )
         return windows[i];
     return null;
 }
