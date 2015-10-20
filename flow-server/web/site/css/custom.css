@@ -335,3 +335,18 @@ h1.heading span.element {
   font-weight: 500!important;
   color: rgba(0, 0, 0, 0.7);
 }
+
+
+
+
+@media (max-width: 600px) {
+  img.gif {
+  min-width: 80%!important;
+  }
+}
+
+@media (max-width: 400px) {
+  img.gif {
+    min-width: 100%!important;
+  }
+}
