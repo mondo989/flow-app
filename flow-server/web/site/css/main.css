@@ -911,7 +911,7 @@ input.text:focus {
 
 .level-hero {
 	background-position: 50% 50%;
-	background-color: #5c6164;
+	background-color: red;
 	background-repeat: no-repeat;
 	background-size: cover;
 	color: #fff;
@@ -1961,7 +1961,7 @@ label {
 	width: 80px;
 	height: 80px;
 	line-height: 78px;
-	border: 1px solid #e5e5e5;
+	border: 3px solid #e5e5e5;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: 40% auto;
