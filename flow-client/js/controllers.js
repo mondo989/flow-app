@@ -355,6 +355,8 @@ angular.module('flowApp')
 
   // init
   var mainWindow = getWindowByTitle("Flow Assets");
+  if (mainWindow == null)
+    return false;
   if (mainWindow.useremail != "")
     $scope.email = mainWindow.useremail;
   if (mainWindow.usercode != "")
