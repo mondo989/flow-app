@@ -23,7 +23,7 @@ app.post("/githubhook", function( request, response ) {
 	last_payload = request.body;
     console.log( new Date(), request.method, request.url, last_payload );
 
-      exec( "./restart_node.sh", { cwd : process.cwd() }, function( error, stdout, stderr ) {
+      exec( "./redeploy.sh", { cwd : process.cwd() }, function( error, stdout, stderr ) {
       	console.log(error, stdout, stderr);
         response.writeHead( 200, {'Content-Type': 'text/plain'} );
         response.end( error ? stderr : stdout );
