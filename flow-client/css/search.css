@@ -32,6 +32,7 @@
   width: 800px;
   margin: 0 auto;
   margin-top: 25px;
+  margin-bottom: 10px!important;
 }
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   border: 1px solid gray;
