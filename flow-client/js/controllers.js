@@ -12,11 +12,24 @@ var getWindowByTitle = function(title) {
     return null;
 }
 
+// if all windows are hidden, close app
+var checkAllWindowClosed = function() {
+    var remote = require('remote');
+    var BrowserWindow = remote.require('browser-window');
+    var windows = BrowserWindow.getAllWindows()
+    console.log("checking All windows closed");
+    for (var i = 0; i < windows.length;i++)
+      if (windows[i].isVisible())
+        return false;
+    console.log("All windows closed");
+    // close them all
+    for (var i = 0; i < windows.length;i++)
+      windows[i].close();
+}
+
 angular.module('flowApp')
 
 .controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
-  console.log(JSON.stringify(getWindowByTitle("Flow Assets")));
-
   window.$scope = $scope // For testing
   $scope.query = ""
   $scope.searchTags = []
@@ -136,14 +149,11 @@ angular.module('flowApp')
    }
 */
 
-  // closes this window; if all windows are closed, the app exits
+  // hides this window; if all windows are closed, the app exits
   $scope.closeClicked = function() {
-    var bottomCarousel = getWindowByTitle("Flow Downloads");
-    if ((bottomCarousel != null) && (!bottomCarousel.isVisible()) ) {
-      bottomCarousel.close();
-    }
     var mainWindow = getWindowByTitle("Flow Assets");
-    mainWindow.close();
+    mainWindow.hide();
+    checkAllWindowClosed();
   }
 
 }])  // End of asset search controller
@@ -222,22 +232,18 @@ angular.module('flowApp')
 */
 
   $scope.showSearchWindow = function() {
-    var remote = require('remote');
-    var BrowserWindow = remote.require('browser-window');
-    var windows = BrowserWindow.getAllWindows()
     var searchWindow = getWindowByTitle("Flow Assets");
     searchWindow.show()
-    document.querySelector('.fa-search').classList.toggle('active');
+    searchWindow.focus();
+    // document.querySelector('.fa-search').classList.toggle('active');
   }
 
-  // closes the carousel
+  // hides the carousel
   $scope.closeBottomCarousel = function() {
-    var mainWindow = getWindowByTitle("Flow Assets");
-    if ((mainWindow != null) && (!mainWindow.isVisible()) ) {
-      mainWindow.close();
-    }
     var bottomCarousel = getWindowByTitle("Flow Downloads");
-    bottomCarousel.close();
+    bottomCarousel.hide();
+    checkAllWindowClosed();
+
   }
 
 

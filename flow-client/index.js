@@ -6,6 +6,10 @@ var os = require("os");
 var url = require('url')
 require('electron-debug')(); //- This allows debugging CMD+ALT+I
 
+var autoUpdater = require('auto-updater');
+autoUpdater.setFeedUrl('https://tryflow.io/latest?version=' + app.getVersion());
+
+
 var fileExists = function(filePath) {
   try {
     fs.statSync(filePath);
@@ -45,7 +49,10 @@ app.on('ready', function() {
       mainWindow.usercode = csv[1];
     }
   }
-  mainWindow.loadUrl('file://' + __dirname + '/index.html#login')
+  if (mainWindow.useremail == "")
+    mainWindow.loadUrl('file://' + __dirname + '/index.html#login')
+  else
+    mainWindow.loadUrl('file://' + __dirname + '/index.html')
 
 
   var bottomCarousel = new BrowserWindow({
@@ -80,3 +87,6 @@ app.on('window-all-closed', function() {
   console.log("all windows closed");
   app.quit();
 });
+
+
+
