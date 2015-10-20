@@ -17,20 +17,13 @@
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	<link rel=stylesheet href="site/css/custom.css">
 
-
-
 	<!--[if lte IE 8]>
 	<link rel=stylesheet href="css/ie.css">
 	<![endif]-->
-
 	<script type="text/javascript" src="site/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="site/js/jquery.tmpl.min.js"></script>
-
-
 	<script src="site/js/vendor/modernizr.js"></script>
 	<script src="site/js/vendor/respond.min.js"></script>
-
-
 </head>
 
 <body>
@@ -184,11 +177,12 @@
 					<h1 class="mb-10 xs-mb-10">designer
 						<br class=hidden-xs> Problems</h1>
 					<p class="xs-mw">
-						<b>How much time do you spend searching for assets, per day?</b>
+						<span class="question">How much time do you spend searching for assets, per day?</span>
 						<br> After realizing that our spent up to two hours a day discovering and managing assets, we built Flow.
 						<br>
+						<br>
 
-						<b>How much space are you using on your computer holding unused and uncategorized assets?</b>
+						<span class="question">How much space are you using on your computer holding unused and uncategorized assets?</span>
 
 						<!-- Flow is a desktop app that gives  the ability to search and use assets without leaving. -->
 						<!-- Flow is the ability to search for design assets without leaving your workflow
@@ -349,38 +343,36 @@
 			<a href="index.html">HOME</a>
 			<a href="about.html">ABOUT</a>
 		</p>
-
 	</div>
 
-
 	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-
-
 	<script src="site/js/bootstrap.min.js"></script>
 	<script src="site/js/dropdown.js"></script>
 	<!-- <script src="js/modal.js"></script> -->
 	<script src="site/js/main.js"></script>
 	<!-- //-end- concat_js -->
 
+		<script src="site/js/typed.js"></script>
+		<script src="site/js/waypoints.js"></script>
+		<script>
+		    $(function(){
+		        $(".element").typed({
+		            strings: ["Faster.", "Better.", "Cooler."],
+		            typeSpeed: 100
+		        });
+		    });
 
 
-<script src="site/js/typed.js"></script>
-<script>
-    $(function(){
-        $(".element").typed({
-            strings: ["Faster.", "Better.", "Cooler."],
-            typeSpeed: 100
-        });
-    });
-</script>
+					var waypoints = $('.designer-problems').waypoint({
+				  handler: function(direction) {
+			    notify(this.element.id + ' hit');
+					console.log("Hey yo");
+				  }
+				})
 
 
 
-
-
-
-
-
+		</script>
 </body>
 
 </html>

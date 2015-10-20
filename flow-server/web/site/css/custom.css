@@ -10,6 +10,7 @@ section.features {
 }
 section.designer-problems {
   padding-bottom: 15px;
+  padding-top: 60px;
 }
 section.designer-problems h1 {
   font-weight: 500;
@@ -328,4 +329,9 @@ h1.heading span.element {
   100% {
     opacity: 1;
   }
+}
+
+.question {
+  font-weight: 500!important;
+  color: rgba(0, 0, 0, 0.7);
 }
