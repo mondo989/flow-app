@@ -4,20 +4,13 @@
 DEVROOT=/www/flow.dev/
 DEVDIR=/www/flow.dev/flow-server/
 LIVEDIR=/www/flow.io/flow-server/
+ORIGIN=https://github.com/mondo989/flow-app.git
 EXECFN=flowserver.js
 
 case "$1" in
 	deploy)
 		echo "doing full deploy"
-		cd $DEVDIR
-		git status -s | grep -v '??' &> /dev/null && {
-			echo "Committing current changes in dev repo..."
-			git add .
-			git commit -m "Deployment"
-		}
-		cd $LIVEDIR
-		git pull $DEVROOT
-		cd $DEVDIR
+		git pull ORIGIN master
 		echo "done"
 		;;
 	rollback)
