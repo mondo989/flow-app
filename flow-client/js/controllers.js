@@ -110,7 +110,7 @@ angular.module('flowApp')
     }
     console.log("selectedItems "+selectedItems)
        for(i=0;i<itemsToDisplay.length;i++) {
-         itemsToDisplay[i]._source.imgPsd=itemsToDisplay[i]._source.imgSrc.replace("asset-img", "asset-raw").replace('.png','.psd')
+         itemsToDisplay[i]._source.imgPsd="https://s3-us-west-1.amazonaws.com/asset-raw/"+itemsToDisplay[i]._source.name+".psd";
        }
      bottomCarousel.webContents.send('ping', itemsToDisplay);
    }
