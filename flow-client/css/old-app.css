@@ -208,7 +208,7 @@ span.tags-container {
   left: 0;
   font-size: 95px;
   opacity: .8;
-  color: white!important;
+  color: white;
   z-index: 90000000000;
   -webkit-animation: fadeInUpMod .3s;
   animation: fadeInUpMod .3s;
@@ -603,6 +603,11 @@ span.ranking-number {
   text-shadow: .25px .25px 0 white;
   z-index: 90000!important;
 }
+
+/*i.ion-ios-checkmark {
+  color: red!important;
+}*/
+
 .downloads {
   position: absolute;
   top: 5px;
@@ -638,6 +643,9 @@ span.ranking-number {
 .asset.selected:hover {
   border-bottom: 3px solid #3fae45;
 }
+
+
+
 li.selected .filter {
   z-index: 0;
   width: 100%;
@@ -668,4 +676,12 @@ li.selected .filter {
   -webkit-transition: 2s;
   transition: 2s;
   opacity: .7;
+}
+
+.color-change {
+  color: pink!important;
+  background: red!important;
+
+  -webkit-animation: color-change .5s!important;
+  animation: color-change .5s!important;
 }

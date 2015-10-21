@@ -369,6 +369,4 @@ angular.module('flowApp')
     $scope.password = mainWindow.usercode;
   if (($scope.email != "") && ($scope.password != ""))
     $scope.authenticate();
-
-
 }])
