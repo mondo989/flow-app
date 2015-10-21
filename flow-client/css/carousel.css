@@ -1,4 +1,3 @@
-
 .red {
   background: red;
 }
@@ -42,11 +41,9 @@ a.right {
   height: 120px;
   top: 0;
   right: 0;
-
   -webkit-animation: fadeInLeft 1s;
   -moz-animation: fadeInLeft 1s;
   animation: fadeInLeft 1s;
-
 }
 .trash-btn {
   margin-left: 0px;
@@ -66,22 +63,17 @@ a.right {
   border: 2px solid #ccc!important;
   background: #f3f3f3!important;
   border-radius: 120px;
-
-  -webkit-transition:  1s ease;
-  transition:  1s ease;
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
 }
-
 .fa-search.attention {
   font-size: 25px;
   padding: 10px;
   color: white!important;
   border: 2px solid #f3f3f3!important;
   background: #ccc!important;
-
-
-  -webkit-transition:  1s ease;
-  transition:  1s ease;
-
+  -webkit-transition: 1s ease;
+  transition: 1s ease;
 }
 .fa-search.inactive:hover {
   background: #ccc;
@@ -126,9 +118,17 @@ a.save {
   overflow: hidden;
   margin: 0 3px;
 }
+
 /*.asset-container:hover {
   border: 2px solid #ccc;
 }*/
+
+img.asset-png {
+  -webkit-filter: grayscale(1)!important;
+    filter: grayscale(1)!important;
+}
+
+
 .asset-png {
   width: 100%;
   border-radius: 5px;
@@ -156,19 +156,30 @@ a.save {
   right: 0;
   text-shadow: 1px 1px #000;
   font-weight: bold;
-  font-size: 35px;
+  font-size: 25px;
   margin-right: 10px;
   -webkit-animation: fadeInUp 5s;
   -moz-animation: fadeInUp 5s;
   -o-animation: fadeInUp 5s;
   animation: fadeInUp 5s;
 }
-
 .asset-anim {
--webkit-animation: fadeIn 1.5s;
+  -webkit-animation: fadeIn 1.5s;
   animation: fadeIn 1.5s;
-
 }
+.asset-size {
+  color: white;
+  font-size: 15px;
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  font-weight: 500!important;
+  opacity: .75;
+}
+.ion-android-close {
+  font-size: 25px!important;
+}
+
 .close-btn i {
   position: absolute;
   right: -25px;
@@ -177,9 +188,16 @@ a.save {
   margin-left: -50px;
   margin-top: 5px;
 }
-
 .click-area {
   width: 90%;
   display: block;
   position: absolute;
+}
+i.ion-ios-close-empty {
+  font-size: 25px;
+  z-index: 9039000010!important;
+  position: absolute;
+  right: 10px;
+  color: white;
+  margin-top: -5px;
 }

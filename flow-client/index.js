@@ -62,7 +62,7 @@ app.on('ready', function() {
     show: false,
     transparent: true,
     x: 100,
-    y: size.height - 150,
+    y: size.height - 80,
     title : "Flow Downloads",
     "always-on-top": true
   })
@@ -87,6 +87,3 @@ app.on('window-all-closed', function() {
   console.log("all windows closed");
   app.quit();
 });
-
-
-
