@@ -15,7 +15,7 @@ client.search({
             "operator": "AND"
           }
         }
-      },"size" : 150
+      },"size" : 350
     },
 }).then(function (resp) {
 	console.log(JSON.stringify(resp,0,4));
