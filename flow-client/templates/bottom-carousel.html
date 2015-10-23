@@ -4,7 +4,6 @@
   <a class="tabs left" href><i class="fa fa-angle-left"></i> </a>
   <div class="row text-center asset-main-container" >
     <span class="click-area">
-     <!-- <a ng-click="openOutsideApplication();" ng-repeat="asset in assets" class="asset-anim" ng-href="{{asset._source.imgPsd}}" > -->
     <a ng-click="openOutsideApplication(asset);" ng-repeat="asset in assets" class="asset-anim" >
       <i class="ion-ios-close-empty"></i>
       <img ng-src="{{asset._source.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">

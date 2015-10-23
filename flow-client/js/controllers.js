@@ -113,6 +113,15 @@ angular.module('flowApp')
          itemsToDisplay[i]._source.imgPsd="https://s3-us-west-1.amazonaws.com/asset-raw/"+itemsToDisplay[i]._source.name+".psd";
        }
      bottomCarousel.webContents.send('ping', itemsToDisplay);
+
+     // deselect all selection on search screen
+     for (i = 0; i < itemsToDisplay.length; ++i) {
+        angular.element(document.getElementById(itemsToDisplay[i]._id)).scope().assetChosen = false;
+     }
+     $scope.$apply();
+     // hide download bar
+     document.getElementById("get-assets-container").className = "";
+
    }
 
 
@@ -143,12 +152,6 @@ angular.module('flowApp')
      $scope.search()
    }
 
-/*
-   $scope.toggleAssets = function(param) {
-    console.log("recieved:" + param )
-   }
-*/
-
   // hides this window; if all windows are closed, the app exits
   $scope.closeClicked = function() {
     var mainWindow = getWindowByTitle("Flow Assets");
@@ -178,22 +181,22 @@ angular.module('flowApp')
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
   window.$scope = $scope
   $scope.assets = []
+  var assetids = {};
 
   require('ipc').on('ping', function(message) {
     console.log(JSON.stringify(message));
-    $scope.$apply(function() {
-      $scope.assets=message
-    });
-
-      var fs = require("fs");
-      var os = require("os");
-        console.log(process.cwd());
-      for(i=0;i<$scope.assets.length;i++) {
-        console.log(os.tmpdir()+'/'+ $scope.assets[i]._id+'.psd');
-        $scope.downloadPSD($scope.assets[i]._source.imgPsd,os.tmpdir()+'/'+ $scope.assets[i]._id+'.psd', $scope.assets[i]._id);
-      }
-    console.log("Got items to display!!! OWWW YEAHHH: "+JSON.stringify(message));  // Prints "whoooooooh!"
-
+    var os = require("os");
+    for (var i in message) {
+      // skip assets already selected for download
+      if (assetids[message[i]["_id"]] !== undefined)
+        continue;
+      $scope.assets.push(message[i]);
+      $scope.downloadPSD(message[i]._source.imgPsd,os.tmpdir()+'/'+ message[i]._id+'.psd', message[i]._id);
+      // mark it already downloading
+      assetids[message[i]["_id"]] = 1;
+    }
+    // load assets into scope
+    $scope.$apply();
 
     $scope.openOutsideApplication = function(asset) {
       console.log("openOutsideApplication");
