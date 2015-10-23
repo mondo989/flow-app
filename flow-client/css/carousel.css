@@ -169,11 +169,11 @@ img.asset-png {
 }
 .asset-size {
   color: white;
-  font-size: 15px;
+  font-size: 13px;
   position: absolute;
   left: 8px;
   top: 3px;
-  font-weight: 500!important;
+  font-weight: 600!important;
   opacity: .75;
 }
 .ion-android-close {
@@ -182,11 +182,11 @@ img.asset-png {
 
 .close-btn i {
   position: absolute;
-  right: -25px;
+  right: -22px;
   font-size: 15px;
   opacity: .3;
   margin-left: -50px;
-  margin-top: 5px;
+  margin-top: 0;
 }
 .click-area {
   width: 90%;

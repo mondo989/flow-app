@@ -21,29 +21,35 @@
           </li>
         </span>
         <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
-        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="fa fa-chevron-down ion-ios-arrow-down  chevron-down-anim"></i></a>
+        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
       </div>
     </form>
+
+<span class="filter-container-holder">
+    <label for="slideOne">
+      <img ng-click="photoshopChosen=!photoshopChosen;" ng-class="{notSelected:!photoshopChosen, selected:photoshopChosen}" class="photoshop" src="img/photoshop.png" alt="">
+    </label>
+
+    <label for="slideTwo">
+      <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt="">
+    </label>
+
+
+    <label for="slideThree">
+      <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt="">
+    </label>
+
+
+    <!-- <label for="slideFour">Static Assets</label> -->
+</span>
+
+
 
 
 
     <div class="row checkbox-options-holder inactive checkbox-options-holder-anim">
 
-      <label for="slideOne">
-        <img ng-click="photoshopChosen=!photoshopChosen;" ng-class="{notSelected:!photoshopChosen, selected:photoshopChosen}" class="photoshop" src="img/photoshop.png" alt="">
-      </label>
 
-      <label for="slideTwo">
-        <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt="">
-      </label>
-
-
-      <label for="slideThree">
-        <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt="">
-      </label>
-
-
-      <label for="slideFour">Static Assets</label>
     </div>
 
     <ul class="content-holder">

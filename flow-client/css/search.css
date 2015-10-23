@@ -64,13 +64,14 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   padding: 0!important;
 }
 
-.form-search .fa-chevron-down {
+.form-search .ion-ios-gear-outline {
   position: absolute;
   margin-top: 11px;
-  font-size: 47px;
+  font-size: 50px;
   margin-left: 10px;
-  opacity: .2!important;
+  opacity: .8!important;
   transition: .5s;
+  color: #ccc;
 }
 a.selected i {
   -webkit-transform: rotate(180deg!imp);
@@ -142,6 +143,19 @@ li.tags-anim {
   -moz-animation: fadeInUpMod 1s ease;
   -o-animation: fadeInUpMod 1s ease;
   animation: fadeInUpMod 1s ease;
+}
+
+.filter-container-holder {
+  float: left;
+  margin-left: 29px;
+  -webkit-animation: fadeInLeft 1.5s;
+  -moz-animation: fadeInLeft 1.5s;
+  animation: fadeInLeft 1.5s;
+}
+
+.photoshop, .illustrator, .sketch {
+  width: 20px!important;
+  margin: 0 1px;
 }
 
 .close-app {

@@ -60,7 +60,7 @@ app.post("/api/search", function(req, webres) {
 			            "operator": "AND"
 			          }
 			        }
-			      },"size" : 50
+			      },"size" : 150
 			    },
 			}).then(function (resp) {
 				webres.send(resp);
@@ -143,4 +143,3 @@ app.get("/api/admin/approve/:id", function(req, webres) {
 });
 
 module.exports = {"app" : app};
-
