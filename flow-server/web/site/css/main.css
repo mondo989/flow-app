@@ -607,6 +607,7 @@ input.text:focus {
   text-align: center;
 }
 
+
 /* .level:not(.level-hero) {
 	max-width: 1690px;
 	margin-left: auto;
@@ -679,11 +680,13 @@ input.text:focus {
   }
 }
 .level-hero {
+  -moz-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
   background-position: 50% 50%;
-  background-color: red;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #fff;
+  background: rgba(0,0,0,.25);
   height: 100%;
   padding: 0;
   border: 0;
