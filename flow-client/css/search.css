@@ -166,3 +166,7 @@ li.tags-anim {
   opacity: .5!important;
   font-size:30px!important;
 }
+
+.ion-ios-search-strong {
+  -webkit-app-region: drag;
+}

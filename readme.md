@@ -2,7 +2,7 @@
 
 Start client
 ```
-> cd flow-client && npm start
+> cd flow-client && electron .
 ```
 ============================================
 # Flow server
