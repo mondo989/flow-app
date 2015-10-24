@@ -10,7 +10,7 @@ var getWindowByTitle = function(title) {
       else if (windows[i]["webContents"]["browserWindowOptions"]["title"] == title )
         return windows[i];
     return null;
-}
+};
 
 // if all windows are hidden, close app
 var checkAllWindowClosed = function() {
@@ -25,7 +25,18 @@ var checkAllWindowClosed = function() {
     // close them all
     for (var i = 0; i < windows.length;i++)
       windows[i].close();
-}
+};
+
+// converts a size in bytes to GB/MB/KB representation
+var displaySizeToHuman = function(size) {
+  if (size >= 1<<30)
+    return Math.round(size / (1<<30))+"GB";
+  if (size >= 1<<20)
+    return Math.round(size / (1<<20))+"MB";
+  if (size >= 1<<10)
+    return Math.round(size / (1<<10))+"KB";
+  return size+" B";
+};
 
 angular.module('flowApp')
 
@@ -74,6 +85,10 @@ angular.module('flowApp')
     document.querySelector(".content-holder").scrollTop = 0
     var dataObj = { "tags" : $scope.searchTags, "code" : usercode  };
     $http.post("https://tryflow.io/api/search", dataObj).success(function(data) {
+      for (var i in data.hits.hits) {
+        console.log(data.hits.hits[i]);
+        data.hits.hits[i]["_source"]["displaySize"] = displaySizeToHuman(data.hits.hits[i]["_source"]["size"]);
+      }
       $scope.assets = data
       window.ls.set("lastSearch", {query: $scope.query, searchTags: $scope.searchTags})
     })
