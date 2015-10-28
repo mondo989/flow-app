@@ -3,7 +3,9 @@
 
 <div>
   <div class="full-row" ng-controller="assetSearch">
+
     <a href="#" ng-click="closeClicked()"><i class="fa ion-ios-close-empty close-app"></i></a>
+    <a href="#" ng-click="minimizedClicked()"><i class="fa ion-ios-minus-empty close-app"></i></a>
     <form ng-submit="search()" class="form-search">
       <div>
         <input ng-model="query" autocomplete="off" type="text" id="query" class="search" autofocus/>
@@ -73,15 +75,15 @@
           </div>
 
           <div class="downloads">
-            <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+
           </div>
 
           <div class="info">
             <span class="file-type">
               <img  src="img/photoshop.png" alt="">
             </span>
-            <span class="file-size">{{asset._source.displaySize}}</span>
-            <!-- <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a> -->
+
+            <a ui-sref="asset-detail"><i class="fa fa-info-circle ion-gear-b"></i></a>
           </div>
           <div class="price">
             <!-- <a ui-sref="asset-detail">$5</a> -->
@@ -108,8 +110,9 @@
         <span class="author-row">
           <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
           <a ui-sref="author">Lorem Ipsum</a>
+          <span class="file-size">{{asset._source.displaySize}}</span>
+          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
         </span>
-
       </li>
     </ul>
 

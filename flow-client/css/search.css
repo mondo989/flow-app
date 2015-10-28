@@ -34,6 +34,16 @@
   margin-top: 25px;
   margin-bottom: 10px!important;
 }
+span.download-number {
+    float: right;
+    opacity: .3;
+    font-weight: 600;
+    margin-right: 10px;
+}
+.file-size {
+  opacity: .5;
+}
+
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
   border: 1px solid gray;
 }

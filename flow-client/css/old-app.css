@@ -181,7 +181,8 @@ span.tags-container {
   -o-animation: appear 1.1s;
   animation: appear 1.1s;
   background: #f3f3f3!important;
-  border-bottom: 3px solid #3fae45;
+  /*border-bottom: 3px solid #3fae45;*/
+  border-bottom: 3px solid #000;
   box-shadow: inset 0 0 100px #ccc;
   /* 			-ms-transform: scale(1.02); IE 9
 	   	-webkit-transform: scale(1.02); Safari
@@ -192,7 +193,7 @@ span.tags-container {
   -webkit-filter: grayscale(0.9) blur(2px);
 }
 .photoshop.selected, .illustrator.selected, .sketch.selected {
-  -webkit-filter: grayscale(0.9) blur(2px);
+  -webkit-filter: grayscale(0.9) blur(0px);
 }
 .fa-check-circle-o {
   display: none;
@@ -480,8 +481,7 @@ img.asset-img {
   left: -150%;
 }
 .author-row {
-  display: none;
-  /*display: inline-block;*/
+  display: block;
   width: 100%;
   margin-bottom: 0;
   text-align: left;
@@ -668,7 +668,11 @@ li.selected .filter {
   font-weight: bold;
   color: #000;
   text-shadow: .05px .05px .05px white;
-  opacity: 0;
+  opacity: 1;
+  right: 0;
+  float: right;
+  margin-right: 10px;
+  opacity: .6;
 }
 .file-type img {
   width: 23px;
