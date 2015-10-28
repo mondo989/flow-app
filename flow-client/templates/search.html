@@ -26,32 +26,24 @@
         <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
       </div>
     </form>
+    <span class="filter-container-holder">
+        <label for="slideOne">
+          <img ng-click="photoshopChosen=!photoshopChosen;" ng-class="{notSelected:!photoshopChosen, selected:photoshopChosen}" class="photoshop" src="img/photoshop.png" alt="">
+        </label>
 
-<span class="filter-container-holder">
-    <label for="slideOne">
-      <img ng-click="photoshopChosen=!photoshopChosen;" ng-class="{notSelected:!photoshopChosen, selected:photoshopChosen}" class="photoshop" src="img/photoshop.png" alt="">
-    </label>
+        <label for="slideTwo">
+          <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt="">
+        </label>
 
-    <label for="slideTwo">
-      <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt="">
-    </label>
-
-
-    <label for="slideThree">
-      <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt="">
-    </label>
+        <label for="slideThree">
+          <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt="">
+        </label>
 
 
-    <!-- <label for="slideFour">Static Assets</label> -->
-</span>
-
-
-
-
+        <!-- <label for="slideFour">Static Assets</label> -->
+    </span>
 
     <div class="row checkbox-options-holder inactive checkbox-options-holder-anim">
-
-
     </div>
 
     <ul class="content-holder">
@@ -73,17 +65,18 @@
             </span>
             <span class="ranking-number">120</span>
           </div>
-
           <div class="downloads">
-
           </div>
 
-          <div class="info">
-            <span class="file-type">
-              <img  src="img/photoshop.png" alt="">
-            </span>
+          <div class="info ">
+            <!-- <span class="file-type">
+              <img src="img/photoshop.png" alt="">
+            </span> -->
+            <!-- <a ui-sref="asset-detail"></a> -->
 
-            <a ui-sref="asset-detail"><i class="fa fa-info-circle ion-gear-b"></i></a>
+            <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
+            <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a>
+
           </div>
           <div class="price">
             <!-- <a ui-sref="asset-detail">$5</a> -->
@@ -91,7 +84,7 @@
         </span>
 
 
-        <!-- <span class="tags-row">
+         <!-- <span class="tags-row">
           <span class="tag-li">
             Iphone
           </span>

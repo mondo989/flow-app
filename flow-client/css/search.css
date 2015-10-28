@@ -36,9 +36,11 @@
 }
 span.download-number {
     float: right;
-    opacity: .3;
     font-weight: 600;
     margin-right: 10px;
+    opacity: 0;
+    -webkit-transition: .7s!important;
+    transition: .7s!important;
 }
 .file-size {
   opacity: .5;
@@ -179,4 +181,7 @@ li.tags-anim {
 
 .ion-ios-search-strong {
   -webkit-app-region: drag;
+}
+.admin-panel {
+  background: red;
 }

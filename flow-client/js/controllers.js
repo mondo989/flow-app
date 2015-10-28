@@ -174,6 +174,20 @@ angular.module('flowApp')
     checkAllWindowClosed();
   }
 
+  $scope.openDeleteModal = function() {
+      if (confirm('Are you sure you want to delete this asset from the database?')) {
+        // Save it!
+      } else {
+        // Do nothing!
+      }
+  }
+
+  $scope.openTagsModal = function() {
+    console.log("Hey tags")
+    // Prompt in JS doesn't work for AngularJs
+    //  prompt("Please enter your name", "Harry Potter");
+  }
+
 }])  // End of asset search controller
 
 

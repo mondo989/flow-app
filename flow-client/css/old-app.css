@@ -528,13 +528,13 @@ img.asset-img {
   color: white;
   opacity: .95;
 }
-.hover-wrapper .upvote, .hover-wrapper .ranking-number, .hover-wrapper .downloads {
-  -webkit-transition: .7s;
-  transition: .7s;
+.hover-wrapper .upvote, .hover-wrapper .ranking-number, .hover-wrapper .downloads, .hover-wrapper .download-number {
+  -webkit-transition: .7s!important;
+  transition: .7s!important;
   opacity: 0;
 }
-.asset:hover .hover-wrapper .upvote, .asset:hover .hover-wrapper .ranking-number, .asset:hover .hover-wrapper .downloads, .asset:hover .tags-row {
-  opacity: 1;
+.asset:hover .hover-wrapper .upvote, .asset:hover .hover-wrapper .ranking-number, .asset:hover .hover-wrapper .downloads, .asset:hover .tags-row, .asset:hover .download-number {
+  opacity: .9;
 }
 a.star .notSelected i {
   -webkit-animation: bounceIn .5s!important;
