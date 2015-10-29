@@ -136,6 +136,26 @@ a.signup-btn {
   -webkit-animation: fadeInDownBig 5s ease-out;
   animation: fadeInDownBig 5s ease-out;*/
 }
+
+
+.heading-anim {
+  -moz-animation: fadeInDown 1s ease-out;
+  -webkit-animation: fadeInDown 1s ease-out;
+  animation: fadeInDown 1s ease-out;
+}
+
+.subheading-anim {
+  -moz-animation: fadeInUp 1s ease-out;
+  -webkit-animation: fadeInUp 1s ease-out;
+  animation: fadeInUp 1s ease-out;
+}
+
+.design-holder-anim {
+  -moz-animation: fadeIn 5s ease;
+  -webkit-animation: fadeIn 5s ease;
+  animation: fadeIn 5s ease;
+}
+
 .v-center {
   padding-top: 150px;
 }
@@ -290,7 +310,6 @@ a.signup-btn {
 }
 h1.heading span.element {
   display: block;
-  !important;
 }
 .typed-cursor {
   display: inline!important;
@@ -350,4 +369,16 @@ h1.heading span.element {
   img.gif {
     idth: 100%!important;
   }
+}
+
+
+
+
+h1 {
+  font-size: 45px!important;
+}
+
+h3.subheading-anim {
+  font-size: 35px!important;
+  color: white;
 }
