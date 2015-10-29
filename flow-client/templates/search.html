@@ -109,7 +109,6 @@
       </li>
     </ul>
 
-    <!-- <button></button> -->
     <div class="row" id="get-assets-container">
       <button class="get-assets-btn" ng-click="downloadAssets();">Download Assets</button>
     </div>
@@ -117,15 +116,8 @@
 
 
   <script>
-  console.log("loaded yo")
-    require('./mongoose.js')
     require('./main.js')
-
-
-
-
     var ipc = require('ipc')
-
     var button = document.createEvent('button')
     button.textContent = 'Hideeeeee'
     button.addEventListener('click', function() {
