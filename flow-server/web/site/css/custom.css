@@ -150,6 +150,10 @@ a.signup-btn {
   animation: fadeInUp 1s ease-out;
 }
 
+.value-prop-copy {
+  font-weight: 300!important;
+}
+
 .design-holder-anim {
   -moz-animation: fadeIn 5s ease;
   -webkit-animation: fadeIn 5s ease;
@@ -381,4 +385,21 @@ h1 {
 h3.subheading-anim {
   font-size: 35px!important;
   color: white;
+}
+
+.form-anim {
+-webkit-animation:   fadeIn 5s;
+-moz-animation: fadeIn 5s;
+  animation:  fadeIn 5s;
+}
+.beta-font {
+  color: white;
+  margin-bottom: 20px;
+  opacity: .8;
+}
+
+img.flow-logo {
+  width: 180px;
+  opacity: 1;
+  height: auto;
 }
