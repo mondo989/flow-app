@@ -4,7 +4,7 @@ var ipc = require('ipc')
 var fs = require("fs");
 var os = require("os");
 var url = require('url')
-require('electron-debug')(); //- This allows debugging CMD+ALT+I
+// require('electron-debug')(); //- This allows debugging CMD+ALT+I
 
 // var autoUpdater = require('auto-updater');
 // autoUpdater.setFeedUrl('https://tryflow.io/latest?version=' + app.getVersion());
