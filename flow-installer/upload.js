@@ -16,8 +16,8 @@ if (os.platform() == "win32") {
 	var file = require('fs').createReadStream("./release/FlowSetup.exe");
 	var params = {Bucket: 'flow-install', Key: "FlowSetup.exe", Body: file};
 } else if (os.platform() == "darwin") {
-	var file = require('fs').createReadStream("./release/FlowSetup.dmg");
-	var params = {Bucket: 'flow-install', Key: "Flow.dmg", Body: file};
+	var file = require('fs').createReadStream("./FlowApp-darwin-x64/flowapp.dmg");
+	var params = {Bucket: 'flow-install', Key: "flowapp.dmg", Body: file};
 } else {
 	console.log("platform unknown: ",os.platform() );
 	process.exit(1);
