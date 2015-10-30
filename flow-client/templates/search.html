@@ -5,10 +5,10 @@
   <div class="full-row" ng-controller="assetSearch">
 
     <a href="#" ng-click="closeClicked()"><i class="fa ion-ios-close-empty close-app"></i></a>
-    <a href="#" ng-click="minimizedClicked()"><i class="fa ion-ios-minus-empty close-app"></i></a>
+    <!-- <a href="#" ng-click="minimizedClicked()"><i class="fa ion-ios-minus-empty close-app"></i></a> -->
     <form ng-submit="search()" class="form-search">
       <div>
-        <input ng-model="query" autocomplete="off" type="text" id="query" class="search" autofocus/>
+        <input ng-model="query" autocomplete="off" type="text" id="query" class="search" placeholder="search for asset" autofocus/>
         <!-- <span ng-controller="placeholderCtrl" class="dynamic-copy-holder">
         Search for
         <span class="description-text">{{assetDemo}}</span>
@@ -23,7 +23,7 @@
           </li>
         </span>
         <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
-        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
+        <a href="#" style="display: none;" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
       </div>
     </form>
     <span class="filter-container-holder">
@@ -32,11 +32,13 @@
         </label>
 
         <label for="slideTwo">
-          <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt="">
+          <img class="illustrator unselectable" src="img/illustrator.png" alt="">
+          <!-- <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt=""> -->
         </label>
 
         <label for="slideThree">
-          <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt="">
+          <img class="sketch unselectable" src="img/sketch.png" alt="">
+          <!-- <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt=""> -->
         </label>
 
 
@@ -74,8 +76,8 @@
             </span> -->
             <!-- <a ui-sref="asset-detail"></a> -->
 
-            <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
-            <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a>
+            <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a> -->
+            <!-- <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a> -->
 
           </div>
           <div class="price">
@@ -102,9 +104,10 @@
 
         <span class="author-row">
           <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
-          <a ui-sref="author">Lorem Ipsum</a>
+          <!-- <a ui-sref="author">Lorem Ipsum</a> -->
+          <a class="dead-link">Sample Author</a>
           <span class="file-size">{{asset._source.displaySize}}</span>
-          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+          <!-- <span class="download-number"><i class="fa fa-download"></i>1.2k</span> -->
         </span>
       </li>
     </ul>

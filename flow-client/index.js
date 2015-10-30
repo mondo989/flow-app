@@ -27,7 +27,7 @@ app.on('ready', function() {
   var mainWindow = new BrowserWindow({
     width: 900,
     height: 630,
-    resizable: true,
+    resizable: false,
     frame: false,
     title : "Flow Assets",
     "node-integration": true
@@ -66,7 +66,7 @@ app.on('ready', function() {
     y: size.height - 80,
     title : "Flow Downloads",
     "always-on-top": true,
-    "resizable": true
+    "resizable": false
   })
 
   console.log("current dirname: " + __dirname);

@@ -403,3 +403,27 @@ img.flow-logo {
   opacity: 1;
   height: auto;
 }
+.learn-more {
+  margin-top: 30px;
+  font-size: 20px;
+  display: block;
+}
+
+h4.copy {
+  line-height: 1.7;
+  text-align: center;
+  font-weight: 400!important;
+  opacity: .6;
+}
+
+.learn-more-section {
+  background: blue;
+  display: none;
+}
+
+.learn-more-section.active {
+  display: block;
+  -webkit-animation: fadeInUp 2s;
+  -o-animation: fadeInUp 2s;
+  animation: fadeInUp 2s;
+}

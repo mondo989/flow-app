@@ -66,7 +66,7 @@
 								<div class="input-holder">
 									<input name="email" type="email" class="email-input" placeholder="designer@domain.com" required>
 									<!-- <input type=submit class="submit" value=Submit> -->
-									<button class="btn-submit invite bottom" type="submit">Get Invite!</button>
+									<button class="btn-submit invite bottom" type="submit">Get Early Access</button>
 								</div>
 							</form>
 						</div>
@@ -109,16 +109,30 @@
 				<img class="flow-logo" src="site/img/f-logo.png" alt="">
 				<h1 class="text-center">What's flow?</h1>
 				<br>
-				<h4 style="line-height: 1.7" class="text-center">
-					Flow helps designers to Search, Discover, &amp; Drag-&amp;-Drop, Design Assets... without a Web Browser.
+				<h4 class="copy" class="text-center">
+					Flow helps designers to Search, Discover, &amp; Drag-&amp;-Drop, Design Assets. without a Web Browser.
 					<br>
 
+
+					<a id="learn-more" class="learn-more">Learn more</a>
 				 <!-- <img src="site/img/demo-a.gif" alt  style="min-width: 800px!important;">  -->
 
 					<!-- Save Time, Work Smart
 					<br>
 					Try Flow and Go! -->
 				</h4>
+
+			<section class="learn-more-section">
+				<div class="row">
+					<div class="col-md-12">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae doloremque expedita error eos! Hic, impedit necessitatibus id dolor illo accusamus quae voluptates, obcaecati voluptas eum ut enim beatae, facere recusandae!
+					</div>
+				</div>
+			</section>
+
+
+
+
 				<!-- <div class="container">
 					<div class='row'>
 						<div class='col-md-10 col-md-offset-1'>
@@ -412,6 +426,14 @@
 				console.log("Hey yo");
 			}
 		})
+
+
+		$('#learn-more').click(function() {
+			$('.learn-more-section').addClass( "active");
+			$('.learn-more').addClass( "hidden");
+
+		})
+
 	</script>
 </body>
 

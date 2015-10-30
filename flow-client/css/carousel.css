@@ -57,9 +57,8 @@ a.right {
 }
 .fa-search {
   font-size: 25px;
-  padding: 10px;
+  padding: 10px 15px;
   margin-top: 10px;
-  color: blue;
   border: 2px solid #ccc!important;
   background: #f3f3f3!important;
   border-radius: 120px;
