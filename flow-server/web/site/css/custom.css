@@ -445,6 +445,9 @@ h4.copy {
     margin: 0 auto;
     font-size: 7vw!important;
   }
+  .v-center {
+    padding-top: 80px;
+  }
 
   h3.value-prop-copy {
     font-size: 5vw!important;
@@ -453,5 +456,9 @@ h4.copy {
   h4.copy {
     width: 90%;
     margin: 0 auto;
+  }
+
+  .input-holder {
+
   }
 }
