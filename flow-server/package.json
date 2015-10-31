@@ -1,0 +1,11 @@
+{
+  "name": "flow-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "flowserver.js",
+  "scripts": {
+    "start": "node flowserver.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

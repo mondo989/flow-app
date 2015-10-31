@@ -1,0 +1,187 @@
+#query {
+  border: 0px !important;
+  border-bottom: 1px solid #ccc !important;
+  border-radius: 0px;
+}
+.full-row {
+  width: 100%!important;
+  margin: 0 auto;
+  max-width: 900px;
+  background: #fff;
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+.full-row input {
+  border: 1px solid #ccc!important;
+  padding-bottom: 3px;
+  opacity: .8!important;
+}
+.full-row input:hover {
+  opacity: 1!important;
+}
+.form-search a {
+  border: 0;
+}
+.form-search {
+  display: inline-block;
+  z-index: 2;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 10px!important;
+}
+span.download-number {
+    float: right;
+    font-weight: 600;
+    margin-right: 10px;
+    opacity: 0;
+    -webkit-transition: .7s!important;
+    transition: .7s!important;
+}
+.file-size {
+  opacity: .5;
+}
+
+a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
+  border: 1px solid gray;
+}
+.form-search .fa {
+  color: #000!important;
+}
+.fa-cog {
+  position: absolute!important;
+  margin-top: 0px!important;
+  font-size: 30px!importnat;
+  margin-left: 18px!important;
+  opacity: .1;
+  transition: .2s;
+}
+.fa-cog:hover {
+  opacity: .15;
+}
+.fa-cog.spin {
+  -webkit-animation: rotateInApp 2s;
+  -moz-animation: rotateInApp 2s;
+  -o-animation: rotateInApp 2s;
+  animation: rotateInApp 2s;
+}
+
+.ion-ios-arrow-down {
+  font-size: 350px;
+  opacity: 1!important;
+  padding: 0!important;
+}
+
+.form-search .ion-ios-gear-outline {
+  position: absolute;
+  margin-top: 11px;
+  font-size: 50px;
+  margin-left: 10px;
+  opacity: .8!important;
+  transition: .5s;
+  color: #ccc;
+}
+a.selected i {
+  -webkit-transform: rotate(180deg!imp);
+  /* Chrome, Safari, Opera */
+  transform: rotate(180deg)!important;
+}
+i.fa-cog {
+  display: none;
+}
+a.selected + a i.fa-cog {
+  display: block!important;
+}
+a .fa-chevron-down:hover {
+  opacity: .5;
+}
+.input-search {
+  opacity: .17;
+  font-size: 57px;
+  padding-right: 10px;
+  float: left;
+  margin-top: 16px;
+}
+.dynamic-copy-holder {
+  width: 80%;
+  margin: 0 auto;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  font-size: 30px;
+}
+.description-text {
+  background: blue;
+}
+
+.form-search .search:hover {
+  opacity: 1;
+}
+.form-control, input {
+  border-width: 0!important;
+}
+.form-search .search:focus {
+  opacity: 1;
+  color: black!important;
+  outline: 0;
+}
+.tags-list {
+  list-style-type: none;
+  display: inline-block!important;
+  z-index: 900000;
+}
+.tags-list:hover {
+  background: white;
+}
+li.tags-anim {
+  -webkit-animation: fadeInUp .5s;
+  -moz-animation: fadeInUp .5s;
+  -o-animation: fadeInUp .5s;
+  animation: fadeInUp .5s;
+}
+.search-anim {
+  -webkit-animation: fadeInDownMod 1s ease;
+  -moz-animation: fadeInDownMod 1s ease;
+  -o-animation: fadeInDownMod 1s ease;
+  animation: fadeInDownMod 1s ease;
+}
+.chevron-down-anim {
+  -webkit-animation: fadeInUpMod 1s ease;
+  -moz-animation: fadeInUpMod 1s ease;
+  -o-animation: fadeInUpMod 1s ease;
+  animation: fadeInUpMod 1s ease;
+}
+
+.filter-container-holder {
+  float: left;
+  margin-left: 29px;
+  -webkit-animation: fadeInLeft 1.5s;
+  -moz-animation: fadeInLeft 1.5s;
+  animation: fadeInLeft 1.5s;
+}
+
+.photoshop, .illustrator, .sketch {
+  width: 20px!important;
+  margin: 0 1px;
+}
+
+.close-app {
+  float: right;
+  margin-right: 10px;
+  margin-top: 0;
+  color: black;
+  opacity: .5!important;
+  font-size:30px!important;
+}
+
+.ion-ios-search-strong {
+  -webkit-app-region: drag;
+}
+.admin-panel {
+  background: red;
+}

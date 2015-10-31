@@ -1,0 +1,28 @@
+.download-btn {
+  display: block;
+  background: green;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+.asset-info {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.fa-search {
+  position: absolute;
+  left: 0;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 40px;
+  color: #ccc;
+}
+
+.detail-view .container {
+  padding-bottom: 40px;
+}

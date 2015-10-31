@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="css/signin.css">
+
+
+<div ng-controller="LoginCtrl" class="container">
+  <div class="row text-center main-container">
+    <img class="top-flow" src="img/f-logo.png" alt="">
+    <img class="top-flow-copy" src="img/flow-png.png" alt="">
+    <h2>Log In</h2>
+    <br>
+    <input type="text" name="email" id="email" data-validate="required, email" placeholder="Email address" aria-required="true" class="email" ng-model="email">
+    <input type="password" name="code" id="code" data-validate="required, password" placeholder="Password" aria-required="true" class="email" ng-model="password">
+    <!-- <img class="flow-logo" src="img/flow-png.png" alt="">-->
+    <br>
+    <!--
+
+    <button ng-click="authenticate('facebook')">Sign in with Facebook</button>
+    <button ng-click="authenticate('google')">Sign in with Google</button>
+    <button ng-click="authenticate('github')">Sign in with GitHub</button>
+    <button ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
+    <button ng-click="authenticate('twitter')">Sign in with Twitter</button>
+    <button ng-click="authenticate('foursquare')">Sign in with Foursquare</button>
+    <button ng-click="authenticate('yahoo')">Sign in with Yahoo</button>
+    <button ng-click="authenticate('live')">Sign in with Windows Live</button>
+    <button ng-click="authenticate('twitch')">Sign in with Twitch</button>
+
+    -->
+    <p ng-bind="loginError"></p>
+    <br>
+    <a class="signup-signin-btn" ng-click="authenticate();" href="#login">Log In</a>
+    <br>
+
+    <p class="sign-in"> Or, <a class="sign-in" ng-click="requestInvite();" href="#login">Request an Invite</a> </p>
+  </div>
+</div>
