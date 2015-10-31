@@ -117,6 +117,8 @@ a.signup-btn {
   text-align: center;
   font-size: 20px;
   font-weight: 500;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .input-holder .submit {
   padding: 20px 30px;
@@ -417,7 +419,6 @@ h4.copy {
 }
 
 .learn-more-section {
-  background: blue;
   display: none;
 }
 
@@ -426,4 +427,31 @@ h4.copy {
   -webkit-animation: fadeInUp 2s;
   -o-animation: fadeInUp 2s;
   animation: fadeInUp 2s;
+}
+
+
+@media (max-width: 991px) {
+  .input-holder .email-input {
+    width: 65%;
+  }
+  .invite.bottom {
+    width: 30%;
+  }
+}
+
+@media (max-width: 600px) {
+  h1.heading {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 7vw!important;
+  }
+
+  h3.value-prop-copy {
+    font-size: 5vw!important;
+  }
+
+  h4.copy {
+    width: 90%;
+    margin: 0 auto;
+  }
 }

@@ -5,7 +5,7 @@
   <div class="row text-center asset-main-container" >
     <span class="click-area">
     <a ng-click="openOutsideApplication(asset);" ng-repeat="asset in assets" class="asset-anim" >
-      <i class="ion-ios-close-empty"></i>
+      <!-- <i class="ion-ios-close-empty"></i> -->
       <img ng-src="{{asset._source.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">
         <loader id="loader-{{asset._id}}"></loader>
       <div class="asset-container">
