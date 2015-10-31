@@ -31,7 +31,7 @@ app.post("/", function(req, res) {
 		"signup_date" : new Date()
 	}, function(err, mongores) {
 		console.log("New user signup",email);
-		return res.redirect(301, "/thank-you-form");
+		return res.redirect(301, "https://mondo989.typeform.com/to/dLA6Wd");
 		// res.send("Thank you pageholder!");
 	});
 
@@ -51,4 +51,3 @@ app.get("/logintest", function(req, res) {
 
 
 module.exports = {"app" : app};
-
