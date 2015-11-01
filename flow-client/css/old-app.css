@@ -720,3 +720,9 @@ li.selected .filter {
 .dead-link {
   color: rgba(0, 0, 0, 0.5)!important;
 }
+.feedback {
+  position: absolute;
+    display: block;
+    top: 90px;
+    right: 90px;
+}
