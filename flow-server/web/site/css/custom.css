@@ -76,6 +76,7 @@ a.signup-btn {
   height: 60px;
   padding: 0 10px;
   width: 170px;
+  background: #0192B5;
 }
 .signup-input {
   height: 50px;
@@ -119,6 +120,7 @@ a.signup-btn {
   font-weight: 500;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  border-right: 0;
 }
 .input-holder .submit {
   padding: 20px 30px;
