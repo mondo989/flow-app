@@ -5,7 +5,7 @@
   <div class="full-row" ng-controller="assetSearch">
 
     <a href="#" ng-click="closeClicked()"><i class="fa ion-ios-close-empty close-app"></i></a>
-    <!-- <a href="#" ng-click="minimizedClicked()"><i class="fa ion-ios-minus-empty close-app"></i></a> -->
+    <a href="#" ng-click="minimizedClicked()"><i class="fa ion-ios-minus-empty close-app"></i></a>
     <form ng-submit="search()" class="form-search">
       <div>
         <input ng-model="query" autocomplete="off" type="text" id="query" class="search" placeholder="search for asset" autofocus/>
@@ -14,7 +14,7 @@
         <span class="description-text">{{assetDemo}}</span>
        </span> -->
         <span class="tags-container">
-          <i class="fa input-search ion-ios-search-strong search-anim"></i>
+          <i class="fa input-search ion-ios-search-strong  search-anim"></i>
           <li class="tags-list tags-anim" ng-repeat="tag in searchTags track by $index">
             {{tag}}
             <a title="{{$index}}" ng-click="deleteTag($index)">
@@ -23,7 +23,7 @@
           </li>
         </span>
         <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
-        <a href="#" style="display: none;" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
+        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
       </div>
     </form>
     <span class="filter-container-holder">
@@ -54,7 +54,11 @@
 
       <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen; downloadActivationQueue();" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
 
-        <i class="fa fa-check-circle-o ion-ios-checkmark color-change"></i>
+          <i class="fa fa-check-circle-o ion-ios-checkmark color-change">
+                <a href="#" class="download-link"> Download
+                </a>
+          </i>
+
         <div class="filter"></div>
 
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
@@ -71,14 +75,14 @@
           <div class="downloads">
           </div>
 
-          <div class="info ">
+          <div class="info">
             <!-- <span class="file-type">
               <img src="img/photoshop.png" alt="">
             </span> -->
             <!-- <a ui-sref="asset-detail"></a> -->
 
-            <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
-            <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a>
+            <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
+            <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a> -->
 
           </div>
           <div class="price">

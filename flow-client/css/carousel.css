@@ -122,11 +122,22 @@ a.save {
   border: 2px solid #ccc;
 }*/
 
+/*
 img.asset-png {
-  -webkit-filter: grayscale(1)!important;
-    filter: grayscale(1)!important;
+  -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}*/
+
+img.asset-png + .loader {
+  -webkit-filter: grayscale(0)!important;
+  filter: grayscale(0)!important;
 }
 
+/*
+img.asset-png.downloaded  {
+  -webkit-filter: grayscale(0)!important;
+    filter: grayscale(0)!important;
+}*/
 
 .asset-png {
   width: 100%;
@@ -147,6 +158,10 @@ img.asset-png {
   -moz-animation: fadeInUp 10s;
   -o-animation: fadeInUp 10s;
   animation: fadeInUp 10s;
+}
+img.asset-png + .loader {
+  -webkit-filter: grayscale(1)!important;
+  filter: grayscale(1)!important;
 }
 .load-percent {
   position: absolute;
@@ -178,7 +193,6 @@ img.asset-png {
 .ion-android-close {
   font-size: 25px!important;
 }
-
 .close-btn i {
   position: absolute;
   right: -22px;

@@ -3,11 +3,11 @@
 <div ng-controller="carouselController" class="container-fluid carousel-intro-anim" style="background: transparent!important;">
   <a class="tabs left" href><i class="fa fa-angle-left"></i> </a>
   <div class="row text-center asset-main-container" >
-    <span class="click-area">
-    <a ng-click="openOutsideApplication(asset);" ng-repeat="asset in assets" class="asset-anim" >
+    <span id="assetCarousel" class="click-area">
+    <a ng-click="openOutsideApplication(asset);" ng-repeat="asset in assets" class="asset-anim">
       <!-- <i class="ion-ios-close-empty"></i> -->
-      <img ng-src="{{asset._source.imgSrc}}" class="asset-png" ng-alt="{{asset._source.name}}">
-        <loader id="loader-{{asset._id}}"></loader>
+        <img ng-src="{{asset._source.imgSrc}}" id="imgDownloaded" class="asset-png" ng-alt="{{asset._source.name}}">
+        <loader id="loader-{{asset._id}}" class="loader"></loader>
       <div class="asset-container">
         <span class="asset-size">{{asset._source.displaySize}}</span>
         <span class="load-percent"  id="percent-{{asset._id}}"></span>

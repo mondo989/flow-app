@@ -205,6 +205,7 @@ angular.module('flowApp')
   }
 }])
 
+
 // BOTTOM CAROUSEL CONTROLLER
 // Calls bottom carousel window, png's & psd's of selected assets.
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
@@ -324,6 +325,10 @@ angular.module('flowApp')
 
             //Spinner loads
               document.getElementById('loader-' + imgId).style.visibility= "hidden";
+
+              // This needs to get fixed makes so background image loses blur on download.
+              // document.getElementById('imgDownloaded').classList.add("downloaded");
+
               console.log('Loader jquery:' + document.getElementById('loader-' + imgId))
             // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';
              });

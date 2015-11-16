@@ -726,3 +726,13 @@ li.selected .filter {
     top: 90px;
     right: 90px;
 }
+
+
+.download-link {
+  font-size: 14px;
+  color: #aaa;
+  display: block;
+  position: absolute;
+  margin-left: 20px;
+  bottom: -4px;
+}

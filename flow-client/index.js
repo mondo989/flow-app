@@ -66,7 +66,7 @@ app.on('ready', function() {
     y: size.height - 80,
     title : "Flow Downloads",
     "always-on-top": true,
-    "resizable": false
+    "resizable": true
   })
 
   console.log("current dirname: " + __dirname);
