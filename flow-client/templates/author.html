@@ -30,7 +30,6 @@
     </div>
   </section>
 
-
   <a ui-sref="search">
     <i class="ion-android-arrow-back"></i>
   </a>
@@ -45,13 +44,13 @@
       <h4 class="location"> <i class="fa fa-envelope"></i>Hire Me</h4>
     </span>
 
-    <h6 class="tagline">Hey there. Buy some of my work. </h6>
+    <h6 class="tagline">Hey there. Check out some of my work. </h6>
 
-    <!-- <span class="author-holder">
-      <a href="#"><i class="fa fa-globe"></i></a>
-      <a href="#"><i class="fa fa-globe"></i></a>
-      <a href="#"><i class="fa fa-globe"></i></a>
-    </span> -->
+    <section class="author-sync">
+      <a class="dropbox-btn" href="#">Sync with Dropbox</a>
+      <a class="dropbox-btn" ng-click="ModalListClicked();">Upload Assets</a>
+    </section>
+
   </span>
 
 
@@ -59,12 +58,12 @@
   <ul class="content-holder ">
     <!--    {{ assets }} -->
 
-    <li class="col-sm-4 asset anim upload" style="width: 32%;">
-      <a href="#" ng-click="ModalListClicked(); ">
+    <!-- <li class="col-sm-4 asset anim upload" style="width: 32%;"> -->
+      <!-- <a href="#" ng-click="ModalListClicked(); ">
         <i class="fa ion-android-add-circle"></i>
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
         <h3 class="upload-copy text-center">Upload Asset</h3>
-      </a>
+      </a> -->
 
       <!--  <span class="hover-wrapper">
         <div class="ranking-holder">
@@ -99,12 +98,16 @@
         <a ui-sref="author">Lorem Ipsum</a>
       </span> -->
 
-    </li>
+    <!-- </li> -->
 
 
-    <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
+    <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen; downloadActivationQueue();" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
 
-      <i class="fa fa-check-circle-o"></i>
+        <i class="fa fa-check-circle-o ion-ios-checkmark color-change">
+              <a href="#" class="download-link"> Download
+              </a>
+        </i>
+
       <div class="filter"></div>
 
       <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
@@ -116,19 +119,20 @@
               <i class="fa fa-star"></i>
             </a>
           </span>
-          <span class="ranking-number">120</span>
+          <!-- <span class="ranking-number">120</span> -->
         </div>
-
         <div class="downloads">
-          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
         </div>
 
         <div class="info">
-          <span class="file-type">
+          <!-- <span class="file-type">
             <img src="img/photoshop.png" alt="">
-          </span>
-          <span class="file-size">270mb</span>
-          <a ui-sref="asset-detail"><i class="fa fa-info-circle"></i></a>
+          </span> -->
+          <!-- <a ui-sref="asset-detail"></a> -->
+
+          <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
+          <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a> -->
+
         </div>
         <div class="price">
           <!-- <a ui-sref="asset-detail">$5</a> -->
@@ -136,13 +140,31 @@
       </span>
 
 
+       <!-- <span class="tags-row">
+        <span class="tag-li">
+          Iphone
+        </span>
+        <span class="tag-li">
+          Iphone
+        </span>
+        <span class="tag-li">
+          Iphone
+        </span>
+        <span class="tag-li">
+          Iphone
+        </span>
+      </span> -->
+
 
       <span class="author-row">
         <img src="https://randomuser.me/api/portraits/med/women/93.jpg" alt="">
         <a ui-sref="author">Lorem Ipsum</a>
+        <!-- <a class="dead-link">Sample Author</a> -->
+        <span class="file-size">{{asset._source.displaySize}}</span>
+        <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
       </span>
-
     </li>
+    
 
     <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
 

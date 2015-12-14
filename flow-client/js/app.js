@@ -19,6 +19,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: "/bottom-carousel",
       templateUrl: "templates/bottom-carousel.html"
     })
+    .state("profile", {
+      url: "/profile",
+      templateUrl: "templates/profile.html"
+    })
     .state("signup", {
       url: "/signup",
       templateUrl: "templates/signup.html"

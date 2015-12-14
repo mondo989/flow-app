@@ -196,6 +196,15 @@ a.close-modal {
   -webkit-animation: bounceIn .75s!important;
   animation: bounceIn .75s!important;
 }
+.author-sync {
+  margin: 10px 0 20px;
+}
+.dropbox-btn {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+}
 
 .author-upload-copy {
   font-size: 20px;
@@ -218,5 +227,4 @@ font-size: 40px;
 color: #ccc;
 opacity: 1;
 margin-left: 25px;
-
 }

@@ -3,7 +3,6 @@
 
 <div>
   <div class="full-row" ng-controller="assetSearch">
-
     <a href="#" ng-click="closeClicked()"><i class="fa ion-ios-close-empty close-app"></i></a>
     <a href="#" ng-click="minimizedClicked()"><i class="fa ion-ios-minus-empty close-app"></i></a>
     <form ng-submit="search()" class="form-search">
@@ -22,7 +21,9 @@
             </a>
           </li>
         </span>
-        <a href="#" ng-click="settingsClicked()"><i class="fa fa-cog"></i></a>
+        <a href="#" ng-click="settingsClicked()">
+          <i class="fa fa-cog"></i>
+        </a>
         <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
       </div>
     </form>
@@ -55,8 +56,7 @@
       <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen; downloadActivationQueue();" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
 
           <i class="fa fa-check-circle-o ion-ios-checkmark color-change">
-                <a href="#" class="download-link"> Download
-                </a>
+            <a ng-click="downloadAssets();" class="download-link"> <i class="fa fa-download"></i></a>
           </i>
 
         <div class="filter"></div>
@@ -81,10 +81,10 @@
             </span> -->
             <!-- <a ui-sref="asset-detail"></a> -->
 
-            <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
-            <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a> -->
-
+            <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
+            <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a>
           </div>
+
           <div class="price">
             <!-- <a ui-sref="asset-detail">$5</a> -->
           </div>

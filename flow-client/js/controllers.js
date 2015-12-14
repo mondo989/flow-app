@@ -136,7 +136,6 @@ angular.module('flowApp')
      $scope.$apply();
      // hide download bar
      document.getElementById("get-assets-container").className = "";
-
    }
 
 
@@ -190,9 +189,6 @@ angular.module('flowApp')
 
 }])  // End of asset search controller
 
-
-
-
 // Onboarding Controller Yoooo!
 .controller('onboarding', ['$scope', function($scope) {
   // console.log("Hey sunshine")
@@ -205,9 +201,14 @@ angular.module('flowApp')
   }
 }])
 
+.controller('userProfileCtrl', ['$scope', 'dropstoreClient', function($scope) {
 
-// BOTTOM CAROUSEL CONTROLLER
-// Calls bottom carousel window, png's & psd's of selected assets.
+    console.log('controller loaded');
+}])
+
+
+
+// BOTTOM CAROUSEL CONTROLLER   // Calls bottom carousel window, png's & psd's of selected assets.
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
   window.$scope = $scope
   $scope.assets = []
@@ -250,6 +251,7 @@ angular.module('flowApp')
   });
 
 
+
 // Makes search window hide on Bottom Carousel Click
 /*
   $scope.hideSearchWindow = function() {
@@ -263,6 +265,8 @@ angular.module('flowApp')
   }, 2000);
   }
 */
+
+
 
   $scope.showSearchWindow = function() {
     var searchWindow = getWindowByTitle("Flow Assets");
