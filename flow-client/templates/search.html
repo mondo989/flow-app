@@ -81,7 +81,9 @@
             </span> -->
             <!-- <a ui-sref="asset-detail"></a> -->
 
-            <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
+
+            <a ng-click="deleteAssetFromDB()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a>
+            <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a> -->
             <a ng-click="openTagsModal()" href="#"><i class="fa fa-info-circle ion-pricetags"></i></a>
           </div>
 
@@ -90,21 +92,11 @@
           </div>
         </span>
 
-
-         <!-- <span class="tags-row">
-          <span class="tag-li">
-            Iphone
+         <span class="tags-row">
+          <span ng-repeat="assets in asset._source.tags" class="tag-li">
+             {{asset._source.tags[$index]}}
           </span>
-          <span class="tag-li">
-            Iphone
-          </span>
-          <span class="tag-li">
-            Iphone
-          </span>
-          <span class="tag-li">
-            Iphone
-          </span>
-        </span> -->
+        </span>
 
 
         <span class="author-row">

@@ -71,6 +71,7 @@ angular.module('flowApp')
     console.log(JSON.stringify(getWindowByTitle("Flow Assets")));
     console.log(usercode);
 
+    // This seperates the query into tags
     var query = $scope.query.trim()
     if (!$scope.searchTags.length && !query) {console.log("No query."); return false;}
     if ($scope.searchTags.indexOf(query)>=0) {console.log("No duplicate tags pls."); return false}
@@ -92,6 +93,20 @@ angular.module('flowApp')
       $scope.assets = data
       window.ls.set("lastSearch", {query: $scope.query, searchTags: $scope.searchTags})
     })
+  }
+
+  $scope.deleteAssetFromDB = function(){
+    var usercode = getWindowByTitle("Flow Assets").usercode;
+    var dataObj = { "tags" : $scope.searchTags, "code" : usercode  };
+    $http.post("https://tryflow.io/api/search", dataObj).success(function(data) {
+      for (var i in data.hits.hits) {
+        console.log(data.hits.hits[i]);
+        // data.hits.hits[i]["_source"]["displaySize"] = displaySizeToHuman(data.hits.hits[i]["_source"]["size"]);
+      }
+      $scope.assets = data
+      window.ls.set("lastSearch", {query: $scope.query, searchTags: $scope.searchTags})
+    })
+
   }
 
   $scope.deleteTag = function($index){
@@ -280,7 +295,6 @@ angular.module('flowApp')
     var bottomCarousel = getWindowByTitle("Flow Downloads");
     bottomCarousel.hide();
     checkAllWindowClosed();
-
   }
 
 

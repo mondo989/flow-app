@@ -27,7 +27,7 @@ app.on('ready', function() {
   var mainWindow = new BrowserWindow({
     width: 900,
     height: 630,
-    resizable: false,
+    resizable: true,
     frame: false,
     title : "Flow Assets",
     "node-integration": true
