@@ -101,10 +101,10 @@ a .fa-chevron-down:hover {
 }
 .input-search {
   opacity: .17;
-  font-size: 57px;
+  font-size: 45px;
   padding-right: 10px;
   float: left;
-  margin-top: 16px;
+  margin-top: 25px;
 }
 .dynamic-copy-holder {
   width: 80%;
@@ -171,12 +171,20 @@ li.tags-anim {
 }
 
 .close-app {
-  float: right;
-  margin-right: 10px;
-  margin-top: 0;
+  float: left;
+  margin-left: 5px;
+  margin-top: -4px;
   color: black;
   opacity: .5!important;
   font-size:30px!important;
+}
+
+.minimize-app {
+  float: right;
+  margin-right: 7px;
+  margin-top: -3px;
+  color: black;
+  font-size: 27px!important;
 }
 
 .ion-ios-search-strong {
@@ -184,4 +192,11 @@ li.tags-anim {
 }
 .admin-panel {
   background: red;
+}
+/*
+#tag-row {
+  display: none;
+}*/
+#tag-row.active {
+  display: block;
 }

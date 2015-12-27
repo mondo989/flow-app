@@ -40,18 +40,17 @@ var displaySizeToHuman = function(size) {
 
 angular.module('flowApp')
 
-.controller('assetSearch', ['$scope', '$http', 'es', function($scope, $http, es) {
+.controller('assetSearchCtrl', ['$scope', '$http', 'es', function($scope, $http, es) {
   window.$scope = $scope // For testing
   $scope.query = ""
   $scope.searchTags = []
-
   $scope.$on('userLogin', function(event, args) {
     console.log("User logged in");
   });
 
   $scope.downloadActivationQueue = function () {
     // console.log('button appears');
-      document.getElementById("get-assets-container").className = "active";
+    document.getElementById("get-assets-container").className = "active";
   }
 
   $scope.assetFilterClicked = function () {
@@ -87,8 +86,8 @@ angular.module('flowApp')
     var dataObj = { "tags" : $scope.searchTags, "code" : usercode  };
     $http.post("https://tryflow.io/api/search", dataObj).success(function(data) {
       for (var i in data.hits.hits) {
-        console.log(data.hits.hits[i]);
-        data.hits.hits[i]["_source"]["displaySize"] = displaySizeToHuman(data.hits.hits[i]["_source"]["size"]);
+        console.log(data.hits.hits[i]); // This shows in the console all the objects returned
+        data.hits.hits[i]["_source"]["displaySize"] = displaySizeToHuman(data.hits.hits[i]["_source"]["size"]);  // This says take the size of it and convert it in ng for angular
       }
       $scope.assets = data
       window.ls.set("lastSearch", {query: $scope.query, searchTags: $scope.searchTags})
@@ -96,17 +95,28 @@ angular.module('flowApp')
   }
 
   $scope.deleteAssetFromDB = function(){
-    var usercode = getWindowByTitle("Flow Assets").usercode;
-    var dataObj = { "tags" : $scope.searchTags, "code" : usercode  };
-    $http.post("https://tryflow.io/api/search", dataObj).success(function(data) {
-      for (var i in data.hits.hits) {
-        console.log(data.hits.hits[i]);
-        // data.hits.hits[i]["_source"]["displaySize"] = displaySizeToHuman(data.hits.hits[i]["_source"]["size"]);
-      }
-      $scope.assets = data
-      window.ls.set("lastSearch", {query: $scope.query, searchTags: $scope.searchTags})
-    })
+    $scope.assets = data
+    console.log( data.hits.hits[i] );
 
+
+    // $http({
+    //   url: "https://tryflow.io/api/search/",
+    //   method: "GET",
+    //   data: "id="
+    //   // data: {$scope.assets}
+    // }).success(function(){
+    //   console.log('Success');
+    // });
+
+
+    // var usercode = getWindowByTitle("Flow Assets").usercode;
+    // var dataObj = { "tags" : $scope.searchTags, "code" : usercode  };
+    // $http.post("https://tryflow.io/api/search", dataObj).success(function(data) {
+    //     // I need to determine the id of the individual object,
+    //     // Once I have the id,
+    //     // Do a delete request with elasticsearch
+    //     $scope.assets = data
+    // })
   }
 
   $scope.deleteTag = function($index){
@@ -154,10 +164,14 @@ angular.module('flowApp')
    }
 
 
-   document.addEventListener("keypress", function(e){
-     console.log("hi", e.keyCode)
-     // console.log("hi", e)
 
+
+
+// This is for deletion of tags using keypress
+// Also paginates with the return key
+    // To do: Make delete keypress delete tag !!
+   document.addEventListener("keypress", function(e){
+     //  console.log("hi", e.keyCode)   // console.log("hi", e)
      var query = $scope.query.trim()
      if (e.keyCode == 13 && !query) {
        document.querySelector(".content-holder").scrollTop += 400
@@ -196,11 +210,12 @@ angular.module('flowApp')
       }
   }
 
+
   $scope.openTagsModal = function() {
     console.log("Hey tags")
-    // Prompt in JS doesn't work for AngularJs
-    //  prompt("Please enter your name", "Harry Potter");
+    // document.getElementById("tag-row").className = "active";
   }
+
 
 }])  // End of asset search controller
 
@@ -216,10 +231,10 @@ angular.module('flowApp')
   }
 }])
 
-.controller('userProfileCtrl', ['$scope', 'dropstoreClient', function($scope) {
-
-    console.log('controller loaded');
-}])
+// .controller('userProfileCtrl', ['$scope', 'dropstoreClient', function($scope) {
+//
+//     console.log('controller loaded');
+// }])
 
 
 
@@ -368,7 +383,130 @@ angular.module('flowApp')
 
 }])
 
-.controller('authorCtrl', ['$scope', function($scope) {
+.controller('authorCtrl', ['$scope', '$http', 'dropstoreClient', function($scope, $http, dropstoreClient) {
+
+    // $http.get('https://www.dropbox.com/1/oauth/authorize')
+    //   .success(function(data, status, headers, config) {
+    //       $scope.posts = data;
+    //   })
+    //   .error(function(data, status, headers, config) {
+    //       // log error
+    //   });
+
+
+
+
+
+
+
+// DROPBOX AUTH
+// DROPBOX AUTH
+// DROPBOX AUTH
+          //   var crypto = require('crypto'),
+          //   	express = require('express'),
+          //   	request = require('request'),
+          //   	url = require('url');
+          //
+          //   var app = express();
+          //   app.use(express.cookieParser());
+          //
+          //   // insert your app key and secret here
+          //   var APP_KEY = '<YOUR APP KEY>';
+          //   var APP_SECRET = '<YOUR APP SECRET>';
+          //
+          //   function generateCSRFToken() {
+          //   	return crypto.randomBytes(18).toString('base64')
+          //   		.replace(/\//g, '-').replace(/\+/g, '_');
+          //   }
+          //
+          //   function generateRedirectURI(req) {
+          //   	return url.format({
+          //   			protocol: req.protocol,
+          //   			host: req.headers.host,
+          //   			pathname: app.path() + '/callback'
+          //   	});
+          //   }
+          //
+          //   app.get('/', function (req, res) {
+          //   	var csrfToken = generateCSRFToken();
+          //   	res.cookie('csrf', csrfToken);
+          //   	res.redirect(url.format({
+          //   		protocol: 'https',
+          //   		hostname: 'www.dropbox.com',
+          //   		pathname: '1/oauth2/authorize',
+          //   		query: {
+          //   			client_id: APP_KEY,
+          //   			response_type: 'code',
+          //   			state: csrfToken,
+          //   			redirect_uri: generateRedirectURI(req)
+          //   		}
+          //   	}));
+          //   });
+          //
+          //   app.get('/callback', function (req, res) {
+          //   	if (req.query.error) {
+          //   		return res.send('ERROR ' + req.query.error + ': ' + req.query.error_description);
+          //   	}
+          //
+          //   	// check CSRF token
+          //   	if (req.query.state !== req.cookies.csrf) {
+          //   		return res.status(401).send(
+          //   			'CSRF token mismatch, possible cross-site request forgery attempt.'
+          //   		);
+          //   	}
+          //   	// exchange access code for bearer token
+          //   	request.post('https://api.dropbox.com/1/oauth2/token', {
+          //   		form: {
+          //   			code: req.query.code,
+          //   			grant_type: 'authorization_code',
+          //   			redirect_uri: generateRedirectURI(req)
+          //   		},
+          //   		auth: {
+          //   			user: APP_KEY,
+          //   			pass: APP_SECRET
+          //   		}
+          //   	}, function (error, response, body) {
+          //   		var data = JSON.parse(body);
+          //
+          //   		if (data.error) {
+          //   			return res.send('ERROR: ' + data.error);
+          //   		}
+          //
+          //   		// extract bearer token
+          //   		var token = data.access_token;
+          //
+          //   		// use the bearer token to make API calls
+          //   		request.get('https://api.dropbox.com/1/account/info', {
+          //   			headers: { Authorization: 'Bearer ' + token }
+          //   		}, function (error, response, body) {
+          //   			res.send('Logged in successfully as ' + JSON.parse(body).display_name + '.');
+          //   		});
+          //   	});
+          //   });
+          //
+          //   app.listen(5000);
+          //
+          //
+          //
+          //
+          //
+          //
+          //
+          // // dropstoreClient.create({key: 'YOUR_APP_KEY_HERE'})
+          // //     .authenticate({interactive: true})
+          // //     .then(function(datastoreManager){
+          // //         console.log('completed authentication');
+          // //         return datastoreManager.openDefaultDatastore();
+          // //     });
+          //
+
+
+
+
+
+
+// DOM Manipulation
+  // Todo Move this
 
   $scope.ModalListClicked = function () {
     document.querySelector('.uploadModal').classList.toggle('active');
@@ -376,7 +514,7 @@ angular.module('flowApp')
   $scope.closeModal = function() {
     document.querySelector('.uploadModal').classList.toggle('active');
   }
-  console.log('Author Controller done loadin')
+  console.log('Author Controller done loadin');
 }])
 
 .controller("LoginCtrl", ['$scope', '$http', function($scope, $http) {

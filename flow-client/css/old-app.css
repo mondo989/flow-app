@@ -70,7 +70,7 @@ i.fa.fa-info-circle {
 }
 .form-search li {
   display: inline;
-  padding: 7px;
+  padding: 4px;
   padding-left: 13px;
   list-style-type: none;
   border-radius: 9px;
@@ -79,7 +79,7 @@ i.fa.fa-info-circle {
   font-size: 16px;
   font-weight: 600;
   padding-right: 10px;
-  margin-top: 25px;
+  margin-top: 30px;
 
 }
 
@@ -105,7 +105,7 @@ span.tags-container {
   position: absolute;
   left: 0;
   margin-top: -15px;
-  margin-left: 30px;
+  margin-left: 25px;
 }
 
 .ion-ios-close-empty {
@@ -287,7 +287,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 .fa-cog {
   position: absolute;
   margin-top: 0px;
-  font-size: 30px;
+  font-size: 17px;
   margin-left: 18px;
   opacity: .1;
   transition: .2s;
@@ -705,9 +705,12 @@ li.selected .filter {
   display: none;
 }
 
-  .tags-row {
-    display: inline;
-  }
+.tags-row {
+  display: inline;
+  margin-bottom: 40px;
+  height: 30px;
+  overflow-y: hidden;
+}
 
 .tag-li {
   background: rgba(0, 0, 0, 0.2);
@@ -715,6 +718,7 @@ li.selected .filter {
     display: inline-block;
     border-radius: 4px;
     color: white;
+    font-size: 10px;
     font-weight: 600!important;
 }
 .dead-link {
@@ -722,9 +726,9 @@ li.selected .filter {
 }
 .feedback {
   position: absolute;
-    display: block;
-    top: 90px;
-    right: 90px;
+  display: block;
+  top: 90px;
+  right: 90px;
 }
 
 

@@ -49,6 +49,8 @@
     <section class="author-sync">
       <a class="dropbox-btn" href="#">Sync with Dropbox</a>
       <a class="dropbox-btn" ng-click="ModalListClicked();">Upload Assets</a>
+    <button>hey</button>
+
     </section>
 
   </span>
@@ -164,7 +166,7 @@
         <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
       </span>
     </li>
-    
+
 
     <li ng-click="assetChosen=!assetChosen; downloadActivationQueue(); toggleAssets(asset._id);" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
 
@@ -581,3 +583,9 @@
     </li>
   </ul>
 </div>
+
+
+<script type="text/javascript">
+var button = Dropbox.createChooseButton(options);
+document.getElementById("dropbox").appendChild(button);
+</script>
