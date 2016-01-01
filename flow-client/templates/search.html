@@ -81,7 +81,7 @@
             <!-- <a ui-sref="asset-detail"></a> -->
 
 
-            <a ng-click="deleteAssetFromDB()" href="#">
+            <a ng-click="deleteAssetFromDB(asset)" href="#">
               <i class="fa fa-info-circle ion-ios-trash"></i>
             </a>
 
@@ -98,16 +98,18 @@
         </span>
 
          <span id="tag-row" class="tags-row" >
-          <!-- <span ng-repeat="assets in asset._source.tags track by $index" class="tag-li">
-           {{asset._source.tags[$index]}}
-          </span> -->
+          <span ng-repeat="assets in asset._source.tags track by $index" class="tag-li">
+             <a ng-click="addTagByLink()">
+               {{asset._source.tags[$index]}}
+              </a>
+          </span>
           <span>
-            <!-- {{asset._id}} -->
+                {{asset._id}}
           </span>
         </span>
 
         <span class="author-row">
-          <img src="https://randomuser.me/api-/portraits/med/women/93.jpg" alt="">
+          <img src="https://randomuser.me/api/portraits/med/women/73.jpg" alt="">
           <a ui-sref="author">Sample Designer</a>
           <!-- <a class="dead-link">Sample Author</a> -->
           <span class="file-size">

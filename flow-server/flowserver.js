@@ -13,10 +13,18 @@ var http = require('http');
 
 var webapps = require("./web");
 
+console.log(argv);
+
 if (!module.parent) {
 	config.init(function() {
+		// production server
 		var cport = (argv["port"] !== undefined)?(argv["port"]):(1337);
 		var chost = (argv["host"] !== undefined)?(argv["host"]):("127.200.0.10");
+
+		// develop server
+		// var cport = (argv["port"] !== undefined)?(argv["port"]):(1337);
+		// var chost = "127.0.0.1"
+
 		// IIS defines port via environment variables
 		if (process.env.PORT !== undefined)
 			cport = process.env.PORT;

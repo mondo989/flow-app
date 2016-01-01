@@ -31,5 +31,3 @@ app.post("/githubhook", function( request, response ) {
     });
 
 module.exports = {"app" : app};
-
-

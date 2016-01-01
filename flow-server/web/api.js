@@ -60,7 +60,7 @@ app.post("/api/search", function(req, webres) {
 			            "operator": "AND"
 			          }
 			        }
-			      },"size" : 350
+			      },"size" : 150
 			    },
 			}).then(function (resp) {
 				webres.send(resp);
@@ -69,6 +69,22 @@ app.post("/api/search", function(req, webres) {
 			});
 		}
 	]);
+});
+
+app.delete("/api/search/delete/:id", function(req, res){
+	var ec_id = req.params.id;
+	ec.delete({
+		id: ec_id,
+		type: "img",
+		index: "assets"
+	}, function(err, ec_res){
+		if (err){
+			console.log(err);
+		} else {
+			console.log(ec_res);
+			res.sendStatus(200)
+		}
+	});
 });
 
 

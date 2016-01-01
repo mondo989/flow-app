@@ -26,4 +26,3 @@ init = function(callback) {
 GLOBAL.config = config;
 
 module.exports = {"config" : config, "init" : init};
-

@@ -67,8 +67,13 @@ angular.module('flowApp')
 
   $scope.search = function(){
     var usercode = getWindowByTitle("Flow Assets").usercode;
+    var useremail = getWindowByTitle("Flow Assets").useremail;
+
     console.log(JSON.stringify(getWindowByTitle("Flow Assets")));
-    console.log(usercode);
+    console.log(useremail + usercode);
+
+
+
 
     // This seperates the query into tags
     var query = $scope.query.trim()
@@ -86,7 +91,7 @@ angular.module('flowApp')
     var dataObj = { "tags" : $scope.searchTags, "code" : usercode  };
     $http.post("https://tryflow.io/api/search", dataObj).success(function(data) {
       for (var i in data.hits.hits) {
-        console.log(data.hits.hits[i]); // This shows in the console all the objects returned
+        // console.log(data.hits.hits[i]); // This shows in the console all the objects returned
         data.hits.hits[i]["_source"]["displaySize"] = displaySizeToHuman(data.hits.hits[i]["_source"]["size"]);  // This says take the size of it and convert it in ng for angular
       }
       $scope.assets = data
@@ -94,35 +99,23 @@ angular.module('flowApp')
     })
   }
 
-  $scope.deleteAssetFromDB = function(){
-    $scope.assets = data
-    console.log( data.hits.hits[i] );
-
-
-    // $http({
-    //   url: "https://tryflow.io/api/search/",
-    //   method: "GET",
-    //   data: "id="
-    //   // data: {$scope.assets}
-    // }).success(function(){
-    //   console.log('Success');
-    // });
-
-
-    // var usercode = getWindowByTitle("Flow Assets").usercode;
-    // var dataObj = { "tags" : $scope.searchTags, "code" : usercode  };
-    // $http.post("https://tryflow.io/api/search", dataObj).success(function(data) {
-    //     // I need to determine the id of the individual object,
-    //     // Once I have the id,
-    //     // Do a delete request with elasticsearch
-    //     $scope.assets = data
-    // })
+  $scope.deleteAssetFromDB = function(asset){
+    $http.delete("https://tryflow.io/api/search/delete/" + asset._id)
   }
 
   $scope.deleteTag = function($index){
     $scope.searchTags.splice($index, 1)
     $scope.search()
   }
+
+
+
+  // $scope.addTagByLink = function($index){
+  //   $scope.searchTags.push($index)
+  //   $scope.search()
+  // }
+
+
 
   $scope.newViewTransition = function () {
      var assetFilter = document.querySelector('.checkbox-options-holder');
