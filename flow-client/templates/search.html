@@ -52,12 +52,21 @@
 
     <ul class="content-holder">
       <img class="f-logo" src="img/f-logo.png" alt="">
-
+      <div id="update-tags-modal" class="update-tags-modal">
+        <i class="fa fa-close"></i>
+        <span id="tag-modal-content" class="tag-modal-content">
+          current tags: {{asset._source.tags}}
+        <br>
+        <br>
+          new tags:
+            <input type="text">
+        </span>
+      </div>
       <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen; downloadActivationQueue();" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
 
-          <i class="fa fa-check-circle-o ion-ios-checkmark color-change">
-            <a ng-click="downloadAssets();" class="download-link"> <i class="fa fa-download"></i></a>
-          </i>
+        <i class="fa fa-check-circle-o ion-ios-checkmark color-change">
+          <a ng-click="downloadAssets();" class="download-link"> <i class="fa fa-download"></i></a>
+        </i>
 
         <div class="filter"></div>
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
@@ -86,7 +95,7 @@
             </a>
 
             <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a> -->
-            <a ng-click="openTagsModal()" href="#">
+            <a ng-click="updateAssetTags(asset)" href="#">
               <i class="fa fa-info-circle ion-pricetags"></i>
             </a>
 
@@ -98,14 +107,14 @@
         </span>
 
          <span id="tag-row" class="tags-row" >
-          <span ng-repeat="assets in asset._source.tags track by $index" class="tag-li">
-             <a ng-click="addTagByLink()">
+          <!-- <span ng-repeat="assets in asset._source.tags track by $index" class="tag-li">
+             <a ng-click="addTagByLink()">  This is to add the asset's link to the query
                {{asset._source.tags[$index]}}
               </a>
-          </span>
-          <span>
+          </span> -->
+          <!-- <span>
                 {{asset._id}}
-          </span>
+          </span> -->
         </span>
 
         <span class="author-row">

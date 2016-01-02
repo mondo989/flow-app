@@ -3,6 +3,7 @@ window.ls = {get: function(k){return JSON.parse(localStorage.getItem(k))}, set: 
 
 var app = angular.module('flowApp', ['ui.bootstrap', 'ui.router', 'elasticsearch', 'dropstore-ng']);
 
+
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider
     .otherwise('/search');

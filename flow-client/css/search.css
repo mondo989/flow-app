@@ -200,3 +200,39 @@ li.tags-anim {
 #tag-row.active {
   display: block;
 }
+
+.update-tags-modal{
+  display: none;
+}
+
+#update-tags-modal.active {
+  position: absolute;
+  background: #f3f3f3;
+  top: 20%;
+  right: 0;
+  left:0;
+  bottom:0;
+  width: 90%;
+  height: 80%;
+  margin: 0 auto;
+  z-index: 900000!important;
+
+-webkit-animation: fadeInDown 1s;
+  animation: fadeInDown 1s;
+}
+
+#update-tags-modal .fa-close {
+  color: black;
+  float: right!important;
+}
+
+.tag-modal-content {
+  position: absolute;
+  width: 80%;
+  left:0;
+  top:80px;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 300px;
+}

@@ -40,6 +40,10 @@ var displaySizeToHuman = function(size) {
 
 angular.module('flowApp')
 
+// .factory('assetTagsforModal', ['$scope', function($scope){
+//   console.log("factory loaded")
+// }])
+
 .controller('assetSearchCtrl', ['$scope', '$http', 'es', function($scope, $http, es) {
   window.$scope = $scope // For testing
   $scope.query = ""
@@ -102,11 +106,31 @@ angular.module('flowApp')
   $scope.deleteAssetFromDB = function(asset){
     $http.delete("https://tryflow.io/api/search/delete/" + asset._id)
   }
+  $scope.updateAssetTags = function(asset) {
+
+    // Get the tags specific to an object
+    console.log(asset._source.tags);
+
+    // Open a modal Window
+    document.getElementById("update-tags-modal").className = "active";
+
+    // Pass detail tags to modal Window
+    
+
+    // Allow User to update tags in modal
+
+    // Send Post Request with Id and updated tags to server
+
+
+  }
+
+
 
   $scope.deleteTag = function($index){
     $scope.searchTags.splice($index, 1)
     $scope.search()
   }
+
 
 
 
@@ -201,12 +225,6 @@ angular.module('flowApp')
       } else {
         // Do nothing!
       }
-  }
-
-
-  $scope.openTagsModal = function() {
-    console.log("Hey tags")
-    // document.getElementById("tag-row").className = "active";
   }
 
 
