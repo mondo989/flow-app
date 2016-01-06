@@ -55,11 +55,17 @@
       <div id="update-tags-modal" class="update-tags-modal">
         <i class="fa fa-close"></i>
         <span id="tag-modal-content" class="tag-modal-content">
-          current tags: {{asset._source.tags}}
+          current tags: <span id ="currentTags">
+           {{asset_tags}}
+         </span>
         <br>
         <br>
           new tags:
-            <input type="text">
+
+          <form ng-submit="updateTagsToDB(asset)">
+            <input id="newTags" type="text" value="" placeholder="{{asset_tags}}">
+            <button id="update-tags-btn"> Update Tags</button>
+          </form>
         </span>
       </div>
       <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen; downloadActivationQueue();" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
@@ -108,10 +114,11 @@
 
          <span id="tag-row" class="tags-row" >
           <!-- <span ng-repeat="assets in asset._source.tags track by $index" class="tag-li">
-             <a ng-click="addTagByLink()">  This is to add the asset's link to the query
+             <a ng-click="addTagByLink()">
                {{asset._source.tags[$index]}}
               </a>
           </span> -->
+
           <!-- <span>
                 {{asset._id}}
           </span> -->

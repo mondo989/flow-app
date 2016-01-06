@@ -64,18 +64,12 @@ angular.module('flowApp')
      chevronDown.classList.toggle('rotateInMod');
   }
 
-  $scope.settingsClicked = function () {
-    var settingsBtn = document.querySelector('.fa-cog');
-    settingsBtn.classList.toggle('spin');
-  }
-
   $scope.search = function(){
     var usercode = getWindowByTitle("Flow Assets").usercode;
     var useremail = getWindowByTitle("Flow Assets").useremail;
 
     console.log(JSON.stringify(getWindowByTitle("Flow Assets")));
     console.log(useremail + usercode);
-
 
 
 
@@ -106,27 +100,39 @@ angular.module('flowApp')
   $scope.deleteAssetFromDB = function(asset){
     $http.delete("https://tryflow.io/api/search/delete/" + asset._id)
   }
+
   $scope.updateAssetTags = function(asset) {
 
-    // Get the tags specific to an object
-    console.log(asset._source.tags);
+    $scope.openTagsModal(); // DOM Manipulation
+    $scope.asset_tags = asset._source.tags; // THis gives us access to the tags in the browser
 
-    // Open a modal Window
-    document.getElementById("update-tags-modal").className = "active";
-
-    // Pass detail tags to modal Window
-    
-
-    // Allow User to update tags in modal
-
-    // Send Post Request with Id and updated tags to server
+    $scope.assetPlaceholder =  asset._source.tags; // This populates the input with the tags
+  };
 
 
+  $scope.updateTagsToDB = function() {
+
+      // This is post request that updates the tags.
+
+      $http.get("https://tryflow.io/api/search/" + asset._id)
+
+      console.log("Swag");
   }
 
 
 
-  $scope.deleteTag = function($index){
+  $scope.openTagsModal = function(){
+    // document.querySelector('update-tags-modal').classList.toggle('active');
+    document.getElementById("update-tags-modal").className = "active";
+    // modal.classList.add("active";
+  };
+
+
+
+
+
+
+  $scope.deleteTag = function($index){  // This is to delete tags that are in the search query.
     $scope.searchTags.splice($index, 1)
     $scope.search()
   }
