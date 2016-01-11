@@ -40,10 +40,6 @@ var displaySizeToHuman = function(size) {
 
 angular.module('flowApp')
 
-// .factory('assetTagsforModal', ['$scope', function($scope){
-//   console.log("factory loaded")
-// }])
-
 .controller('assetSearchCtrl', ['$scope', '$http', 'es', function($scope, $http, es) {
   window.$scope = $scope // For testing
   $scope.query = ""
@@ -52,10 +48,6 @@ angular.module('flowApp')
     console.log("User logged in");
   });
 
-  $scope.downloadActivationQueue = function () {
-    // console.log('button appears');
-    document.getElementById("get-assets-container").className = "active";
-  }
 
   $scope.assetFilterClicked = function () {
      var assetFilter = document.querySelector('.checkbox-options-holder');
@@ -70,8 +62,6 @@ angular.module('flowApp')
 
     console.log(JSON.stringify(getWindowByTitle("Flow Assets")));
     console.log(useremail + usercode);
-
-
 
     // This seperates the query into tags
     var query = $scope.query.trim()
@@ -101,36 +91,36 @@ angular.module('flowApp')
     $http.delete("https://tryflow.io/api/search/delete/" + asset._id)
   }
 
+
   $scope.updateAssetTags = function(asset) {
+    $scope.assetTags = asset._source.tags; // This gives us access to the tags in the browser
+    $scope.imgSrc = asset._source.imgSrc;
 
-    $scope.openTagsModal(); // DOM Manipulation
-    $scope.asset_tags = asset._source.tags; // THis gives us access to the tags in the browser
-
-    $scope.assetPlaceholder =  asset._source.tags; // This populates the input with the tags
+    $scope.addTagToAssetTags = function () {
+      if ($scope.assetTags.newTag) {
+          $scope.assetTags.push(this.assetTags.newTag);
+          $scope.assetTags.newTag = '';
+        }
+    }
+    $scope.deleteTagFromAsset = function($index){  // This is to delete tags that are in the search query.
+      $scope.assetTags.splice($index, 1)
+    }
   };
 
 
-  $scope.updateTagsToDB = function() {
 
-      // This is post request that updates the tags.
 
-      $http.get("https://tryflow.io/api/search/" + asset._id)
 
+  $scope.updateTagsToDB = function(asset) {
+    // This is post request that updates the tags.
+    // $scope.asset = asset._id;
+    // $scope.asset_tags = asset._source.tags;
+
+    // $scope.asset_tags = asset._source.tags;
+      console.log(asset);
+    // $http.get("https://tryflow.io/api/search/")
       console.log("Swag");
   }
-
-
-
-  $scope.openTagsModal = function(){
-    // document.querySelector('update-tags-modal').classList.toggle('active');
-    document.getElementById("update-tags-modal").className = "active";
-    // modal.classList.add("active";
-  };
-
-
-
-
-
 
   $scope.deleteTag = function($index){  // This is to delete tags that are in the search query.
     $scope.searchTags.splice($index, 1)
@@ -138,13 +128,10 @@ angular.module('flowApp')
   }
 
 
-
-
   // $scope.addTagByLink = function($index){
   //   $scope.searchTags.push($index)
   //   $scope.search()
   // }
-
 
 
   $scope.newViewTransition = function () {
@@ -247,13 +234,6 @@ angular.module('flowApp')
     }, delay);
   }
 }])
-
-// .controller('userProfileCtrl', ['$scope', 'dropstoreClient', function($scope) {
-//
-//     console.log('controller loaded');
-// }])
-
-
 
 // BOTTOM CAROUSEL CONTROLLER   // Calls bottom carousel window, png's & psd's of selected assets.
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
@@ -386,20 +366,6 @@ angular.module('flowApp')
       }])
 
 
-// This is for the onboarding process
-.controller('placeholderCtrl', ['$scope', function($scope) {
-  var tempName = ["iPhone", "iPad", "iPhone", "icons"];
-
-  $scope.assetDemo = tempName;
-
-  for (var i = 0; i < tempName.length; i++) {
-    setInterval(function(){
-        tempName[i]
-    }, 1000)
-  }
-
-}])
-
 .controller('authorCtrl', ['$scope', '$http', 'dropstoreClient', function($scope, $http, dropstoreClient) {
 
     // $http.get('https://www.dropbox.com/1/oauth/authorize')
@@ -409,12 +375,6 @@ angular.module('flowApp')
     //   .error(function(data, status, headers, config) {
     //       // log error
     //   });
-
-
-
-
-
-
 
 // DROPBOX AUTH
 // DROPBOX AUTH

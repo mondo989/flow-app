@@ -205,20 +205,50 @@ li.tags-anim {
   display: none;
 }
 
+#update-tags-modal > * {
+  opacity: 0;
+  display: none;
+}
+#update-tags-modal.active > * {
+  opacity: 1;
+  display: inherit;
+}
+
 #update-tags-modal.active {
   position: absolute;
   background: #f3f3f3;
-  top: 20%;
+  top: 8%;
   right: 0;
   left:0;
   bottom:0;
-  width: 90%;
+  width: 95%;
   height: 80%;
   margin: 0 auto;
   z-index: 900000!important;
 
--webkit-animation: fadeInDown 1s;
-  animation: fadeInDown 1s;
+-webkit-animation: fadeInDown .5s;
+  animation: fadeInDown .5s;
+}
+
+#tag-modal-content h2 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.mini-tags {
+    display: inline-block;
+    padding: 4px;
+    padding-left: 13px;
+    list-style-type: none;
+    border-radius: 9px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 10px 5.5px;
+    font-size: 16px;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+#update-tags-modal .ion-ios-close-empty {
+
 }
 
 #update-tags-modal .fa-close {
@@ -230,9 +260,29 @@ li.tags-anim {
   position: absolute;
   width: 80%;
   left:0;
-  top:80px;
+  top:30px;
   bottom: 0;
   right: 0;
   margin: 0 auto;
   height: 300px;
+}
+
+
+#tag-modal-content img.asset {
+  width: 120px;
+  height: auto;
+}
+
+
+.close-tags-modal i {
+  margin-top: 20px;
+  margin-right: 40px;
+  font-size: 50px;
+}
+a .ion-arrow-move {
+  position: absolute;
+  top: 2.5px;
+  color: black;
+  font-size: 25px;
+  right:10px;
 }

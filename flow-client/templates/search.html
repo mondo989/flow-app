@@ -4,7 +4,8 @@
 <div>
   <div class="full-row " ng-controller="assetSearchCtrl">
     <a href="#" ng-click="closeClicked()"><i class="fa ion-ios-close-empty close-app"></i></a>
-    <a href="#" ng-click="minimizedClicked()"><i class="fa ion-ios-minus-empty minimize-app"></i></a>
+    <a href="#" ><i class="ion-arrow-move"></i></a>
+    <!-- <a href="#" ng-click="minimizedClicked()"><i class="fa ion-ios-minus-empty minimize-app"></i></a> -->
     <form ng-submit="search()" class="form-search">
       <div>
         <input ng-model="query" autocomplete="off" type="text" id="query" class="search" placeholder="search for asset" autofocus/>
@@ -13,7 +14,7 @@
         <span class="description-text">{{assetDemo}}</span>
        </span> -->
         <span class="tags-container">
-          <i class="fa input-search ion-ios-search-strong  search-anim"></i>
+          <i class="fa input-search ion-ios-search-strong search-anim"></i>
           <li class="tags-list tags-anim" ng-repeat="tag in searchTags track by $index">
             {{tag}}
             <a title="{{$index}}" ng-click="deleteTag($index)">
@@ -24,59 +25,59 @@
         <a href="#" ng-click="settingsClicked()">
           <i class="fa fa-cog"></i>
         </a>
-        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
+        <!-- <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a> -->
       </div>
     </form>
     <span class="filter-container-holder">
-        <label for="slideOne">
-          <img ng-click="photoshopChosen=!photoshopChosen;" ng-class="{notSelected:!photoshopChosen, selected:photoshopChosen}" class="photoshop" src="img/photoshop.png" alt="">
-        </label>
-
-        <label for="slideTwo">
-          <img class="illustrator unselectable" src="img/illustrator.png" alt="">
-          <!-- <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt=""> -->
-        </label>
-
-        <label for="slideThree">
-          <img class="sketch unselectable" src="img/sketch.png" alt="">
-          <!-- <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt=""> -->
-        </label>
-      <!-- <span class="feedback">
-        <a href="mailto:armando@tryflow.io?subject=Hello, I have some feedback about Flow&amp;body=Hey Armando, I think that ">Feedback?</a>
-      </span> -->
-        <!-- <label for="slideFour">Static Assets</label> -->
-    </span>
-
-    <div class="row checkbox-options-holder inactive checkbox-options-holder-anim">
-    </div>
-
+      <label for="slideOne">
+        <img ng-click="photoshopChosen=!photoshopChosen;" ng-class="{notSelected:!photoshopChosen, selected:photoshopChosen}" class="photoshop" src="img/photoshop.png" alt="">
+      </label>
+      <label for="slideTwo">
+        <img class="illustrator unselectable" src="img/illustrator.png" alt="">
+        <!-- <img ng-click="illustratorChosen=!illustratorChosen;" ng-class="{notSelected:!illustratorChosen, selected:illustratorChosen}" class="illustrator" src="img/illustrator.png" alt=""> -->
+      </label>
+      <label for="slideThree">
+        <img class="sketch unselectable" src="img/sketch.png" alt="">
+        <!-- <img ng-click="sketchChosen=!sketchChosen;" ng-class="{notSelected:!sketchChosen, selected:sketchChosen}" class="sketch" src="img/sketch.png" alt=""> -->
+      </label>
+          <!-- <span class="feedback"> <a href="mailto:armando@tryflow.io?subject=Hello, I have some feedback about Flow&amp;body=Hey Armando, I think that ">Feedback?</a> </span> -->
+          <!-- <label for="slideFour">Static Assets</label> -->
+      </span>
+    <div class="row checkbox-options-holder inactive checkbox-options-holder-anim"></div>
     <ul class="content-holder">
-      <img class="f-logo" src="img/f-logo.png" alt="">
+     <img class="f-logo" src="img/f-logo.png" alt="">
       <div id="update-tags-modal" class="update-tags-modal">
-        <i class="fa fa-close"></i>
+        <a onclick="closeTagsModal()" class="close-tags-modal"><i class="fa fa-close"></i></a>
+
         <span id="tag-modal-content" class="tag-modal-content">
-          current tags: <span id ="currentTags">
-           {{asset_tags}}
+
+          <img class="asset" ng-src="{{imgSrc}}">
+          <h2 class="text-center">This asset has these tags: </h2>
+          <span id ="currentTags">
+          <li class="mini-tags" ng-repeat="tag in assetTags">
+           {{tag}}
+            <a ng-click="deleteTagFromAsset($index)" href="#">
+              <i class="fa ion-ios-close-empty"></i></a>
+          </li>
+
          </span>
         <br>
         <br>
-          new tags:
-
-          <form ng-submit="updateTagsToDB(asset)">
-            <input id="newTags" type="text" value="" placeholder="{{asset_tags}}">
-            <button id="update-tags-btn"> Update Tags</button>
+          add new tags or remove current ones above:
+        <br>
+        <br>
+          <form ng-submit="addTagToAssetTags(assetTags)">
+            <input id="newTags" ng-model="assetTags.newTag" name="assetTags.newTag"  type="text" value="" >
+            <input id="update-tags-btn" type="submit" value="Add New Tag">
           </form>
         </span>
       </div>
-      <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen; downloadActivationQueue();" ng-class="{notSelected:!assetChosen, selected:assetChosen}" class="col-sm-4 asset anim" style="width: 32%;">
-
+      <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen;" ng-class="{notSelected:!assetChosen, selected:assetChosen}" onclick="downloadActivationQueue()" class="col-sm-4 asset anim" style="width: 32%;">
         <i class="fa fa-check-circle-o ion-ios-checkmark color-change">
           <a ng-click="downloadAssets();" class="download-link"> <i class="fa fa-download"></i></a>
         </i>
-
         <div class="filter"></div>
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
-
         <span class="hover-wrapper">
           <div class="ranking-holder">
             <span class="upvote">
@@ -86,25 +87,19 @@
             </span>
             <!-- <span class="ranking-number">120</span> -->
           </div>
-          <div class="downloads">
-          </div>
-
+          <div class="downloads"></div>
           <div class="info">
             <!-- <span class="file-type">
               <img src="img/photoshop.png" alt="">
             </span> -->
             <!-- <a ui-sref="asset-detail"></a> -->
-
-
             <a ng-click="deleteAssetFromDB(asset)" href="#">
               <i class="fa fa-info-circle ion-ios-trash"></i>
             </a>
-
             <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a> -->
-            <a ng-click="updateAssetTags(asset)" href="#">
+            <a ng-click="updateAssetTags(asset)" onclick="openTagsModal()" href="#">
               <i class="fa fa-info-circle ion-pricetags"></i>
             </a>
-
           </div>
 
           <div class="price">
@@ -142,14 +137,17 @@
   </div>
 
 
-  <script>
+  <!-- <script src="js/searech.js"></script> -->
 
-    // require('./main.js')
-    // var ipc = require('ipc')
-    // var button = document.createEvent('button')
-    // button.textContent = 'Hideeeeee'
-    // button.addEventListener('click', function() {
-    //   ipc.send('hide-carousel')
-    // })
-    // document.body.appendChild(button)
-  </script>
+
+
+  <!-- <script type="text/javascript">
+    require('./main.js')
+    var ipc = require('ipc')
+    var button = document.createEvent('button')
+    button.textContent = 'Hideeeeee'
+    button.addEventListener('click', function() {
+      ipc.send('hide-carousel')
+    })
+    document.body.appendChild(button)
+  </script> -->
