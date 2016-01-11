@@ -36,6 +36,7 @@ app.post("/api/login", function(req, webres) {
 	]);
 })
 
+// This is for search
 app.post("/api/search", function(req, webres) {
 	//var output = Mustache.render(fs.readFileSync("./web/landing.html", "utf8"), {"err" : ""} );
 	// res.send(output);
@@ -60,7 +61,7 @@ app.post("/api/search", function(req, webres) {
 			            "operator": "AND"
 			          }
 			        }
-			      },"size" : 150
+			      },"size" : 100
 			    },
 			}).then(function (resp) {
 				webres.send(resp);
@@ -86,6 +87,24 @@ app.delete("/api/search/delete/:id", function(req, res){
 		}
 	});
 });
+
+// This is for updating the tags created by Armaandoo
+// app.post("/api/search/:id", function(req, res){
+// 	var ec_id = req.params.id;
+// 	ec.delete({
+// 		id: ec_id,
+// 		type: "img",
+// 		index: "assets"
+// 	}, function(err, ec_res){
+// 		if (err){
+// 			console.log(err);
+// 		} else {
+// 			console.log(ec_res);
+// 			res.sendStatus(200)
+// 		}
+// 	});
+// });
+
 
 
 // admin functions below
