@@ -48,14 +48,6 @@ angular.module('flowApp')
     console.log("User logged in");
   });
 
-
-  $scope.assetFilterClicked = function () {
-     var assetFilter = document.querySelector('.checkbox-options-holder');
-     assetFilter.classList.toggle('inactive');
-     var chevronDown = document.querySelector('.fa-chevron-down');
-     chevronDown.classList.toggle('rotateInMod');
-  }
-
   $scope.search = function(){
     var usercode = getWindowByTitle("Flow Assets").usercode;
     var useremail = getWindowByTitle("Flow Assets").useremail;
@@ -91,7 +83,6 @@ angular.module('flowApp')
     $http.delete("https://tryflow.io/api/search/delete/" + asset._id)
   }
 
-
   $scope.updateAssetTags = function(asset) {
     $scope.assetTags = asset._source.tags; // This gives us access to the tags in the browser
     $scope.imgSrc = asset._source.imgSrc;
@@ -105,41 +96,22 @@ angular.module('flowApp')
     $scope.deleteTagFromAsset = function($index){  // This is to delete tags that are in the search query.
       $scope.assetTags.splice($index, 1)
     }
+    $scope.updateAssetTagsToDB = function (assetTags) {
+      console.log(asset._source.tags);
+      $http.get("https://tryflow.io/api/search/" + asset._id);
+      console.log("done")
+    }
   };
-
-
-
-
-
-  $scope.updateTagsToDB = function(asset) {
-    // This is post request that updates the tags.
-    // $scope.asset = asset._id;
-    // $scope.asset_tags = asset._source.tags;
-
-    // $scope.asset_tags = asset._source.tags;
-      console.log(asset);
-    // $http.get("https://tryflow.io/api/search/")
-      console.log("Swag");
-  }
 
   $scope.deleteTag = function($index){  // This is to delete tags that are in the search query.
     $scope.searchTags.splice($index, 1)
     $scope.search()
   }
 
-
   // $scope.addTagByLink = function($index){
   //   $scope.searchTags.push($index)
   //   $scope.search()
   // }
-
-
-  $scope.newViewTransition = function () {
-     var assetFilter = document.querySelector('.checkbox-options-holder');
-     assetFilter.classList.toggle('inactive');
-     var chevronDown = document.querySelector('.fa-chevron-down');
-     chevronDown.classList.toggle('rotateInMod');
-  }
 
   $scope.downloadAssets = function() {
     var bottomCarousel = getWindowByTitle("Flow Downloads");
@@ -172,9 +144,6 @@ angular.module('flowApp')
      // hide download bar
      document.getElementById("get-assets-container").className = "";
    }
-
-
-
 
 
 // This is for deletion of tags using keypress
@@ -211,7 +180,6 @@ angular.module('flowApp')
     mainWindow.hide();
     checkAllWindowClosed();
   }
-
   $scope.openDeleteModal = function() {
       if (confirm('Are you sure you want to delete this asset from the database?')) {
         // Save it!
@@ -219,23 +187,14 @@ angular.module('flowApp')
         // Do nothing!
       }
   }
+}]) // End of asset search controller
 
 
-}])  // End of asset search controller
 
-// Onboarding Controller Yoooo!
-.controller('onboarding', ['$scope', function($scope) {
-  // console.log("Hey sunshine")
-  $scope.onBoardingTransitions = function(){
-    // This is the delay before the second view loads
-    var delay=1000; //1 seconds
-    setTimeout(function(){
-      window.location.href = "/#/intro";
-    }, delay);
-  }
-}])
 
-// BOTTOM CAROUSEL CONTROLLER   // Calls bottom carousel window, png's & psd's of selected assets.
+
+// BOTTOM CAROUSEL CONTROLLER
+// Calls bottom carousel window, png's & psd's of selected assets.
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
   window.$scope = $scope
   $scope.assets = []
@@ -276,22 +235,19 @@ angular.module('flowApp')
       }
     }
   });
-
-
-
 // Makes search window hide on Bottom Carousel Click
 /*
   $scope.hideSearchWindow = function() {
     console.log("hideSearchWindow");
     var searchWindow = getWindowByTitle("Flow Assets")
-
     searchWindow.hide()
-
     setInterval(function(){
      document.querySelector('.fa-search').classList.toggle('attention');
   }, 2000);
   }
 */
+
+
 
 
 
@@ -349,25 +305,25 @@ angular.module('flowApp')
       download(imageURL, imgName, function(percent){
                 // console.log('progess '+percent);
                 document.getElementById('percent-' + imgId).innerHTML= percent+"%";
-          }, function(){
-              console.log('done');
-              console.log(imgId);
+      }, function(){
+          console.log('done');
+          console.log(imgId);
+          document.getElementById('loader-' + imgId).style.visibility= "hidden"; //Spinner loads
+          // This needs to get fixed makes so background image loses blur on download.
+          // document.getElementById('imgDownloaded').classList.add("downloaded");
+          console.log('Loader jquery:' + document.getElementById('loader-' + imgId))
+          // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';
+         });
+    }
+  }])
+  // End of the Carousel Controller
 
-            //Spinner loads
-              document.getElementById('loader-' + imgId).style.visibility= "hidden";
 
-              // This needs to get fixed makes so background image loses blur on download.
-              // document.getElementById('imgDownloaded').classList.add("downloaded");
 
-              console.log('Loader jquery:' + document.getElementById('loader-' + imgId))
-            // $scope.assets[i]._source.imgSrc,'./imgs/'+ $scope.assets[i]._id+'.png';
-             });
-          }
-      }])
-
+// This is the controller for the author's view of their own Assets
+// Functionality will allow the user the ability to upload new assets and tag them.
 
 .controller('authorCtrl', ['$scope', '$http', 'dropstoreClient', function($scope, $http, dropstoreClient) {
-
     // $http.get('https://www.dropbox.com/1/oauth/authorize')
     //   .success(function(data, status, headers, config) {
     //       $scope.posts = data;
@@ -376,9 +332,9 @@ angular.module('flowApp')
     //       // log error
     //   });
 
-// DROPBOX AUTH
-// DROPBOX AUTH
-// DROPBOX AUTH
+    // DROPBOX AUTH
+    // DROPBOX AUTH
+    // DROPBOX AUTH
           //   var crypto = require('crypto'),
           //   	express = require('express'),
           //   	request = require('request'),
@@ -478,21 +434,9 @@ angular.module('flowApp')
           //
 
 
-
-
-
-
-// DOM Manipulation
-  // Todo Move this
-
-  $scope.ModalListClicked = function () {
-    document.querySelector('.uploadModal').classList.toggle('active');
-  }
-  $scope.closeModal = function() {
-    document.querySelector('.uploadModal').classList.toggle('active');
-  }
   console.log('Author Controller done loadin');
-}])
+}]) // End of Author Controller
+
 
 .controller("LoginCtrl", ['$scope', '$http', function($scope, $http) {
   $scope.authenticate = function() {

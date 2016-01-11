@@ -88,22 +88,34 @@ app.delete("/api/search/delete/:id", function(req, res){
 	});
 });
 
+
+
 // This is for updating the tags created by Armaandoo
-// app.post("/api/search/:id", function(req, res){
-// 	var ec_id = req.params.id;
-// 	ec.delete({
-// 		id: ec_id,
-// 		type: "img",
-// 		index: "assets"
-// 	}, function(err, ec_res){
-// 		if (err){
-// 			console.log(err);
-// 		} else {
-// 			console.log(ec_res);
-// 			res.sendStatus(200)
-// 		}
-// 	});
-// });
+app.post("/api/search/:id", function(req, res){
+	// var ec_id = req.params.id;
+
+	console.log("Heeeyyy");
+	function(err, ec_res){
+		if (err){
+			console.log(err);
+		} else {
+			console.log(ec_res);
+			res.sendStatus(200)
+		}
+
+	// ec.delete({
+	// 	id: ec_id,
+	// 	type: "img",
+	// 	index: "assets"
+	// }, function(err, ec_res){
+	// 	if (err){
+	// 		console.log(err);
+	// 	} else {
+	// 		console.log(ec_res);
+	// 		res.sendStatus(200)
+	// 	}
+	// });
+});
 
 
 

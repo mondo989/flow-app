@@ -25,7 +25,9 @@
         <a href="#" ng-click="settingsClicked()">
           <i class="fa fa-cog"></i>
         </a>
-        <!-- <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a> -->
+        <!-- This is for the settings icon
+        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
+        -->
       </div>
     </form>
     <span class="filter-container-holder">
@@ -52,24 +54,29 @@
         <span id="tag-modal-content" class="tag-modal-content">
 
           <img class="asset" ng-src="{{imgSrc}}">
-          <h2 class="text-center">This asset has these tags: </h2>
+          <h2 class="text-center">Current tags for this asset: </h2>
           <span id ="currentTags">
-          <li class="mini-tags" ng-repeat="tag in assetTags">
-           {{tag}}
-            <a ng-click="deleteTagFromAsset($index)" href="#">
-              <i class="fa ion-ios-close-empty"></i></a>
-          </li>
-
-         </span>
+            <li class="mini-tags" ng-repeat="tag in assetTags">
+             {{tag}}
+              <a ng-click="deleteTagFromAsset($index)" href="#">
+                <i class="fa ion-ios-close-empty"></i></a>
+            </li>
+            <span class="tiny-tags-copy">click x to remove current tags</span>
+           </span>
         <br>
-        <br>
-          add new tags or remove current ones above:
-        <br>
+          Type in new tags that describe asset:
         <br>
           <form ng-submit="addTagToAssetTags(assetTags)">
             <input id="newTags" ng-model="assetTags.newTag" name="assetTags.newTag"  type="text" value="" >
             <input id="update-tags-btn" type="submit" value="Add New Tag">
           </form>
+        <br>
+        <br>
+        <br>
+          <div class="row">
+            <a ng-click="updateAssetTagsToDB(asset)">UPDATE ASSET</a>
+          </div>
+
         </span>
       </div>
       <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen;" ng-class="{notSelected:!assetChosen, selected:assetChosen}" onclick="downloadActivationQueue()" class="col-sm-4 asset anim" style="width: 32%;">
