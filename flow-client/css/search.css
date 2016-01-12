@@ -205,14 +205,23 @@ li.tags-anim {
   display: none;
 }
 
+#update-tags-modal > * {
+  opacity: 0;
+  display: none;
+}
+#update-tags-modal.active > * {
+  opacity: 1;
+  display: inherit;
+}
+
 #update-tags-modal.active {
   position: absolute;
   background: #f3f3f3;
-  top: 20%;
+  top: 8%;
   right: 0;
   left:0;
   bottom:0;
-  width: 90%;
+  width: 95%;
   height: 80%;
   margin: 0 auto;
   z-index: 900000!important;
@@ -240,8 +249,7 @@ li.tags-anim {
 }
 
 #update-tags-modal .ion-ios-close-empty {
--webkit-animation: fadeInDown 1s;
-  animation: fadeInDown 1s;
+
 }
 
 #update-tags-modal .fa-close {
@@ -253,12 +261,13 @@ li.tags-anim {
   position: absolute;
   width: 80%;
   left:0;
-  top:80px;
+  top:30px;
   bottom: 0;
   right: 0;
   margin: 0 auto;
   height: 300px;
 }
+
 
 #tag-modal-content img.asset {
   width: 120px;

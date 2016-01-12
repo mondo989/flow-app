@@ -40,10 +40,6 @@ var displaySizeToHuman = function(size) {
 
 angular.module('flowApp')
 
-// .factory('assetTagsforModal', ['$scope', function($scope){
-//   console.log("factory loaded")
-// }])
-
 .controller('assetSearchCtrl', ['$scope', '$http', 'es', function($scope, $http, es) {
   window.$scope = $scope // For testing
   $scope.query = ""
@@ -52,20 +48,12 @@ angular.module('flowApp')
     console.log("User logged in");
   });
 
-
-  $scope.downloadActivationQueue = function () {
-    // console.log('button appears');
-    document.getElementById("get-assets-container").className = "active";
-  }
-
   $scope.search = function(){
     var usercode = getWindowByTitle("Flow Assets").usercode;
     var useremail = getWindowByTitle("Flow Assets").useremail;
 
     console.log(JSON.stringify(getWindowByTitle("Flow Assets")));
     console.log(useremail + usercode);
-
-
 
     // This seperates the query into tags
     var query = $scope.query.trim()
@@ -96,11 +84,8 @@ angular.module('flowApp')
   }
 
   $scope.updateAssetTags = function(asset) {
-    $scope.openTagsModal(); // DOM Manipulation
-    $scope.asset_tags = asset._source.tags; // THis gives us access to the tags in the browser
-
-    $scope.assetPlaceholder =  asset._source.tags; // This populates the input with the tags
-
+    $scope.assetTags = asset._source.tags; // This gives us access to the tags in the browser
+    $scope.imgSrc = asset._source.imgSrc;
 
     $scope.addTagToAssetTags = function () {
       if ($scope.assetTags.newTag) {
@@ -113,25 +98,9 @@ angular.module('flowApp')
     }
     $scope.updateAssetTagsToDB = function (assetTags) {
       console.log(asset._source.tags);
-      // $http.get("https://tryflow.io/api/search/" + asset._id);
+      $http.get("https://tryflow.io/api/search/" + asset._id);
       console.log("done")
     }
-  }
-
-  //
-  // $scope.updateTagsToDB = function() {
-  //
-  //     // This is post request that updates the tags.
-  //     $http.get("https://tryflow.io/api/search/" + asset._id)
-  //     console.log("Swag");
-  // }
-
-
-
-  $scope.openTagsModal = function(){
-    // document.querySelector('update-tags-modal').classList.toggle('active');
-    document.getElementById("update-tags-modal").className = "active";
-    // modal.classList.add("active";
   };
 
   $scope.deleteTag = function($index){  // This is to delete tags that are in the search query.
@@ -143,15 +112,6 @@ angular.module('flowApp')
   //   $scope.searchTags.push($index)
   //   $scope.search()
   // }
-
-
-  $scope.newViewTransition = function () {
-     var assetFilter = document.querySelector('.checkbox-options-holder');
-     assetFilter.classList.toggle('inactive');
-     var chevronDown = document.querySelector('.fa-chevron-down');
-     chevronDown.classList.toggle('rotateInMod');
-  }
-
 
   $scope.downloadAssets = function() {
     var bottomCarousel = getWindowByTitle("Flow Downloads");
@@ -232,14 +192,9 @@ angular.module('flowApp')
 
 
 
-// .controller('userProfileCtrl', ['$scope', 'dropstoreClient', function($scope) {
-//
-//     console.log('controller loaded');
-// }])
 
-
-
-// BOTTOM CAROUSEL CONTROLLER   // Calls bottom carousel window, png's & psd's of selected assets.
+// BOTTOM CAROUSEL CONTROLLER
+// Calls bottom carousel window, png's & psd's of selected assets.
 .controller('carouselController', ['$scope','$http', function($scope,$http) {
   window.$scope = $scope
   $scope.assets = []
@@ -368,20 +323,6 @@ angular.module('flowApp')
 // This is the controller for the author's view of their own Assets
 // Functionality will allow the user the ability to upload new assets and tag them.
 
-// This is for the onboarding process
-.controller('placeholderCtrl', ['$scope', function($scope) {
-  var tempName = ["iPhone", "iPad", "iPhone", "icons"];
-
-  $scope.assetDemo = tempName;
-
-  for (var i = 0; i < tempName.length; i++) {
-    setInterval(function(){
-        tempName[i]
-    }, 1000)
-  }
-
-}])
-
 .controller('authorCtrl', ['$scope', '$http', 'dropstoreClient', function($scope, $http, dropstoreClient) {
     // $http.get('https://www.dropbox.com/1/oauth/authorize')
     //   .success(function(data, status, headers, config) {
@@ -391,9 +332,9 @@ angular.module('flowApp')
     //       // log error
     //   });
 
-// DROPBOX AUTH
-// DROPBOX AUTH
-// DROPBOX AUTH
+    // DROPBOX AUTH
+    // DROPBOX AUTH
+    // DROPBOX AUTH
           //   var crypto = require('crypto'),
           //   	express = require('express'),
           //   	request = require('request'),
