@@ -59,3 +59,11 @@ Search for assets; parameters are:
 * code : user authentication code
 * tags : array of tags to be searched for
 * author : display only results from author
+
+to view log files in server:
+run: forever list
+get file path
+run: tail -f file_path
+
+to restart server go into www/flow.io and rerun redploy.sh
+run: ./redploy.sh start
