@@ -98,8 +98,11 @@ angular.module('flowApp')
     }
     $scope.updateAssetTagsToDB = function (assetTags) {
       console.log(asset._source.tags);
-      $http.get("https://tryflow.io/api/search/" + asset._id);
-      console.log("done")
+      $http.post("https://tryflow.io/api/search/update_tags/" + asset._id, {
+        tags: asset._source.tags
+      }).then(function(res){
+        console.log("done", res);
+      })
     }
   };
 
