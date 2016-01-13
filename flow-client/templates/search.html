@@ -9,10 +9,6 @@
     <form ng-submit="search()" class="form-search">
       <div>
         <input ng-model="query" autocomplete="off" type="text" id="query" class="search" placeholder="search for asset" autofocus/>
-        <!-- <span ng-controller="placeholderCtrl" class="dynamic-copy-holder">
-        Search for
-        <span class="description-text">{{assetDemo}}</span>
-       </span> -->
         <span class="tags-container">
           <i class="fa input-search ion-ios-search-strong search-anim"></i>
           <li class="tags-list tags-anim" ng-repeat="tag in searchTags track by $index">
@@ -25,9 +21,10 @@
         <a href="#" ng-click="settingsClicked()">
           <i class="fa fa-cog"></i>
         </a>
+
         <!-- This is for the settings icon
-        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a>
-        -->
+        <a href="#" ng-click="assetFilterClicked(); subMenuClicked=!subMenuClicked;" ng-class="{notSelected:!subMenuClicked, selected:subMenuClicked}"><i class="ion-ios-gear-outline"></i></a> -->
+
       </div>
     </form>
     <span class="filter-container-holder">
@@ -48,6 +45,7 @@
     <div class="row checkbox-options-holder inactive checkbox-options-holder-anim"></div>
     <ul class="content-holder">
      <img class="f-logo" src="img/f-logo.png" alt="">
+<!--  Modal to Update Tags -->
       <div id="update-tags-modal" class="update-tags-modal">
         <a onclick="closeTagsModal()" class="close-tags-modal"><i class="fa fa-close"></i></a>
 
@@ -68,7 +66,7 @@
         <br>
           <form ng-submit="addTagToAssetTags(assetTags)">
             <input id="newTags" ng-model="assetTags.newTag" name="assetTags.newTag"  type="text" value="" >
-            <input id="update-tags-btn" type="submit" value="Add New Tag">
+            <input id="update-tags-btn" type="submit" value="+ Add New Tag">
           </form>
         <br>
         <br>
@@ -104,7 +102,7 @@
               <i class="fa fa-info-circle ion-ios-trash"></i>
             </a>
             <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a> -->
-            <a ng-click="updateAssetTags(asset)" onclick="openTagsModal()" href="#">
+            <a ng-click="updateAssetTags(asset)" onclick="openTagsModal()" class="tags-circle-holder" href="#">
               <i class="fa fa-info-circle ion-pricetags"></i>
             </a>
           </div>

@@ -255,6 +255,7 @@ li.tags-anim {
 #update-tags-modal .fa-close {
   color: black;
   float: right!important;
+  font-size: 30px;
 }
 
 .tag-modal-content {
@@ -306,4 +307,23 @@ a .ion-arrow-move:hover {
   background: #f3f3f3;
   padding: 5px 40px 40px 40px;
   z-index: 90;
+}
+.tags-circle-holder {
+    position: absolute;
+    left: -13px;
+    margin-top: 50px;
+    height: 40px;
+    width: 40px;
+    border-radius: 120px;
+    background: rgba(0, 0, 0, 0.125);
+    opacity: 0;
+}
+i.fa.fa-info-circle.ion-pricetags {
+    font-size: 30px;
+    color: rgba(255, 255, 255, .9)!important;
+    opacity: 1!important;
+
+    background-color: transparent;
+    margin-top: 5px;
+    margin-right: 10px;
 }

@@ -1,7 +1,4 @@
 // SEARCH.JS IS FOR ALL DOM Manipulation
-// SEARCH.JS IS FOR ALL DOM Manipulation
-// SEARCH.JS IS FOR ALL DOM Manipulation
-// SEARCH.JS IS FOR ALL DOM Manipulation
 
 function downloadActivationQueue() {
   document.getElementById("get-assets-container").className = "active";
@@ -32,7 +29,4 @@ function closeModal() {
 }
 
 
-// SEARCH.JS IS FOR ALL DOM Manipulation
-// SEARCH.JS IS FOR ALL DOM Manipulation
-// SEARCH.JS IS FOR ALL DOM Manipulation
 // SEARCH.JS IS FOR ALL DOM Manipulation

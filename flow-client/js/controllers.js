@@ -91,7 +91,7 @@ angular.module('flowApp')
       if ($scope.assetTags.newTag) {
           $scope.assetTags.push(this.assetTags.newTag);
           $scope.assetTags.newTag = '';
-        }
+      }
     }
     $scope.deleteTagFromAsset = function($index){  // This is to delete tags that are in the search query.
       $scope.assetTags.splice($index, 1)
@@ -218,6 +218,11 @@ angular.module('flowApp')
     // load assets into scope
     $scope.$apply();
 
+
+    $scope.deleteAssetFromDownloadQueue = function(asset) {
+      console.log(asset);
+    }
+
     $scope.openOutsideApplication = function(asset) {
       console.log("openOutsideApplication");
 
@@ -249,10 +254,6 @@ angular.module('flowApp')
   }, 2000);
   }
 */
-
-
-
-
 
   $scope.showSearchWindow = function() {
     var searchWindow = getWindowByTitle("Flow Assets");

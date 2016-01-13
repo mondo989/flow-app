@@ -533,13 +533,13 @@ img.asset-img {
   color: white;
   opacity: .95;
 }
-.hover-wrapper .upvote, .hover-wrapper .ranking-number, .hover-wrapper .downloads, .hover-wrapper .download-number {
+.hover-wrapper .upvote, .hover-wrapper .ranking-number, .hover-wrapper .downloads, .hover-wrapper .download-number, .hover-wrapper .ion-pricetags{
   -webkit-transition: .7s!important;
   transition: .7s!important;
-  opacity: 0;
+  opacity: 0!important;
 }
-.asset:hover .hover-wrapper .upvote, .asset:hover .hover-wrapper .ranking-number, .asset:hover .hover-wrapper .downloads, .asset:hover .tags-row, .asset:hover .download-number {
-  opacity: .9;
+.asset:hover .hover-wrapper .upvote, .asset:hover .hover-wrapper .ranking-number, .asset:hover .hover-wrapper .downloads, .asset:hover .tags-row, .asset:hover .download-number, .asset:hover .tags-circle-holder {
+  opacity: .9!important;
 }
 a.star .notSelected i {
   -webkit-animation: bounceIn .5s!important;

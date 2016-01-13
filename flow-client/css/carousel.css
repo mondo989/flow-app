@@ -51,7 +51,7 @@ a.right {
   position: absolute!important;
   bottom: 0;
   left: 0;
-  right: 10px;
+  right: 5px;
   top: 0;
   opacity: 1;
 }
@@ -79,7 +79,10 @@ a.right {
 }
 .fa-trash-o {
   font-size: 17px;
-  padding-top: 12.5px;
+  padding-top: 10.5px;
+  position: absolute;
+  right: 1px;
+  color: rgba(0, 0, 0, 0.4)!important;
 }
 .fa-floppy-o {
   font-size: 25px;
@@ -114,7 +117,7 @@ a.save {
 .asset-main-container a {
   text-decoration: none;
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
   margin: 0 3px;
 }
 
@@ -213,4 +216,13 @@ i.ion-ios-close-empty {
   right: 10px;
   color: white;
   margin-top: -5px;
+}
+
+a .ion-arrow-move {
+  position: absolute;
+  top: 2.5px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 25px;
+  right: -20px;
+  -webkit-app-region: drag;
 }
