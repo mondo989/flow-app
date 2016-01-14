@@ -60,6 +60,7 @@ Search for assets; parameters are:
 * tags : array of tags to be searched for
 * author : display only results from author
 
+
 to view log files in server:
 run: forever list
 get file path
