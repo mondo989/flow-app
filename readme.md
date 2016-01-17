@@ -1,4 +1,3 @@
-# Flow app by armando
 
 Start client
 ```
@@ -68,5 +67,3 @@ run: tail -f file_path
 
 to restart server go into www/flow.io and rerun redploy.sh
 run: ./redploy.sh start
-
-My server's down again.
