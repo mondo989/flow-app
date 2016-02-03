@@ -19,6 +19,15 @@ Next, open another terminal, and:
 ```
 Then open your browser at http://127.200.0.10:1337/
 
+
+Start server locally
+   cd into flow-server
+```
+> node flowserver.js --host 127.0.0.1 --port 10000
+```
+Run this command before pushing to the server.
+This command will show errors locally. 
+
 ============================================
 # Installer code
 
@@ -67,5 +76,3 @@ run: tail -f file_path
 
 to restart server go into www/flow.io and rerun redploy.sh
 run: ./redploy.sh start
-
-Test commit

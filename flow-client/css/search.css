@@ -38,7 +38,7 @@ span.download-number {
     float: right;
     font-weight: 600;
     margin-right: 10px;
-    opacity: 0;
+    opacity: 1;
     -webkit-transition: .7s!important;
     transition: .7s!important;
 }
@@ -205,6 +205,14 @@ li.tags-anim {
   display: none;
 }
 
+input#update-tags-btn {
+  background: green;
+  color: white;
+  padding: 5px 20px 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #f3f3f3;
+}
+
 #update-tags-modal > * {
   opacity: 0;
   display: none;
@@ -255,7 +263,7 @@ li.tags-anim {
 #update-tags-modal .fa-close {
   color: black;
   float: right!important;
-  font-size: 30px;
+  font-size: 55px;
 }
 
 .tag-modal-content {
@@ -310,13 +318,15 @@ a .ion-arrow-move:hover {
 }
 .tags-circle-holder {
     position: absolute;
-    left: -13px;
-    margin-top: 50px;
+    left: -35px;
+    top: 70px;
     height: 40px;
     width: 40px;
     border-radius: 120px;
     background: rgba(0, 0, 0, 0.125);
     opacity: 0;
+    -webkit-transition: .7s;
+        transition: .7s;
 }
 i.fa.fa-info-circle.ion-pricetags {
     font-size: 30px;

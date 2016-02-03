@@ -205,20 +205,26 @@ span.tags-container {
   -webkit-transition: .3s;
   transition: .3s;
 }
-.asset.selected .fa-check-circle-o {
+.asset.selected .fa-download {
   display: block;
   position: absolute;
-  top: 0;
-  margin-top: 23px;
+  top: -110px;
+  /*margin-top: 23px;*/
   right: 0;
   left: 0;
   font-size: 95px;
-  opacity: .8;
+  opacity: .8!important;
   color: white;
   z-index: 90000000000;
   -webkit-animation: fadeInUpMod .3s;
   animation: fadeInUpMod .3s;
+  text-align: center;
+  cursor: pointer;
 }
+.fa-check-circle-o, .fa-check-circle-o {
+  opacity: 0!important;
+}
+
 .asset:hover {
   -webkit-transition: .5s;
   -moz-transition: .5s;
@@ -536,7 +542,7 @@ img.asset-img {
 .hover-wrapper .upvote, .hover-wrapper .ranking-number, .hover-wrapper .downloads, .hover-wrapper .download-number, .hover-wrapper .ion-pricetags{
   -webkit-transition: .7s!important;
   transition: .7s!important;
-  opacity: 0!important;
+  opacity: 1!important;
 }
 .asset:hover .hover-wrapper .upvote, .asset:hover .hover-wrapper .ranking-number, .asset:hover .hover-wrapper .downloads, .asset:hover .tags-row, .asset:hover .download-number, .asset:hover .tags-circle-holder {
   opacity: .9!important;

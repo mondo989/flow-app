@@ -47,7 +47,7 @@
      <img class="f-logo" src="img/f-logo.png" alt="">
 <!--  Modal to Update Tags -->
       <div id="update-tags-modal" class="update-tags-modal">
-        <a onclick="closeTagsModal()" class="close-tags-modal"><i class="fa fa-close"></i></a>
+        <a onclick="closeTagsModal()" class="close-tags-modal"><i class="fa fa-close ion-ios-close-empty"></i></a>
 
         <span id="tag-modal-content" class="tag-modal-content">
 
@@ -69,8 +69,7 @@
             <input id="update-tags-btn" type="submit" value="+ Add New Tag">
           </form>
         <br>
-        <br>
-        <br>
+
           <div class="row">
             <a ng-click="updateAssetTagsToDB(asset)">UPDATE ASSET</a>
           </div>
@@ -78,8 +77,8 @@
         </span>
       </div>
       <li id="{{asset._id}}" ng-repeat="asset in assets.hits.hits track by $index" ng-click="assetChosen=!assetChosen;" ng-class="{notSelected:!assetChosen, selected:assetChosen}" onclick="downloadActivationQueue()" class="col-sm-4 asset anim" style="width: 32%;">
-        <i class="fa fa-check-circle-o ion-ios-checkmark color-change">
-          <a ng-click="downloadAssets();" class="download-link"> <i class="fa fa-download"></i></a>
+        <i class="fa fa-check-circle-o "><i class="fa-download"></i>
+          <!-- <a ng-click="downloadAssets();" class="download-link"> <i class="fa fa-download"></i></a> -->
         </i>
         <div class="filter"></div>
         <img ng-src="{{asset._source.imgSrc}}" ng-alt="{{asset._source.name}}" class="asset-img-png">
@@ -98,9 +97,13 @@
               <img src="img/photoshop.png" alt="">
             </span> -->
             <!-- <a ui-sref="asset-detail"></a> -->
-            <a ng-click="deleteAssetFromDB(asset)" href="#">
-              <i class="fa fa-info-circle ion-ios-trash"></i>
-            </a>
+
+
+            <!-- <a ng-click="deleteAssetFromDB(asset)" href="#">
+           <i class="fa fa-info-circle ion-ios-trash"></i>
+           </a>  -->
+
+
             <!-- <a ng-click="openDeleteModal()" href="#"><i class="fa fa-info-circle ion-ios-trash"></i></a> -->
             <a ng-click="updateAssetTags(asset)" onclick="openTagsModal()" class="tags-circle-holder" href="#">
               <i class="fa fa-info-circle ion-pricetags"></i>
@@ -131,14 +134,17 @@
           <span class="file-size">
             {{asset._source.displaySize}}
           </span>
-          <span class="download-number"><i class="fa fa-download"></i>1.2k</span>
+          <span class="download-number">
+            <i ng-click="downloadAssets()" class="fa fa-download"></i>
+
+            1.2k</span>
         </span>
       </li>
     </ul>
 
-    <div class="row" id="get-assets-container">
+    <!-- <div class="row" id="get-assets-container">
       <button class="get-assets-btn" ng-click="downloadAssets();">Download Assets</button>
-    </div>
+    </div> -->
   </div>
 
 

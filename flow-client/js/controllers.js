@@ -145,7 +145,7 @@ angular.module('flowApp')
      }
      $scope.$apply();
      // hide download bar
-     document.getElementById("get-assets-container").className = "";
+     //  document.getElementById("get-assets-container").className = "";
    }
 
 

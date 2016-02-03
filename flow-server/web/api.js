@@ -87,25 +87,25 @@ app.delete("/api/search/delete/:id", function(req, res){
 	});
 });
 
-// app.post("/api/search/update_tags/:id", function(req, res){
-// 	var ec_id = req.params.id;
-// 	console.log(req);
-// 	ec.update({
-// 		id: ec_id,
-// 		type: "img",
-// 		index: "assets",
-// 		body: {
-// 	    tags: req.1
-// 	  }
-// 	}, function(err, ec_res){
-// 		if (err){
-// 			console.log(err);
-// 		} else {
-// 			console.log(ec_res);
-// 			res.sendStatus(200)
-// 		}
-// 	});
-// });
+app.post("/api/search/update_tags/:id", function(req, res){
+	var ec_id = req.params.id;
+	console.log(req);
+	ec.update({
+		id: ec_id,
+		type: "img",
+		index: "assets",
+		body: {
+	    tags: req.body.tags
+	  }
+	}, function(err, ec_res){
+		if (err){
+			console.log(err);
+		} else {
+			console.log(ec_res);
+			res.sendStatus(200)
+		}
+	});
+});
 
 
 // admin functions below
