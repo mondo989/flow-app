@@ -93,11 +93,13 @@ app.post("/api/search", function(req, webres) {
 app.post("/api/search/update_tags/:id", function(req, res){
 	var ec_id = req.params.id;
 	console.log(req);
+	console.log(req.params.id);
 	ec.update({
 		id: ec_id,
 		type: "img",
 		index: "assets",
 		body: {
+			req.body.assetTags
 	  }
 	}, function(err, ec_res){
 		if (err){
