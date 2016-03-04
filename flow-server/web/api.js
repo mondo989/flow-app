@@ -98,8 +98,8 @@ app.post("/api/search/update_tags/:id", function(req, res){
 		type: "img",
 		index: "assets",
 		body: {
-			console.log(req.params.id);
-			console.log(req.body["tags"]);
+			// console.log(req.params.id);
+			// console.log(req.body["tags"]);
 	  }
 	}, function(err, ec_res){
 		if (err){
