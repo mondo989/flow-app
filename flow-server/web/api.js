@@ -71,12 +71,35 @@ app.post("/api/search", function(req, webres) {
 	]);
 });
 
-app.delete("/api/search/delete/:id", function(req, res){
+// V2 dirty Armando Update Tags
+// app.post("/api/assets/img/:id", function(req, res){
+// 	var ec_id = req.params.id;
+// 	ec.update({
+// 		id: ec_id,
+// 		type: "img",
+// 		index: "assets"
+// 	}, function(err, ec_res){
+// 		if (err){
+// 			console.log(err);
+// 		} else {
+// 			console.log(ec_res);
+// 			res.sendStatus(200)
+// 		}
+// 	});
+// });
+
+
+// Update tags v1
+app.post("/api/search/update_tags/:id", function(req, res){
 	var ec_id = req.params.id;
-	ec.delete({
+	console.log(req);
+	ec.update({
 		id: ec_id,
 		type: "img",
-		index: "assets"
+		index: "assets",
+		body: {
+	    // tags: req.body.tags
+	  }
 	}, function(err, ec_res){
 		if (err){
 			console.log(err);
@@ -86,6 +109,8 @@ app.delete("/api/search/delete/:id", function(req, res){
 		}
 	});
 });
+
+
 
 app.post("/api/search/update_tags/:id", function(req, res){
 	var ec_id = req.params.id;
