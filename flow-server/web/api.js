@@ -90,12 +90,12 @@ app.delete("/api/search/delete/:id", function(req, res){
 app.post("/api/search/update_tags/:id", function(req, res){
 	var ec_id = req.params.id;
 	console.log(req);
-	ec.post({
+	ec.update({
 		id: ec_id,
 		type: "img",
 		index: "assets",
 		body: {
-	    tags: req.body.assetTags
+	    tags: req.body.tags
 	  }
 	}, function(err, ec_res){
 		if (err){
