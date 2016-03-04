@@ -18,6 +18,7 @@ init = function(callback) {
 		GLOBAL.db = db;
 		GLOBAL.ec = new elasticsearch.Client({
 		  host: '127.0.0.1:9200',
+			log: 'trace'
 		});
 		callback(null, null);
 	});
