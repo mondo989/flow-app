@@ -104,6 +104,7 @@ app.post("/api/search/update_tags/:id", function(req, res){
 	}, function(err, ec_res){
 		if (err){
 			console.log(err);
+			console.trace(err.message)
 		} else {
 			console.log(ec_res);
 			res.sendStatus(200)
